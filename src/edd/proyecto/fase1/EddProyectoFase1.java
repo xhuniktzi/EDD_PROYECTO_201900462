@@ -24,8 +24,21 @@ public class EddProyectoFase1 {
         lista.addToEnd("C");
         lista.addToEnd("D");
         lista.addToEnd("E");
-        lista.addToEnd("F");
+        System.out.println("Tirada 1");
         lista.recorrer();
+        lista.deleteEnd();
+        lista.deleteEnd();
+        System.out.println("Tirada 2");
+        lista.recorrer();
+        lista.deleteEnd();
+        lista.deleteEnd();
+        System.out.println("Tirada 3");
+        lista.recorrer();
+        lista.deleteEnd();
+        System.out.println("Tirada 4");
+        lista.recorrer();
+        //lista.deleteEnd();
+        //lista.recorrer();
     }
     
 }

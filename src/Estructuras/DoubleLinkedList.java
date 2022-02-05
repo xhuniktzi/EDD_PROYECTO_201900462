@@ -17,6 +17,19 @@ public class DoubleLinkedList<T> {
         return this.head == null;
     }
     
+    public void addToHead(T dato){
+        NodoDoble<T> nodo = new NodoDoble();
+        nodo.dato = dato;
+        
+        if (this.isVoid()){
+            head = last = nodo;
+        }
+        else {
+            this.head.anterior = nodo;
+            nodo.siguiente = this.head;
+            this.head = nodo;
+        }
+    }
     
     public void addToEnd(T dato) {
         NodoDoble<T> nodo = new NodoDoble();
@@ -29,18 +42,48 @@ public class DoubleLinkedList<T> {
             head.siguiente = nodo;
             last = nodo;
         } else {
-            NodoDoble<T> aux = this.head;
-            while(aux.siguiente != null){
-                aux = aux.siguiente;
-            }
-            nodo.anterior = aux;
-            aux.siguiente = nodo;
+            nodo.anterior = last;
+            last = last.siguiente = nodo;
         }
     }
     
+    public T getHead(){
+        return this.head.dato;
+    }
+    
+    public T getEnd(){
+        return this.last.dato;
+    }
+    
+    public void deleteHead(){
+        if(!this.isVoid()){
+            this.head = this.head.siguiente;
+            if (this.head != null)
+                this.head.anterior = null;
+            else 
+                this.last = null;
+        }
+    }
+   
+    public void deleteEnd(){
+        if(!this.isVoid()){
+            this.last = this.last.anterior;
+            if(this.last != null)
+                this.last.siguiente = null;
+            else
+                this.head = null;
+        }
+    }
+
     // TEST
     public void recorrer(){
         NodoDoble<T> aux = this.head;
+        if (this.head != null)
+            System.out.println("head: " + this.head.dato);
+        
+        if (this.last != null)
+            System.out.println("last: " + this.last.dato);
+        
             while(aux != null){
                 StringBuilder str = new StringBuilder();
                 if (aux.anterior != null)
@@ -52,7 +95,6 @@ public class DoubleLinkedList<T> {
                     str.append("->" + aux.siguiente.dato);
                 
                 System.out.println(str.toString());
-                //System.out.println(aux.anterior.dato + " <- " + aux.dato+" -> "+aux.siguiente.dato);
                 aux = aux.siguiente;
             }
  

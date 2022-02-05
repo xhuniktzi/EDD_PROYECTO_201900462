@@ -9,8 +9,15 @@ package Estructuras;
  *
  * @author Xhunik_Local
  */
-public class NodoDoble<T> {
-    public NodoDoble<T> siguiente;
-    public NodoDoble<T> anterior;
-    public T dato;
+public class Queue<T> extends DoubleLinkedList {
+    public void enqueue(T dato){
+        this.addToHead(dato);
+    }
+    
+    public T dequeue(){
+        T value = (T) this.getEnd();
+        this.deleteEnd();
+        return value;
+    }
+    
 }

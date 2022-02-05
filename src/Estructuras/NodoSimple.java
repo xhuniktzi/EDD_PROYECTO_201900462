@@ -10,6 +10,6 @@ package Estructuras;
  * @author Xhunik_Local
  */
 public class NodoSimple<T> {
-    public NodoSimple siguiente;
+    public NodoSimple<T> siguiente;
     public T dato;
 }

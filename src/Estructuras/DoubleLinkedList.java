@@ -74,6 +74,10 @@ public class DoubleLinkedList<T> {
                 this.head = null;
         }
     }
+    
+    public void clear(){
+        this.head = this.last = null;
+    }
 
     // TEST
     public void recorrer(){
@@ -84,19 +88,18 @@ public class DoubleLinkedList<T> {
         if (this.last != null)
             System.out.println("last: " + this.last.dato);
         
-            while(aux != null){
-                StringBuilder str = new StringBuilder();
-                if (aux.anterior != null)
-                    str.append(aux.anterior.dato + " <- ");
-                
-                str.append(aux.dato);
+        while(aux != null){
+            StringBuilder str = new StringBuilder();
+            if (aux.anterior != null)
+                str.append(aux.anterior.dato + " <- ");
 
-                if (aux.siguiente != null)
-                    str.append("->" + aux.siguiente.dato);
-                
-                System.out.println(str.toString());
-                aux = aux.siguiente;
-            }
- 
+            str.append(aux.dato);
+
+            if (aux.siguiente != null)
+                str.append("->" + aux.siguiente.dato);
+
+            System.out.println(str.toString());
+            aux = aux.siguiente;
+        }
     }
 }

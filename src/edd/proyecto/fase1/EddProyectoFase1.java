@@ -5,7 +5,7 @@
  */
 package edd.proyecto.fase1;
 
-import Estructuras.DoubleLinkedList;
+import Estructuras.DoubleCircularList;
 
 /**
  *
@@ -18,27 +18,13 @@ public class EddProyectoFase1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        DoubleLinkedList<String> lista = new DoubleLinkedList();
+        DoubleCircularList<String> lista = new DoubleCircularList();
         lista.addToEnd("A");
         lista.addToEnd("B");
         lista.addToEnd("C");
         lista.addToEnd("D");
         lista.addToEnd("E");
-        System.out.println("Tirada 1");
         lista.recorrer();
-        lista.deleteEnd();
-        lista.deleteEnd();
-        System.out.println("Tirada 2");
-        lista.recorrer();
-        lista.deleteEnd();
-        lista.deleteEnd();
-        System.out.println("Tirada 3");
-        lista.recorrer();
-        lista.deleteEnd();
-        System.out.println("Tirada 4");
-        lista.recorrer();
-        //lista.deleteEnd();
-        //lista.recorrer();
     }
     
 }

@@ -16,7 +16,7 @@ public class LinkedList<T> {
         NodoSimple<T> nodo  = new NodoSimple();
         nodo.dato = dato;
         nodo.siguiente = this.head;
-        this.head.siguiente = nodo;
+        this.head = nodo;
     }
     
     public boolean isVoid(){
@@ -24,7 +24,9 @@ public class LinkedList<T> {
     }
     
     public T getHead(){
-        return this.head.dato;
+        if(!isVoid())
+            return this.head.dato;
+        return null;
     }
     
     
@@ -36,5 +38,20 @@ public class LinkedList<T> {
     
     public void clear(){
         this.head = null;
+    }
+    
+    public void addToEnd(T dato){
+        NodoSimple<T> nodo = new NodoSimple();
+        nodo.dato = dato;
+        if (this.isVoid()){
+            this.head = nodo;
+            return;
+        }
+        
+        NodoSimple<T> aux = this.head;
+        while (aux.siguiente != null){
+            aux = aux.siguiente;
+        }
+        aux.siguiente = nodo;
     }
 }

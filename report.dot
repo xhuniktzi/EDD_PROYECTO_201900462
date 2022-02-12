@@ -1,0 +1,35 @@
+digraph G{
+rankdir=LR;
+subgraph clusterPrintBN {
+ef0fb7404564057ab53d5f7464f1ff8[label="BLANCONEGRO"];
+ef0fb7404564057ab53d5f7464f1ff8->fa4735d8323491c9504df9e4194d69d;
+fa4735d8323491c9504df9e4194d69d[label="BLANCONEGRO"];
+fa4735d8323491c9504df9e4194d69d->cc1004fdde44a919ecec4fc5061cea6;
+cc1004fdde44a919ecec4fc5061cea6[label="BLANCONEGRO"];
+BN[label="Blanco y Negro"];
+cc1004fdde44a919ecec4fc5061cea6-> BN;
+}subgraph clusterPrintColor {
+cdbc45e080c4409b09091687360ece2[label="COLOR"];
+cdbc45e080c4409b09091687360ece2->f02f35205e4487e91f657ecaa044892;
+f02f35205e4487e91f657ecaa044892[label="COLOR"];
+f02f35205e4487e91f657ecaa044892->ddf28468034b0ebfef6580ac439724;
+ddf28468034b0ebfef6580ac439724[label="COLOR"];
+C[label="Color"];
+ddf28468034b0ebfef6580ac439724-> C;
+}subgraph clusterColaRecepcion {
+b289cac824b1780f6964c670c9ff2[label=" Cliente 4
+ Color: 0
+ Blanco y Negro: 0 "];
+b289cac824b1780f6964c670c9ff2->af452f254ed799598df13619de4c;
+af452f254ed799598df13619de4c[label=" Cliente 3
+ Color: 0
+ Blanco y Negro: 0 "];
+af452f254ed799598df13619de4c->dabd987b04d95a6e3adf0d16b894f;
+dabd987b04d95a6e3adf0d16b894f[label=" Cliente 2
+ Color: 0
+ Blanco y Negro: 0 "];
+dabd987b04d95a6e3adf0d16b894f->aa57fe2733144a58c0ff2167af123a2;
+aa57fe2733144a58c0ff2167af123a2[label=" Cliente 1
+ Color: 0
+ Blanco y Negro: 0 "];
+}}

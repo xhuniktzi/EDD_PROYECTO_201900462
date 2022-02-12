@@ -1,0 +1,46 @@
+
+ // TEST
+    public void recorrer(){
+        if(!isVoid()){
+            if (this.head != null)
+                System.out.println("head: " + this.head.dato);
+            
+            NodoDoble<T> aux = this.head;
+            do {
+                StringBuilder str = new StringBuilder();
+                if (aux.anterior != null)
+                    str.append(aux.anterior.dato + " <- ");
+
+                str.append(aux.dato);
+
+                if (aux.siguiente != null)
+                    str.append("->" + aux.siguiente.dato);
+
+                System.out.println(str.toString());
+                aux = aux.siguiente;
+            } while (aux != this.head);
+        }
+
+ // TEST
+    public void recorrer(){
+        NodoDoble<T> aux = this.head;
+        if (this.head != null)
+            System.out.println("head: " + this.head.dato);
+        
+        if (this.last != null)
+            System.out.println("last: " + this.last.dato);
+        
+        while(aux != null){
+            StringBuilder str = new StringBuilder();
+            if (aux.anterior != null)
+                str.append(aux.anterior.dato + " <- ");
+
+            str.append(aux.dato);
+
+            if (aux.siguiente != null)
+                str.append("->" + aux.siguiente.dato);
+
+            System.out.println(str.toString());
+            aux = aux.siguiente;
+        }
+    }

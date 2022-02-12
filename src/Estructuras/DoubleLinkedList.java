@@ -6,12 +6,12 @@
 package Estructuras;
 
 /**
- *
+ *xx
  * @author Xhunik_Local
  */
 public class DoubleLinkedList<T> {
-    NodoDoble<T> head;
-    NodoDoble<T> last;
+    public NodoDoble<T> head;
+    public NodoDoble<T> last;
     
     public boolean isVoid(){
         return this.head == null;
@@ -48,11 +48,15 @@ public class DoubleLinkedList<T> {
     }
     
     public T getHead(){
-        return this.head.dato;
+        if (!this.isVoid())
+            return this.head.dato;
+        return null;
     }
     
     public T getEnd(){
+    if (!this.isVoid())
         return this.last.dato;
+    return null;
     }
     
     public void deleteHead(){
@@ -77,29 +81,5 @@ public class DoubleLinkedList<T> {
     
     public void clear(){
         this.head = this.last = null;
-    }
-
-    // TEST
-    public void recorrer(){
-        NodoDoble<T> aux = this.head;
-        if (this.head != null)
-            System.out.println("head: " + this.head.dato);
-        
-        if (this.last != null)
-            System.out.println("last: " + this.last.dato);
-        
-        while(aux != null){
-            StringBuilder str = new StringBuilder();
-            if (aux.anterior != null)
-                str.append(aux.anterior.dato + " <- ");
-
-            str.append(aux.dato);
-
-            if (aux.siguiente != null)
-                str.append("->" + aux.siguiente.dato);
-
-            System.out.println(str.toString());
-            aux = aux.siguiente;
-        }
     }
 }

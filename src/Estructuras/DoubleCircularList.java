@@ -10,7 +10,7 @@ package Estructuras;
  * @author Xhunik_Local
  */
 public class DoubleCircularList<T> {
-    NodoDoble<T> head;
+    public NodoDoble<T> head;
     
     public boolean isVoid(){
         return head == null;
@@ -47,7 +47,7 @@ public class DoubleCircularList<T> {
         }
     }    
     
-    public int cantidad()
+    private int cantidad()
     {
         int cant = 0;
         if (!isVoid()) {
@@ -84,41 +84,5 @@ public class DoubleCircularList<T> {
             }
         }
     }
-    
-    // TEST
-    public void recorrer(){
-        if(!isVoid()){
-            if (this.head != null)
-                System.out.println("head: " + this.head.dato);
-            
-            NodoDoble<T> aux = this.head;
-            do {
-                StringBuilder str = new StringBuilder();
-                if (aux.anterior != null)
-                    str.append(aux.anterior.dato + " <- ");
-
-                str.append(aux.dato);
-
-                if (aux.siguiente != null)
-                    str.append("->" + aux.siguiente.dato);
-
-                System.out.println(str.toString());
-                aux = aux.siguiente;
-            } while (aux != this.head);
-        }
-    }
-    
-    // TEST
-//    public void recorrer(){
-//        NodoDoble<T> aux = this.head;
-
-//        
-//        if (aux != null){
-//            while(aux.siguiente != this.head){
-
-//                aux = aux.siguiente;
-//            }
-//        }
-//
-//    }
 }
+

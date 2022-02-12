@@ -9,7 +9,7 @@ package Estructuras;
  *
  * @author Xhunik_Local
  */
-public class Queue<T> extends DoubleLinkedList {
+public class Queue<T> extends DoubleLinkedList<T> {
     public void enqueue(T dato){
         this.addToHead(dato);
     }

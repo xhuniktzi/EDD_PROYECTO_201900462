@@ -9,12 +9,12 @@ package Estructuras;
  *
  * @author Xhunik_Local
  */
-public class Stack<T> extends LinkedList {
+public class Stack<T> extends LinkedList<T> {
     public void push(T dato){
         this.addToHead(dato);
     }
     
-    public T pop(T dato){
+    public T pop(){
         T value = (T) this.getHead();
         this.deleteHead();
         return value;

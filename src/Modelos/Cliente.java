@@ -18,10 +18,10 @@ public class Cliente {
     public String nombre;
     public int imgColor;
     public int imgBlancoNegro;
-    private int imgColorToProcess;
-    private int imgColorProcessed;
-    private int imgBlancoNegroToProcess;
-    private int imgBlancoNegroProcessed;
+//    private int imgColorToProcess;
+//    private int imgColorProcessed;
+//    private int imgBlancoNegroToProcess;
+//    private int imgBlancoNegroProcessed;
     public ListaImpresiones listaImages;
 
     public Cliente(String nombre) {
@@ -32,11 +32,8 @@ public class Cliente {
 
     public Cliente(String nombre, int imgColor, int imgBlancoNegro) {
         this(nombre);
-        this.imgColorToProcess = this.imgColor = imgColor;
-        this.imgBlancoNegroToProcess = this.imgBlancoNegro = imgBlancoNegro;
-        
-        this.imgBlancoNegroProcessed = 0;
-        this.imgColorProcessed = 0;
+        this.imgColor = imgColor;
+        this.imgBlancoNegro = imgBlancoNegro;
     }
     
 //    public boolean processColor(){

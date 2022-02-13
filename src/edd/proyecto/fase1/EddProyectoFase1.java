@@ -7,6 +7,7 @@ package edd.proyecto.fase1;
 
 import Enums.TipoImagen;
 import Impl.ColaRecepcion;
+import Impl.ListaClientesAtendidos;
 import Impl.ListaClientesEspera;
 import Impl.ListaVentanillas;
 import Modelos.Cliente;
@@ -43,6 +44,7 @@ class Logic {
     ColaRecepcion colaRecepcion;
     ListaVentanillas listaVentanillas;
     ListaClientesEspera listaEspera;
+    ListaClientesAtendidos listaAtendidos;
     
     public Logic() {
         blancoNegroImpresora = new Impresora(TipoImagen.BLANCONEGRO);
@@ -50,6 +52,7 @@ class Logic {
         colaRecepcion = new ColaRecepcion();
         listaVentanillas = new ListaVentanillas();
         listaEspera = new ListaClientesEspera();
+        listaAtendidos = new ListaClientesAtendidos();
     }
     
     public void exec(){
@@ -88,13 +91,13 @@ class Logic {
         Cliente c7 = new Cliente("Cliente 7", 3, 3);
         Cliente c8 = new Cliente("Cliente 8", 4, 4);
 
-        listaVentanillas.insertarClienteVentanilla(c5);
-        listaVentanillas.insertarClienteVentanilla(c6);
-        listaVentanillas.insertarClienteVentanilla(c7);
-        listaVentanillas.insertarClienteVentanilla(c8);
+//        listaVentanillas.insertarClienteVentanilla(c5);
+//        listaVentanillas.insertarClienteVentanilla(c6);
+//        listaVentanillas.insertarClienteVentanilla(c7);
+//        listaVentanillas.insertarClienteVentanilla(c8);
         
-        listaVentanillas.ingresarUnElementoPila();
-        listaVentanillas.ingresarUnElementoPila();
+//        listaVentanillas.ingresarUnElementoPila();
+//        listaVentanillas.ingresarUnElementoPila();
 //        listaVentanillas.ingresarUnElementoPila();
 //        listaVentanillas.ingresarUnElementoPila();
 //        listaVentanillas.ingresarUnElementoPila();
@@ -114,6 +117,16 @@ class Logic {
         listaEspera.addToEnd(c9);
         listaEspera.addToEnd(c10);
         listaEspera.addToEnd(c11);
+        
+        
+        Cliente c12 = new Cliente("Cliente 12", 1, 1);
+        listaAtendidos.addToEnd(c12);
+        Cliente c13 = new Cliente("Cliente 13", 2, 2);
+        listaAtendidos.addToEnd(c13);
+        Cliente c14 = new Cliente("Cliente 14", 3, 3);
+        listaAtendidos.addToEnd(c14);
+        Cliente c15 = new Cliente("Cliente 15", 4, 4);
+        listaAtendidos.addToEnd(c15);
     }
     
     public void graph(){
@@ -148,6 +161,11 @@ class Logic {
             // Lista espera
             str.append("subgraph clusterListaEspera {\n");
             str.append(listaEspera.graph());
+            str.append("}");
+            
+            // Lista atendidos
+            str.append("subgraph clusterListaAtendidos {\n");
+            str.append(listaAtendidos.graph());
             str.append("}");
             
             // End del archivo

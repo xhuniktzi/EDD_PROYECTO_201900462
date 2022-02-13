@@ -1,93 +1,85 @@
 digraph G{
 rankdir=LR;
 subgraph clusterPrintBN {
-dbcdee24e84d238856ea92824e9221[label="BLANCONEGRO"];
-dbcdee24e84d238856ea92824e9221->fb804375b619cf3a7be715af;
-fb804375b619cf3a7be715af[label="BLANCONEGRO"];
-fb804375b619cf3a7be715af->cbc3a3a83c463cb709acd074f2dc62;
-cbc3a3a83c463cb709acd074f2dc62[label="BLANCONEGRO"];
+f6ea97accb94e77b216b5cdd681c38d[label="BLANCONEGRO"];
+f6ea97accb94e77b216b5cdd681c38d->e59b6fc9f374759a7b3d3b066672398;
+e59b6fc9f374759a7b3d3b066672398[label="BLANCONEGRO"];
+e59b6fc9f374759a7b3d3b066672398->ffd849c7249708fc746b19548b208;
+ffd849c7249708fc746b19548b208[label="BLANCONEGRO"];
 BN[label="Blanco y Negro"];
-cbc3a3a83c463cb709acd074f2dc62-> BN;
+ffd849c7249708fc746b19548b208-> BN;
 }subgraph clusterPrintColor {
-aacaad7499047b5bf3fa04b94ac6691[label="COLOR"];
-aacaad7499047b5bf3fa04b94ac6691->c79969e24fbe9a48f900a6dc67ca;
-c79969e24fbe9a48f900a6dc67ca[label="COLOR"];
-c79969e24fbe9a48f900a6dc67ca->d8e74a2891e7801f30e815e3;
-d8e74a2891e7801f30e815e3[label="COLOR"];
+cd7198677ce440b8eee3169737581cd[label="COLOR"];
+cd7198677ce440b8eee3169737581cd->d6553944e2c4db9b467d068a79389a9;
+d6553944e2c4db9b467d068a79389a9[label="COLOR"];
+d6553944e2c4db9b467d068a79389a9->b57a63d8bf54920a9b6f6c8f6187df7;
+b57a63d8bf54920a9b6f6c8f6187df7[label="COLOR"];
 C[label="Color"];
-d8e74a2891e7801f30e815e3-> C;
+b57a63d8bf54920a9b6f6c8f6187df7-> C;
 }subgraph clusterColaRecepcion {
-cd9f2a4e758a6a4fbbd623511d[label=" Cliente 4
+e6d989aa49ccbbdb28087566291c[label=" Cliente 4
  Color: 4
  Blanco y Negro: 4 "];
-cd9f2a4e758a6a4fbbd623511d->baa47c847aba142da365010fd2c;
-baa47c847aba142da365010fd2c[label=" Cliente 3
+e6d989aa49ccbbdb28087566291c->c0d47388345b7a893ebecf05c907d;
+c0d47388345b7a893ebecf05c907d[label=" Cliente 3
  Color: 3
  Blanco y Negro: 3 "];
-baa47c847aba142da365010fd2c->f9a04383f84982ade0de3da757691e;
-f9a04383f84982ade0de3da757691e[label=" Cliente 2
+c0d47388345b7a893ebecf05c907d->dfa47d5a611496780d15bcff7a74d8e;
+dfa47d5a611496780d15bcff7a74d8e[label=" Cliente 2
  Color: 2
  Blanco y Negro: 2 "];
-f9a04383f84982ade0de3da757691e->c2c4d85e04ad593f0fda2827ebcf5;
-c2c4d85e04ad593f0fda2827ebcf5[label=" Cliente 1
+dfa47d5a611496780d15bcff7a74d8e->b9b2403664339b167bda8f20639df;
+b9b2403664339b167bda8f20639df[label=" Cliente 1
  Color: 1
  Blanco y Negro: 1 "];
 }subgraph clusterListaVentanillas {
-c9f02639e2442e4b8daa280d12b38bd[label=" Ventanilla 1 "];
-c9f02639e2442e4b8daa280d12b38bd->bf206b34b6ead945dac9200604e;
-c9f02639e2442e4b8daa280d12b38bd->cbd02b176b6465ba2ea91c570468613;
-cbd02b176b6465ba2ea91c570468613[label="BLANCONEGRO"];
-cbd02b176b6465ba2ea91c570468613->be416fe4e4b1ea20f9d09a05082a8;
-be416fe4e4b1ea20f9d09a05082a8[label="COLOR"];
-b18f30315f44e7bbab261a9ff59c308[label="Cliente 5
- Color: 0
- Blanco y Negro: 0"];
-c9f02639e2442e4b8daa280d12b38bd->b18f30315f44e7bbab261a9ff59c308;
-bf206b34b6ead945dac9200604e[label=" Ventanilla 2 "];
-bf206b34b6ead945dac9200604e->f3881ca543e4dc3be9fe8ea68d70562;
-bf206b34b6ead945dac9200604e->eb30e0d4847b39a6ee656bbdc34bd;
-eb30e0d4847b39a6ee656bbdc34bd[label="COLOR"];
-eb30e0d4847b39a6ee656bbdc34bd->aa89c0dc0dc42edb66a70d24bfba2a2;
-aa89c0dc0dc42edb66a70d24bfba2a2[label="COLOR"];
-d67b1eb8d374536af135916dba1af75[label="Cliente 6
- Color: 0
- Blanco y Negro: 2"];
-bf206b34b6ead945dac9200604e->d67b1eb8d374536af135916dba1af75;
-f3881ca543e4dc3be9fe8ea68d70562[label=" Ventanilla 3 "];
-f3881ca543e4dc3be9fe8ea68d70562->a4f8e3793eb44988de541bcb0333d07;
-a4f8e3793eb44988de541bcb0333d07[label="COLOR"];
-a4f8e3793eb44988de541bcb0333d07->d6a4d2a47609231ea063c25897f;
-d6a4d2a47609231ea063c25897f[label="COLOR"];
-a90db6f1313469c9352b5b29165e46e[label="Cliente 7
- Color: 1
- Blanco y Negro: 3"];
-f3881ca543e4dc3be9fe8ea68d70562->a90db6f1313469c9352b5b29165e46e;
+cd748ed3141b7b7946b4d4acc0021[label=" Ventanilla 1 "];
+cd748ed3141b7b7946b4d4acc0021->b9413c3ded34665a48fb5a016eb6739;
+b9413c3ded34665a48fb5a016eb6739[label=" Ventanilla 2 "];
+b9413c3ded34665a48fb5a016eb6739->bcf4bee4dc0ae05f042e02bd197;
+bcf4bee4dc0ae05f042e02bd197[label=" Ventanilla 3 "];
 }subgraph clusterListaEspera {
-cfa7f5aa75e4125915e75d15cba6159->a604cafc9d44da86bf763dbb572c0a;
-a604cafc9d44da86bf763dbb572c0a[label="COLOR"];
-a604cafc9d44da86bf763dbb572c0a->b45614b4178be6feecd9752cae5;
-b45614b4178be6feecd9752cae5[label="BLANCONEGRO"];
-b45614b4178be6feecd9752cae5->bbeaea49fab350d60ad812ce98;
-bbeaea49fab350d60ad812ce98[label="COLOR"];
-bbeaea49fab350d60ad812ce98->cf7d349c4c242bebf0c98f60dd86590;
-cf7d349c4c242bebf0c98f60dd86590[label="COLOR"];
-cfa7f5aa75e4125915e75d15cba6159[label="Cliente 9
+ff0274558145a4955b0d96b5841f4f->a2c1d4135f84adf850eb3557dde6328;
+a2c1d4135f84adf850eb3557dde6328[label="COLOR"];
+a2c1d4135f84adf850eb3557dde6328->b3bca0485348278bbea76432daf703;
+b3bca0485348278bbea76432daf703[label="BLANCONEGRO"];
+b3bca0485348278bbea76432daf703->ac42f87cc63485cad39ab005eb41671;
+ac42f87cc63485cad39ab005eb41671[label="COLOR"];
+ac42f87cc63485cad39ab005eb41671->b3e994a999e41d88e6b062963e4b8c9;
+b3e994a999e41d88e6b062963e4b8c9[label="COLOR"];
+ff0274558145a4955b0d96b5841f4f[label="Cliente 9
  Color: 1
  Blanco y Negro: 1"];
-cfa7f5aa75e4125915e75d15cba6159->e6c29b37043fba57621bf84a67062;
-cfa7f5aa75e4125915e75d15cba6159->baaeffddaf3ad7cb96e7ef65;
-baaeffddaf3ad7cb96e7ef65->c2fa506f4625be5d39ef7785ff03;
-c2fa506f4625be5d39ef7785ff03[label="BLANCONEGRO"];
-c2fa506f4625be5d39ef7785ff03->ad6790540478301c3911b2db62e;
-ad6790540478301c3911b2db62e[label="COLOR"];
-baaeffddaf3ad7cb96e7ef65[label="Cliente 10
+ff0274558145a4955b0d96b5841f4f->bf7b6c473742d8b9d1ffb89fdaa940;
+ff0274558145a4955b0d96b5841f4f->db7506f74844bd85a22f06dcb2690c;
+db7506f74844bd85a22f06dcb2690c->ae54443cb1e0ed153c5af002;
+ae54443cb1e0ed153c5af002[label="BLANCONEGRO"];
+ae54443cb1e0ed153c5af002->da372e67798479695fc95ea522d4015;
+da372e67798479695fc95ea522d4015[label="COLOR"];
+db7506f74844bd85a22f06dcb2690c[label="Cliente 10
  Color: 2
  Blanco y Negro: 2"];
-baaeffddaf3ad7cb96e7ef65->cfa7f5aa75e4125915e75d15cba6159;
-baaeffddaf3ad7cb96e7ef65->e6c29b37043fba57621bf84a67062;
-e6c29b37043fba57621bf84a67062[label="Cliente 11
+db7506f74844bd85a22f06dcb2690c->ff0274558145a4955b0d96b5841f4f;
+db7506f74844bd85a22f06dcb2690c->bf7b6c473742d8b9d1ffb89fdaa940;
+bf7b6c473742d8b9d1ffb89fdaa940[label="Cliente 11
  Color: 3
  Blanco y Negro: 3"];
-e6c29b37043fba57621bf84a67062->baaeffddaf3ad7cb96e7ef65;
-e6c29b37043fba57621bf84a67062->cfa7f5aa75e4125915e75d15cba6159;
+bf7b6c473742d8b9d1ffb89fdaa940->db7506f74844bd85a22f06dcb2690c;
+bf7b6c473742d8b9d1ffb89fdaa940->ff0274558145a4955b0d96b5841f4f;
+}subgraph clusterListaAtendidos {
+bd91bdd352344fab9ea9cfcd0c65a19[label="Cliente 12
+ Color: 1
+ Blanco y Negro: 1"];
+bd91bdd352344fab9ea9cfcd0c65a19->beb442c242b782d0a93c65d920f3;
+beb442c242b782d0a93c65d920f3[label="Cliente 13
+ Color: 2
+ Blanco y Negro: 2"];
+beb442c242b782d0a93c65d920f3->cd1dddece454880a8a2d8471707fdda;
+cd1dddece454880a8a2d8471707fdda[label="Cliente 14
+ Color: 3
+ Blanco y Negro: 3"];
+cd1dddece454880a8a2d8471707fdda->afe964deba1dc0e7a47697944;
+afe964deba1dc0e7a47697944[label="Cliente 15
+ Color: 4
+ Blanco y Negro: 4"];
 }}

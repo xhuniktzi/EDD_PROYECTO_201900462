@@ -5,10 +5,8 @@
  */
 package Impl;
 
-import Estructuras.NodoDoble;
 import Estructuras.NodoSimple;
 import Estructuras.Stack;
-import Modelos.Cliente;
 import Modelos.Imagen;
 
 /**

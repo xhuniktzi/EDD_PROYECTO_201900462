@@ -38,4 +38,17 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
         }
         return str.toString();
     }
+    
+    public Cliente findClientById(String id){
+            if(!isVoid()){
+
+            NodoDoble<Cliente> aux = this.head;
+            do {
+                if (aux.dato.id.equals(id))
+                    return aux.dato;
+                aux = aux.siguiente;
+            } while (aux != this.head);
+        }
+        return null;
+    }
 }

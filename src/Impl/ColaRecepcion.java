@@ -16,7 +16,8 @@ import Modelos.Cliente;
 public class ColaRecepcion  extends Queue<Cliente>{
     public String graph(){
         StringBuilder str = new StringBuilder();
-        NodoDoble<Cliente> auxc = this.head;
+        if (!this.isVoid()){
+            NodoDoble<Cliente> auxc = this.head;
             while(auxc != null){
                 str.append(auxc.dato.id).append("[label=\" ").append(auxc.dato.nombre)
                         .append("\n Color: ").append(auxc.dato.imgColor)
@@ -27,6 +28,7 @@ public class ColaRecepcion  extends Queue<Cliente>{
 
                 auxc = auxc.siguiente;
             }
+        }
             
         return str.toString();
     }

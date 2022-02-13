@@ -5,7 +5,6 @@
  */
 package Modelos;
 
-import Estructuras.LinkedList;
 import Impl.ListaImpresiones;
 import edd.proyecto.fase1.EddProyectoFase1;
 
@@ -18,6 +17,10 @@ public class Cliente {
     public String nombre;
     public int imgColor;
     public int imgBlancoNegro;
+    public int pasos;
+    public String idVentanilla;
+    public int imgBlancoNegroConst;
+    public int imgColorConst;
 //    private int imgColorToProcess;
 //    private int imgColorProcessed;
 //    private int imgBlancoNegroToProcess;
@@ -32,9 +35,11 @@ public class Cliente {
 
     public Cliente(String nombre, int imgColor, int imgBlancoNegro) {
         this(nombre);
-        this.imgColor = imgColor;
-        this.imgBlancoNegro = imgBlancoNegro;
+        this.imgColorConst = this.imgColor = imgColor;
+        this.imgBlancoNegroConst = this.imgBlancoNegro = imgBlancoNegro;
     }
+    
+    
     
 //    public boolean processColor(){
 //        imgColorProcessed++;

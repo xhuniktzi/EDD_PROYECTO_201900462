@@ -29,7 +29,9 @@ public class ColaImpresoras extends Queue<Imagen>{
                 break;
         }
         StringBuilder str = new StringBuilder();
-        NodoDoble<Imagen> auxc = this.head;
+        
+        if(!this.isVoid()){
+            NodoDoble<Imagen> auxc = this.head;
             while(auxc != null){
                 str.append(auxc.dato.id).append("[label=\"").append(auxc.dato.tipo.toString()).append("\"];\n");
 
@@ -41,6 +43,7 @@ public class ColaImpresoras extends Queue<Imagen>{
             str.append(tipoId).append("[label=\"").append(tipoString).append("\"];\n");
             if (this.last != null)
                 str.append(this.last.dato.id).append("-> ").append(tipoId).append(";\n");
+        }
             
         return str.toString();
     }

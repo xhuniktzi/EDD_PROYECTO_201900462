@@ -15,6 +15,8 @@ import Modelos.Imagen;
 import Modelos.Impresora;
 import Modelos.Ventanilla;
 import java.io.FileOutputStream;
+import java.util.Random;
+import java.util.Scanner;
 import java.util.UUID;
 
 /**
@@ -26,16 +28,80 @@ public class EddProyectoFase1 {
      * @param args the command line arguments
      */
     
+    static Scanner sc;
+    
     public static void main(String[] args) {
         // TODO code application logic here
+        sc = new Scanner(System.in);
         Logic l = new Logic();
-        l.exec();
-        l.graph();
+        OUTER:
+        while (true) {
+            System.out.println("----    Menú Principal      ----");
+            System.out.println("1.  Parametros iniciales");
+            System.out.println("2.  Ejecutar Paso");
+            System.out.println("3.  Estado de la aplicación");
+            System.out.println("4.  Reportes");
+            System.out.println("5.  Acerca de");
+            System.out.println("6.  Salir");
+            switch (sc.nextInt()) {
+                case 1:
+                    l.cargarClientes();
+                    System.out.println("Ingrese numero de ventanillas");
+                    l.cargarVentanillas(sc.nextInt());
+                    break;
+                case 2:
+                    l.execStep();
+                    break;
+                case 3:
+                    l.graph();
+                    break;
+                case 6:
+                    break OUTER;
+                default:
+                    System.out.println("Ingrese un valor valido");
+                    break;
+            }
+        }
     }
     public static String generateGuid(){
         return UUID.randomUUID().toString().replaceAll("-", "").replaceFirst("[0-9]+", "");
     }
     
+    
+    public static int getRandomNumberInRange(int min, int max) {
+        Random r = new Random();
+        return r.ints(min, (max + 1)).findFirst().getAsInt();
+    }
+    
+    public static String randomNames(){
+        String[] arr = new String[10];
+        arr[0] = "Leslie";
+        arr[1] = "Juan";
+        arr[2] = "Pedro";
+        arr[3] = "Jorge";
+        arr[4] = "Dulce";
+        arr[5] = "Celeste";
+        arr[6] = "Miguel";
+        arr[7] = "Diego";
+        arr[8] = "Sofia";
+        arr[9] = "Ruben";
+        return arr[getRandomNumberInRange(0, 9)];
+    }
+    
+    public static String randomLastNames(){
+        String[] arr = new String[10];
+        arr[0] = "Muñoz";
+        arr[1] = "Rodriguez";
+        arr[2] = "Lopez";
+        arr[3] = "Rivera";
+        arr[4] = "Hernandez";
+        arr[5] = "Velasquez";
+        arr[6] = "Molina";
+        arr[7] = "Suarez";
+        arr[8] = "Escobar";
+        arr[9] = "Aguirre";
+        return arr[getRandomNumberInRange(0, 9)];
+    }
 }
 
 class Logic {
@@ -54,79 +120,39 @@ class Logic {
         listaEspera = new ListaClientesEspera();
         listaAtendidos = new ListaClientesAtendidos();
     }
+//    
+//    public void testInit(){
+//        cargarClientes();
+//        cargarVentanillas(6);
+//    }
     
-    public void exec(){
-        Imagen img1 = new Imagen(TipoImagen.BLANCONEGRO);
-        blancoNegroImpresora.addImage(img1);
-        Imagen img2 = new Imagen(TipoImagen.BLANCONEGRO);
-        blancoNegroImpresora.addImage(img2);
-        Imagen img3 = new Imagen(TipoImagen.BLANCONEGRO);
-        blancoNegroImpresora.addImage(img3);
-        
-        Imagen img4 = new Imagen(TipoImagen.COLOR);
-        colorImpresora.addImage(img4);
-        Imagen img5 = new Imagen(TipoImagen.COLOR);
-        colorImpresora.addImage(img5);
-        Imagen img6 = new Imagen(TipoImagen.COLOR);
-        colorImpresora.addImage(img6);
-        
-        Cliente c1 = new Cliente("Cliente 1", 1, 1);
-        colaRecepcion.enqueue(c1);
-        Cliente c2 = new Cliente("Cliente 2", 2, 2);
-        colaRecepcion.enqueue(c2);
-        Cliente c3 = new Cliente("Cliente 3", 3, 3);
-        colaRecepcion.enqueue(c3);
-        Cliente c4 = new Cliente("Cliente 4", 4, 4);
-        colaRecepcion.enqueue(c4);
-        
-        Ventanilla v1 = new Ventanilla("Ventanilla 1");
-        listaVentanillas.addToEnd(v1);
-        Ventanilla v2 = new Ventanilla("Ventanilla 2");
-        listaVentanillas.addToEnd(v2);
-        Ventanilla v3 = new Ventanilla("Ventanilla 3");
-        listaVentanillas.addToEnd(v3);
-        
-        Cliente c5 = new Cliente("Cliente 5", 1, 1);
-        Cliente c6 = new Cliente("Cliente 6", 2, 2);
-        Cliente c7 = new Cliente("Cliente 7", 3, 3);
-        Cliente c8 = new Cliente("Cliente 8", 4, 4);
-
-//        listaVentanillas.insertarClienteVentanilla(c5);
-//        listaVentanillas.insertarClienteVentanilla(c6);
-//        listaVentanillas.insertarClienteVentanilla(c7);
-//        listaVentanillas.insertarClienteVentanilla(c8);
-        
-//        listaVentanillas.ingresarUnElementoPila();
-//        listaVentanillas.ingresarUnElementoPila();
-//        listaVentanillas.ingresarUnElementoPila();
-//        listaVentanillas.ingresarUnElementoPila();
-//        listaVentanillas.ingresarUnElementoPila();
-//        listaVentanillas.ingresarUnElementoPila();
-//        listaVentanillas.ingresarUnElementoPila();
-//        listaVentanillas.ingresarUnElementoPila();
-
-        Cliente c9 = new Cliente("Cliente 9", 1, 1);
-        c9.listaImages.addToEnd(new Imagen(TipoImagen.COLOR, c9.id));
-        c9.listaImages.addToEnd(new Imagen(TipoImagen.BLANCONEGRO, c9.id));
-        c9.listaImages.addToEnd(new Imagen(TipoImagen.COLOR, c9.id));
-        c9.listaImages.addToEnd(new Imagen(TipoImagen.COLOR, c9.id));
-        Cliente c10 = new Cliente("Cliente 10", 2, 2);
-        c10.listaImages.addToEnd(new Imagen(TipoImagen.BLANCONEGRO, c10.id));
-        c10.listaImages.addToEnd(new Imagen(TipoImagen.COLOR, c10.id));
-        Cliente c11 = new Cliente("Cliente 11", 3, 3);
-        listaEspera.addToEnd(c9);
-        listaEspera.addToEnd(c10);
-        listaEspera.addToEnd(c11);
-        
-        
-        Cliente c12 = new Cliente("Cliente 12", 1, 1);
-        listaAtendidos.addToEnd(c12);
-        Cliente c13 = new Cliente("Cliente 13", 2, 2);
-        listaAtendidos.addToEnd(c13);
-        Cliente c14 = new Cliente("Cliente 14", 3, 3);
-        listaAtendidos.addToEnd(c14);
-        Cliente c15 = new Cliente("Cliente 15", 4, 4);
-        listaAtendidos.addToEnd(c15);
+    public void cargarVentanillas(int cant){
+        for (int i = 0; i < cant; i++) {
+            Ventanilla v = new Ventanilla("Ventanilla "+ i);
+            listaVentanillas.addToEnd(v);
+        }
+    }
+    
+    public void cargarClientes(){
+        randomClientes();
+    }
+    
+    public void execStep(){
+        randomClientes();
+        listaVentanillas.insertarClienteVentanilla(colaRecepcion.dequeue());
+        listaVentanillas.ingresarUnElementoPila();
+        listaVentanillas.encolarImpresiones(colorImpresora.queue, blancoNegroImpresora.queue,listaEspera);
+    }
+    
+    private void randomClientes(){
+        int numClientes = EddProyectoFase1.getRandomNumberInRange(0, 3);
+        for (int i = 0; i < numClientes; i++) {
+            int color = EddProyectoFase1.getRandomNumberInRange(0, 4);
+            int bn = EddProyectoFase1.getRandomNumberInRange(0, 4);
+            colaRecepcion.enqueue(new Cliente(
+                    EddProyectoFase1.randomNames() + " " + EddProyectoFase1.randomLastNames()
+                    , color, bn));
+        }
     }
     
     public void graph(){
@@ -174,7 +200,7 @@ class Logic {
             // Cerrar archivo
             out.write(str.toString().getBytes());
             out.close();
-            System.out.println(str.toString());
+//            System.out.println(str.toString());
             Runtime.getRuntime().exec("dot -Tjpg report.dot -o report.jpg");
             
         } catch (Exception ex){

@@ -7,7 +7,6 @@ package Modelos;
 
 import Enums.TipoImagen;
 import edd.proyecto.fase1.EddProyectoFase1;
-import java.util.UUID;
 
 /**
  *

@@ -7,9 +7,12 @@ package edd.proyecto.fase1;
 
 import Enums.TipoImagen;
 import Impl.ColaRecepcion;
+import Impl.ListaClientesEspera;
+import Impl.ListaVentanillas;
 import Modelos.Cliente;
 import Modelos.Imagen;
 import Modelos.Impresora;
+import Modelos.Ventanilla;
 import java.io.FileOutputStream;
 import java.util.UUID;
 
@@ -38,11 +41,15 @@ class Logic {
     Impresora blancoNegroImpresora;
     Impresora colorImpresora;
     ColaRecepcion colaRecepcion;
-
+    ListaVentanillas listaVentanillas;
+    ListaClientesEspera listaEspera;
+    
     public Logic() {
         blancoNegroImpresora = new Impresora(TipoImagen.BLANCONEGRO);
         colorImpresora = new Impresora(TipoImagen.COLOR);
         colaRecepcion = new ColaRecepcion();
+        listaVentanillas = new ListaVentanillas();
+        listaEspera = new ListaClientesEspera();
     }
     
     public void exec(){
@@ -60,14 +67,53 @@ class Logic {
         Imagen img6 = new Imagen(TipoImagen.COLOR);
         colorImpresora.addImage(img6);
         
-        Cliente c1 = new Cliente("Cliente 1", 2, 4);
-        colaRecepcion.encolar(c1);
-        Cliente c2 = new Cliente("Cliente 2", 3, 5);
-        colaRecepcion.encolar(c2);
-        Cliente c3 = new Cliente("Cliente 3", 6, 2);
-        colaRecepcion.encolar(c3);
-        Cliente c4 = new Cliente("Cliente 4", 7, 3);
-        colaRecepcion.encolar(c4);
+        Cliente c1 = new Cliente("Cliente 1", 1, 1);
+        colaRecepcion.enqueue(c1);
+        Cliente c2 = new Cliente("Cliente 2", 2, 2);
+        colaRecepcion.enqueue(c2);
+        Cliente c3 = new Cliente("Cliente 3", 3, 3);
+        colaRecepcion.enqueue(c3);
+        Cliente c4 = new Cliente("Cliente 4", 4, 4);
+        colaRecepcion.enqueue(c4);
+        
+        Ventanilla v1 = new Ventanilla("Ventanilla 1");
+        listaVentanillas.addToEnd(v1);
+        Ventanilla v2 = new Ventanilla("Ventanilla 2");
+        listaVentanillas.addToEnd(v2);
+        Ventanilla v3 = new Ventanilla("Ventanilla 3");
+        listaVentanillas.addToEnd(v3);
+        
+        Cliente c5 = new Cliente("Cliente 5", 1, 1);
+        Cliente c6 = new Cliente("Cliente 6", 2, 2);
+        Cliente c7 = new Cliente("Cliente 7", 3, 3);
+        Cliente c8 = new Cliente("Cliente 8", 4, 4);
+
+        listaVentanillas.insertarClienteVentanilla(c5);
+        listaVentanillas.insertarClienteVentanilla(c6);
+        listaVentanillas.insertarClienteVentanilla(c7);
+        listaVentanillas.insertarClienteVentanilla(c8);
+        
+        listaVentanillas.ingresarUnElementoPila();
+        listaVentanillas.ingresarUnElementoPila();
+//        listaVentanillas.ingresarUnElementoPila();
+//        listaVentanillas.ingresarUnElementoPila();
+//        listaVentanillas.ingresarUnElementoPila();
+//        listaVentanillas.ingresarUnElementoPila();
+//        listaVentanillas.ingresarUnElementoPila();
+//        listaVentanillas.ingresarUnElementoPila();
+
+        Cliente c9 = new Cliente("Cliente 9", 1, 1);
+        c9.listaImages.addToEnd(new Imagen(TipoImagen.COLOR, c9.id));
+        c9.listaImages.addToEnd(new Imagen(TipoImagen.BLANCONEGRO, c9.id));
+        c9.listaImages.addToEnd(new Imagen(TipoImagen.COLOR, c9.id));
+        c9.listaImages.addToEnd(new Imagen(TipoImagen.COLOR, c9.id));
+        Cliente c10 = new Cliente("Cliente 10", 2, 2);
+        c10.listaImages.addToEnd(new Imagen(TipoImagen.BLANCONEGRO, c10.id));
+        c10.listaImages.addToEnd(new Imagen(TipoImagen.COLOR, c10.id));
+        Cliente c11 = new Cliente("Cliente 11", 3, 3);
+        listaEspera.addToEnd(c9);
+        listaEspera.addToEnd(c10);
+        listaEspera.addToEnd(c11);
     }
     
     public void graph(){
@@ -94,6 +140,16 @@ class Logic {
             str.append(colaRecepcion.graph());
             str.append("}");
             
+            // Lista de ventanillas
+            str.append("subgraph clusterListaVentanillas {\n");
+            str.append(listaVentanillas.graph());
+            str.append("}");
+            
+            // Lista espera
+            str.append("subgraph clusterListaEspera {\n");
+            str.append(listaEspera.graph());
+            str.append("}");
+            
             // End del archivo
             str.append("}");
 
@@ -103,7 +159,8 @@ class Logic {
             System.out.println(str.toString());
             Runtime.getRuntime().exec("dot -Tjpg report.dot -o report.jpg");
             
-        } catch (Exception ex){}   
+        } catch (Exception ex){
+        ex.printStackTrace();}   
     }
 
 }

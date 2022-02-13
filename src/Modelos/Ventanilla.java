@@ -6,6 +6,8 @@
 package Modelos;
 
 import Estructuras.Stack;
+import Impl.PilaImpresiones;
+import edd.proyecto.fase1.EddProyectoFase1;
 
 /**
  *
@@ -13,6 +15,14 @@ import Estructuras.Stack;
  */
 public class Ventanilla {
     public String id;
+    public String nombre;
     public Cliente cliente;
-    public Stack<Imagen> pilaImagenes;
+    public PilaImpresiones pilaImagenes;
+
+    public Ventanilla(String nombre) {
+        this.id = EddProyectoFase1.generateGuid();
+        this.nombre = nombre;
+        this.pilaImagenes = new PilaImpresiones();
+    }
+    
 }

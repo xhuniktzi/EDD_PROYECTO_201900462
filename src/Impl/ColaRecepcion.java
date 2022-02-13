@@ -30,8 +30,4 @@ public class ColaRecepcion  extends Queue<Cliente>{
             
         return str.toString();
     }
-    
-    public void encolar(Cliente cliente){
-        this.enqueue(cliente);
-    }
 }

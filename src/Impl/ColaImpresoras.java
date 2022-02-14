@@ -44,7 +44,6 @@ public class ColaImpresoras extends Queue<Imagen>{
             if (this.last != null)
                 str.append(this.last.dato.id).append("-> ").append(tipoId).append(";\n");
         }
-            
         return str.toString();
     }
 }

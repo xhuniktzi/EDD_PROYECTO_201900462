@@ -1,106 +1,140 @@
 digraph G{
 rankdir=LR;
 subgraph clusterPrintBN {
-fd638b7594b24967b5c8ce1fe8f1b[label="BLANCONEGRO"];
-fd638b7594b24967b5c8ce1fe8f1b->aadbad2dd340cebfd79138dc9dcc39;
-aadbad2dd340cebfd79138dc9dcc39[label="BLANCONEGRO"];
-aadbad2dd340cebfd79138dc9dcc39->d139238011a4606a1b4fe1bd17176bf;
-d139238011a4606a1b4fe1bd17176bf[label="BLANCONEGRO"];
-d139238011a4606a1b4fe1bd17176bf->ae4cabd5aa40838caae79cc1827758;
-ae4cabd5aa40838caae79cc1827758[label="BLANCONEGRO"];
+cd8bcfca4a429d048d13178ad8f5[label="BLANCONEGRO"];
+cd8bcfca4a429d048d13178ad8f5->e7edb0c04a5aad6e26d1cdd2f38b;
+e7edb0c04a5aad6e26d1cdd2f38b[label="BLANCONEGRO"];
 BN[label="Blanco y Negro"];
-ae4cabd5aa40838caae79cc1827758-> BN;
+e7edb0c04a5aad6e26d1cdd2f38b-> BN;
 }subgraph clusterPrintColor {
-bb013411c64e97884f41f7678dbda9[label="COLOR"];
-bb013411c64e97884f41f7678dbda9->c8b5c34a52b907030c29298b3b;
-c8b5c34a52b907030c29298b3b[label="COLOR"];
-c8b5c34a52b907030c29298b3b->bdbcd14132c4ec78d0daafd7490946b;
-bdbcd14132c4ec78d0daafd7490946b[label="COLOR"];
-bdbcd14132c4ec78d0daafd7490946b->b4ed85013e4e119a30117907a6b7a5;
-b4ed85013e4e119a30117907a6b7a5[label="COLOR"];
-b4ed85013e4e119a30117907a6b7a5->eba7fd749a0b4e1d8fafe8fcd39;
-eba7fd749a0b4e1d8fafe8fcd39[label="COLOR"];
-eba7fd749a0b4e1d8fafe8fcd39->aa02d334498abc8a0c61d15f7fa8;
-aa02d334498abc8a0c61d15f7fa8[label="COLOR"];
-aa02d334498abc8a0c61d15f7fa8->bb1fc81fd4f5bb360a2c5babb21f0;
-bb1fc81fd4f5bb360a2c5babb21f0[label="COLOR"];
-bb1fc81fd4f5bb360a2c5babb21f0->b84c06c4b9fa41ad936873ac796;
-b84c06c4b9fa41ad936873ac796[label="COLOR"];
-b84c06c4b9fa41ad936873ac796->e651e4e92b2a454adcd83542c;
-e651e4e92b2a454adcd83542c[label="COLOR"];
-e651e4e92b2a454adcd83542c->dde2541cfb897279cb81907f7;
-dde2541cfb897279cb81907f7[label="COLOR"];
-dde2541cfb897279cb81907f7->f252984965955ed1a61cf9bbd9;
-f252984965955ed1a61cf9bbd9[label="COLOR"];
-f252984965955ed1a61cf9bbd9->edf264c2a4410a9b6bec98c692a85;
-edf264c2a4410a9b6bec98c692a85[label="COLOR"];
-edf264c2a4410a9b6bec98c692a85->d5a3fa7c4469a9de490cd6687248d;
-d5a3fa7c4469a9de490cd6687248d[label="COLOR"];
+ed5a18a8e594ffe96ecf0cb9a0ea6b5[label="COLOR"];
+ed5a18a8e594ffe96ecf0cb9a0ea6b5->f34729a6dcfe4b6a7bed62;
+f34729a6dcfe4b6a7bed62[label="COLOR"];
+f34729a6dcfe4b6a7bed62->f0e9d6a74afe8475df6281a775b1;
+f0e9d6a74afe8475df6281a775b1[label="COLOR"];
 C[label="Color"];
-d5a3fa7c4469a9de490cd6687248d-> C;
+f0e9d6a74afe8475df6281a775b1-> C;
 }subgraph clusterColaRecepcion {
-bf39e6f6406a8fe334b037b6e695[label=" Miguel Lopez
- Color: 2
- Blanco y Negro: 4 "];
-bf39e6f6406a8fe334b037b6e695->c317fe487a94fbcd04a9434eca;
-c317fe487a94fbcd04a9434eca[label=" Juan Suarez
+cdca465d7b4ef88ad220580a3358ce[label=" Miguel Lopez
  Color: 1
- Blanco y Negro: 0 "];
-c317fe487a94fbcd04a9434eca->e27a940debd0eb3e9e072680f;
-e27a940debd0eb3e9e072680f[label=" Miguel Velasquez
+ Blanco y Negro: 1 "];
+cdca465d7b4ef88ad220580a3358ce->fde4cd3a631ece6c0427854;
+fde4cd3a631ece6c0427854[label=" Miguel Muñoz
  Color: 0
  Blanco y Negro: 1 "];
-e27a940debd0eb3e9e072680f->f65c7de01e848a58bfcf315c525620b;
-f65c7de01e848a58bfcf315c525620b[label=" Pedro Rivera
- Color: 3
- Blanco y Negro: 2 "];
-f65c7de01e848a58bfcf315c525620b->dccb7a26a0642f8b7f65771578882fd;
-dccb7a26a0642f8b7f65771578882fd[label=" Ruben Rivera
- Color: 4
- Blanco y Negro: 4 "];
-dccb7a26a0642f8b7f65771578882fd->d3c6380199a4992bdd40e76cb074b88;
-d3c6380199a4992bdd40e76cb074b88[label=" Juan Lopez
- Color: 0
- Blanco y Negro: 0 "];
-d3c6380199a4992bdd40e76cb074b88->de7881824f4484da4859e45881e4515;
-de7881824f4484da4859e45881e4515[label=" Ruben Aguirre
- Color: 0
- Blanco y Negro: 1 "];
-}subgraph clusterListaVentanillas {
-cedf3725f42da92b260af023b0fcb[label=" Ventanilla 0 "];
-cedf3725f42da92b260af023b0fcb->ecb1052f3154018b116dff55d56bf2d;
-cedf3725f42da92b260af023b0fcb->fac43a541cc80b98365f0174cc7;
-fac43a541cc80b98365f0174cc7[label="COLOR"];
-fa68df62449495ed2127d44040d1[label="Leslie Molina
+fde4cd3a631ece6c0427854->c583a5614cd4162894e4bfc8e7127be;
+c583a5614cd4162894e4bfc8e7127be[label=" Leslie Velasquez
  Color: 2
- Blanco y Negro: 0"];
-cedf3725f42da92b260af023b0fcb->fa68df62449495ed2127d44040d1;
-ecb1052f3154018b116dff55d56bf2d[label=" Ventanilla 1 "];
+ Blanco y Negro: 2 "];
+c583a5614cd4162894e4bfc8e7127be->c6e79db09a40988e302eef9e0b49c1;
+c6e79db09a40988e302eef9e0b49c1[label=" Celeste Escobar
+ Color: 1
+ Blanco y Negro: 3 "];
+c6e79db09a40988e302eef9e0b49c1->db3ba42f854ebca46ad25cc246aec5;
+db3ba42f854ebca46ad25cc246aec5[label=" Pedro Escobar
+ Color: 0
+ Blanco y Negro: 0 "];
+db3ba42f854ebca46ad25cc246aec5->ef4fd954eb4a873fcc63e1f6b38;
+ef4fd954eb4a873fcc63e1f6b38[label=" Diego Aguirre
+ Color: 3
+ Blanco y Negro: 1 "];
+ef4fd954eb4a873fcc63e1f6b38->fb54ebd64cb389881e2449e84f11;
+fb54ebd64cb389881e2449e84f11[label=" Celeste Rivera
+ Color: 1
+ Blanco y Negro: 1 "];
+fb54ebd64cb389881e2449e84f11->bab5c4f481490681d8f9c7d32c5;
+bab5c4f481490681d8f9c7d32c5[label=" Pedro Lopez
+ Color: 3
+ Blanco y Negro: 3 "];
+bab5c4f481490681d8f9c7d32c5->cd6d916373423ab64fb420a047e82c;
+cd6d916373423ab64fb420a047e82c[label=" Sofia Muñoz
+ Color: 0
+ Blanco y Negro: 0 "];
+cd6d916373423ab64fb420a047e82c->db8ef70eee14bcd9a223d87fe3cab04;
+db8ef70eee14bcd9a223d87fe3cab04[label=" Juan Muñoz
+ Color: 0
+ Blanco y Negro: 2 "];
+db8ef70eee14bcd9a223d87fe3cab04->cfd2570c6764fa9aa83ce73c2001310;
+cfd2570c6764fa9aa83ce73c2001310[label=" Dulce Rivera
+ Color: 0
+ Blanco y Negro: 4 "];
+cfd2570c6764fa9aa83ce73c2001310->db540d4c8790999aa351d0e110;
+db540d4c8790999aa351d0e110[label=" Diego Velasquez
+ Color: 2
+ Blanco y Negro: 4 "];
+}subgraph clusterListaVentanillas {
+e041a4e3fb7ac21831f761d4c[label=" Ventanilla 0 "];
+e041a4e3fb7ac21831f761d4c->f753108cfd47499a13a857011f600e;
+f753108cfd47499a13a857011f600e[label=" Ventanilla 1 "];
+f753108cfd47499a13a857011f600e->e35a8b4950b5689cef05acefb5;
+e35a8b4950b5689cef05acefb5[label="BLANCONEGRO"];
+f9bdbef92364048a1a68c48c01f1112[label="Miguel Rivera
+ Color: 0
+ Blanco y Negro: 2"];
+f753108cfd47499a13a857011f600e->f9bdbef92364048a1a68c48c01f1112;
 }subgraph clusterListaEspera {
-bf163021db2436f80d234c6982b29a2[label="Jorge Aguirre
+b34a0069ff4c51b4e1f251cc2d094c->dfcbe573e4259be0084514d36e8b3;
+dfcbe573e4259be0084514d36e8b3[label="COLOR"];
+dfcbe573e4259be0084514d36e8b3->af98d392914bc7abeb36679df1f033;
+af98d392914bc7abeb36679df1f033[label="BLANCONEGRO"];
+af98d392914bc7abeb36679df1f033->efd83ca4c0eb2087ec45b762db9;
+efd83ca4c0eb2087ec45b762db9[label="BLANCONEGRO"];
+efd83ca4c0eb2087ec45b762db9->ca8147cabef4e75ad3b7f7236c42796;
+ca8147cabef4e75ad3b7f7236c42796[label="COLOR"];
+ca8147cabef4e75ad3b7f7236c42796->f9fbf2a1e447ba9a150ca24b245ef;
+f9fbf2a1e447ba9a150ca24b245ef[label="BLANCONEGRO"];
+b34a0069ff4c51b4e1f251cc2d094c[label="Dulce Aguirre
+ Color: 2
+ Blanco y Negro: 3"];
+b34a0069ff4c51b4e1f251cc2d094c->ededb09745f4f438ece932cca2d8822;
+b34a0069ff4c51b4e1f251cc2d094c->ec3e53f48bca511cbabd939c1a6;
+ec3e53f48bca511cbabd939c1a6->bded90ca94eaab62824168b5c6145;
+bded90ca94eaab62824168b5c6145[label="BLANCONEGRO"];
+bded90ca94eaab62824168b5c6145->cdbeabd4204f689d154f3e6ec6b5a7;
+cdbeabd4204f689d154f3e6ec6b5a7[label="COLOR"];
+cdbeabd4204f689d154f3e6ec6b5a7->db22e85b4d4f359020a629fd51f3b8;
+db22e85b4d4f359020a629fd51f3b8[label="COLOR"];
+db22e85b4d4f359020a629fd51f3b8->ef04a08eb384e89bdc0e488cf821b6e;
+ef04a08eb384e89bdc0e488cf821b6e[label="COLOR"];
+ef04a08eb384e89bdc0e488cf821b6e->f84e663ecd7439e8326a7e43995fa69;
+f84e663ecd7439e8326a7e43995fa69[label="COLOR"];
+ec3e53f48bca511cbabd939c1a6[label="Ruben Velasquez
+ Color: 4
+ Blanco y Negro: 1"];
+ec3e53f48bca511cbabd939c1a6->b34a0069ff4c51b4e1f251cc2d094c;
+ec3e53f48bca511cbabd939c1a6->d84e697f61c4770b9711c01cda2aca5;
+d84e697f61c4770b9711c01cda2aca5->d9e7940d5898d7b70360b37ba;
+d9e7940d5898d7b70360b37ba[label="BLANCONEGRO"];
+d9e7940d5898d7b70360b37ba->affe61d4ebd8520c68bb60668de;
+affe61d4ebd8520c68bb60668de[label="BLANCONEGRO"];
+affe61d4ebd8520c68bb60668de->efff663d44b2abec41bd48892720;
+efff663d44b2abec41bd48892720[label="BLANCONEGRO"];
+efff663d44b2abec41bd48892720->aed1f6440b9062c33fd857ada9;
+aed1f6440b9062c33fd857ada9[label="BLANCONEGRO"];
+d84e697f61c4770b9711c01cda2aca5[label="Ruben Lopez
  Color: 0
- Blanco y Negro: 0"];
-bf163021db2436f80d234c6982b29a2->fd6a1ad341c99fbe957536d8305c;
-bf163021db2436f80d234c6982b29a2->cc820a80a684ffdad17c6b2166883ea;
-cc820a80a684ffdad17c6b2166883ea[label="Dulce Rodriguez
- Color: 0
- Blanco y Negro: 0"];
-cc820a80a684ffdad17c6b2166883ea->bf163021db2436f80d234c6982b29a2;
-cc820a80a684ffdad17c6b2166883ea->fb84f64c6f4155b0f8db526dc64373;
-fb84f64c6f4155b0f8db526dc64373[label="Jorge Velasquez
- Color: 0
- Blanco y Negro: 0"];
-fb84f64c6f4155b0f8db526dc64373->cc820a80a684ffdad17c6b2166883ea;
-fb84f64c6f4155b0f8db526dc64373->cea6355d4e38bbf6d7af74db9135;
-cea6355d4e38bbf6d7af74db9135[label="Diego Hernandez
- Color: 0
- Blanco y Negro: 0"];
-cea6355d4e38bbf6d7af74db9135->fb84f64c6f4155b0f8db526dc64373;
-cea6355d4e38bbf6d7af74db9135->fd6a1ad341c99fbe957536d8305c;
-fd6a1ad341c99fbe957536d8305c[label="Celeste Escobar
- Color: 0
- Blanco y Negro: 0"];
-fd6a1ad341c99fbe957536d8305c->cea6355d4e38bbf6d7af74db9135;
-fd6a1ad341c99fbe957536d8305c->bf163021db2436f80d234c6982b29a2;
+ Blanco y Negro: 4"];
+d84e697f61c4770b9711c01cda2aca5->ec3e53f48bca511cbabd939c1a6;
+d84e697f61c4770b9711c01cda2aca5->f54b279541a9ac510deb1bf52dda;
+f54b279541a9ac510deb1bf52dda->ad0309b2f64be2be4b00a667d2979a;
+ad0309b2f64be2be4b00a667d2979a[label="COLOR"];
+ad0309b2f64be2be4b00a667d2979a->d06f26d567340a28529dcacdea8c96b;
+d06f26d567340a28529dcacdea8c96b[label="BLANCONEGRO"];
+d06f26d567340a28529dcacdea8c96b->bfe515f42fcae303ebab0579166;
+bfe515f42fcae303ebab0579166[label="BLANCONEGRO"];
+bfe515f42fcae303ebab0579166->d82a57f1ba644ccb5ae5aba3c1ceec4;
+d82a57f1ba644ccb5ae5aba3c1ceec4[label="COLOR"];
+d82a57f1ba644ccb5ae5aba3c1ceec4->f6036a9a0954ed2be81ac58db2d309d;
+f6036a9a0954ed2be81ac58db2d309d[label="BLANCONEGRO"];
+f54b279541a9ac510deb1bf52dda[label="Dulce Aguirre
+ Color: 2
+ Blanco y Negro: 4"];
+f54b279541a9ac510deb1bf52dda->d84e697f61c4770b9711c01cda2aca5;
+f54b279541a9ac510deb1bf52dda->ededb09745f4f438ece932cca2d8822;
+ededb09745f4f438ece932cca2d8822[label="Celeste Muñoz
+ Color: 3
+ Blanco y Negro: 1"];
+ededb09745f4f438ece932cca2d8822->f54b279541a9ac510deb1bf52dda;
+ededb09745f4f438ece932cca2d8822->b34a0069ff4c51b4e1f251cc2d094c;
 }subgraph clusterListaAtendidos {
 }}

@@ -6,8 +6,8 @@
 package Modelos;
 
 import Enums.TipoImagen;
-import Estructuras.Queue;
 import Impl.ColaImpresoras;
+import Impl.ListaClientesEspera;
 import edd.proyecto.fase1.EddProyectoFase1;
 
 /**
@@ -27,5 +27,11 @@ public class Impresora {
     
     public void addImage(Imagen img){
         this.queue.enqueue(img);
+    }
+    
+    public void printImage(ListaClientesEspera espera){
+        Imagen img = this.queue.dequeue();
+        if (img != null)
+            espera.appendImageToCliente(img.clientId, img); 
     }
 }

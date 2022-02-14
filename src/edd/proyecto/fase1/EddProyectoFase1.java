@@ -139,9 +139,12 @@ class Logic {
     
     public void execStep(){
         randomClientes();
+        blancoNegroImpresora.printImage(listaEspera);
         listaVentanillas.insertarClienteVentanilla(colaRecepcion.dequeue());
         listaVentanillas.ingresarUnElementoPila();
-        listaVentanillas.encolarImpresiones(colorImpresora.queue, blancoNegroImpresora.queue,listaEspera);
+        listaVentanillas.encolarImpresiones(colorImpresora.queue, blancoNegroImpresora.queue, listaEspera);
+        colorImpresora.printImage(listaEspera);
+        blancoNegroImpresora.printImage(listaEspera);
     }
     
     private void randomClientes(){

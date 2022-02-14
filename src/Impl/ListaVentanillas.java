@@ -68,10 +68,10 @@ public class ListaVentanillas extends LinkedList<Ventanilla> {
             while(auxc != null){
                 if (auxc.dato.cliente != null){
                     if (auxc.dato.cliente.imgColor > 0){
-                        auxc.dato.pilaImagenes.push(new Imagen(TipoImagen.COLOR, auxc.dato.id));
+                        auxc.dato.pilaImagenes.push(new Imagen(TipoImagen.COLOR, auxc.dato.cliente.id));
                         auxc.dato.cliente.imgColor--;
                     }else if (auxc.dato.cliente.imgBlancoNegro > 0){
-                        auxc.dato.pilaImagenes.push(new Imagen(TipoImagen.BLANCONEGRO, auxc.dato.id));
+                        auxc.dato.pilaImagenes.push(new Imagen(TipoImagen.BLANCONEGRO, auxc.dato.cliente.id));
                         auxc.dato.cliente.imgBlancoNegro--;
                     }
                 }

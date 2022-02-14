@@ -7,7 +7,9 @@ package Impl;
 
 import Estructuras.DoubleCircularList;
 import Estructuras.NodoDoble;
+import Estructuras.NodoSimple;
 import Modelos.Cliente;
+import Modelos.Imagen;
 
 /**
  *
@@ -22,8 +24,8 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
             do {
                 str.append(aux.dato.listaImages.graph(aux.dato.id));
                 str.append(aux.dato.id).append("[label=\"").append(aux.dato.nombre)
-                        .append("\n Color: ").append(aux.dato.imgColor)
-                        .append("\n Blanco y Negro: ").append(aux.dato.imgBlancoNegro)
+                        .append("\n Color: ").append(aux.dato.imgColorConst)
+                        .append("\n Blanco y Negro: ").append(aux.dato.imgBlancoNegroConst)
                         .append("\"];\n");
                 if (aux.anterior != null)
                     str.append(aux.dato.id).append("->")
@@ -33,22 +35,33 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
                     str.append(aux.dato.id).append("->")
                             .append(aux.siguiente.dato.id).append(";\n");
 
-                aux = aux.siguiente;
+            aux = aux.siguiente;
             } while (aux != this.head);
         }
         return str.toString();
     }
     
-    public Cliente findClientById(String id){
-            if(!isVoid()){
-
-            NodoDoble<Cliente> aux = this.head;
-            do {
-                if (aux.dato.id.equals(id))
-                    return aux.dato;
-                aux = aux.siguiente;
-            } while (aux != this.head);
-        }
-        return null;
+    public void appendImageToCliente(String id, Imagen img){
+        if(!isVoid()){
+        NodoDoble<Cliente> aux = this.head;
+        do {
+            if (aux.dato.id.equals(id)){
+                aux.dato.listaImages.addToEnd(img);
+            }
+            aux = aux.siguiente;
+        } while (aux != this.head);
     }
+    }
+    
+//    public Cliente findClientById(String id){
+//        if(!isVoid()){
+//            NodoDoble<Cliente> aux = this.head;
+//            do {
+//                if (aux.dato.id.equals(id))
+//                    return aux.dato;
+//                aux = aux.siguiente;
+//            } while (aux != this.head);
+//        }
+//        return null;
+//    }
 }

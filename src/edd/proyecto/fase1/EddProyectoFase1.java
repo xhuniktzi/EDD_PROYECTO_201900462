@@ -127,7 +127,7 @@ class Logic {
     
     public void cargarVentanillas(int cant){
         for (int i = 0; i < cant; i++) {
-            Ventanilla v = new Ventanilla("Ventanilla "+ i);
+            Ventanilla v = new Ventanilla("Ventanilla " + i);
             listaVentanillas.addToEnd(v);
         }
     }
@@ -168,38 +168,44 @@ class Logic {
             
             // Cola impresora blanco y negro
             str.append("subgraph clusterPrintBN {\n");
-            str.append("label=\"Cola Impresora Blanco y Negro\"");
+            str.append("/* Cola blanco y negro */\n");
+            str.append("label=\"Cola Impresora Blanco y Negro\";\n");
             str.append(blancoNegroImpresora.queue.graph(TipoImagen.BLANCONEGRO));
             str.append("}");
             
             // Cola impresora a color
             str.append("subgraph clusterPrintColor {\n");
-            str.append("label=\"Cola Impresora Color\"");
+            str.append("/* Cola color */\n");
+            str.append("label=\"Cola Impresora Color\";\n");
             str.append(colorImpresora.queue.graph(TipoImagen.COLOR));
             str.append("}");
             
             // Cola recepcion
             str.append("subgraph clusterColaRecepcion {\n");
-            str.append("label=\"Cola Recepcion\"");
+            str.append("/* Cola recepcion */\n");
+            str.append("label=\"Cola Recepcion\";\n");
             str.append(colaRecepcion.graph());
             str.append("}");
             
             // Lista de ventanillas
             str.append("subgraph clusterListaVentanillas {\n");
-            str.append("label=\"Ventanillas\"");
+            str.append("/* Ventanillas */\n");
+            str.append("label=\"Ventanillas\";\n");
             str.append(listaVentanillas.graph());
-            str.append("}");
-            
-            // Lista espera
-            str.append("subgraph clusterListaEspera {\n");
-            str.append("label=\"Lista de espera\"");
-            str.append(listaEspera.graph());
             str.append("}");
             
             // Lista atendidos
             str.append("subgraph clusterListaAtendidos {\n");
-            str.append("label=\"Atendidos\"");
+            str.append("/* Atendidos */\n");
+            str.append("label=\"Atendidos\";\n");
             str.append(listaAtendidos.graph());
+            str.append("}");
+            
+            // Lista espera
+            str.append("subgraph clusterListaEspera {\n");
+            str.append("/* Lista Espera */\n");
+            str.append("label=\"Lista de espera\";\n");
+            str.append(listaEspera.graph());
             str.append("}");
             
             // End del archivo

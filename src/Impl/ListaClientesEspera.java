@@ -18,7 +18,6 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
     public String graph(){
         StringBuilder str = new StringBuilder();
         if(!isVoid()){
-
             NodoDoble<Cliente> aux = this.head;
             do {
                 str.append(aux.dato.listaImages.graph(aux.dato.id));
@@ -100,38 +99,6 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
                 ant = aux;
                 aux = aux.siguiente;
             }while(aux != this.head && !flag);
-        }
-        
-//        if(!isVoid()){
-//            NodoDoble<Cliente> aux = this.head;
-//            do {
-//                if (aux.dato.id.equals(id)){
-//                    if (aux == aux.siguiente && aux == aux.anterior)
-//                    {
-//                        this.head = null;
-//                    }
-//                    else
-//                    {
-////                        NodoDoble<Cliente> helper = aux.siguiente;
-//                        aux.anterior.siguiente = aux.siguiente;
-//                        aux.siguiente.anterior = aux.anterior;
-//                    }
-//                    return;
-//                }
-//                    
-//                aux = aux.siguiente;
-//            } while (aux != this.head);
-//        }
-    }
-//    public Cliente findClientById(String id){
-//        if(!isVoid()){
-//            NodoDoble<Cliente> aux = this.head;
-//            do {
-//                if (aux.dato.id.equals(id))
-//                    return aux.dato;
-//                aux = aux.siguiente;
-//            } while (aux != this.head);
-//        }
-//        return null;
-//    }
+        }        
+   }
 }

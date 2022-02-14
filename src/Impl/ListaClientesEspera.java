@@ -7,7 +7,6 @@ package Impl;
 
 import Estructuras.DoubleCircularList;
 import Estructuras.NodoDoble;
-import Estructuras.NodoSimple;
 import Modelos.Cliente;
 import Modelos.Imagen;
 
@@ -67,7 +66,8 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
             do {
                 if (aux.dato.imgBlancoNegro == aux.dato.imgBlancoNegroConst && aux.dato.imgColor == aux.dato.imgColorConst){
                     atendidos.addToEnd(aux.dato);
-//                    this.deleteById(aux.dato.id);
+                    this.deleteById(aux.dato.id);
+                    return;
                 }
                     
                 aux = aux.siguiente;
@@ -84,9 +84,22 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
                 if(aux.dato.id.equals(id)){
                     if(aux == this.head){
                         this.head = this.head.siguiente;
+                        this.head.anterior = this.last;
+                        this.last.siguiente = this.head;
                     }
+                    else if (aux==this.last){
+                        this.last = ant;
+                        this.last.siguiente = this.head;
+                        this.head.anterior = this.last;
+                    } else {
+                        ant.siguiente = aux.siguiente;
+                        aux.siguiente.anterior = ant;
+                    }
+                    flag = true;
                 }
-            }while(aux != this.head);
+                ant = aux;
+                aux = aux.siguiente;
+            }while(aux != this.head && !flag);
         }
         
 //        if(!isVoid()){

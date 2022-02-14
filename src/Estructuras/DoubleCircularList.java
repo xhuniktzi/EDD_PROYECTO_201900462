@@ -11,39 +11,49 @@ package Estructuras;
  */
 public class DoubleCircularList<T> {
     public NodoDoble<T> head;
+    public NodoDoble<T> last;
     
     public boolean isVoid(){
         return head == null;
     }
     
-    public void addToHead(T dato){
-        NodoDoble<T> nodo = new NodoDoble<>();
-        nodo.dato = dato;
-        if(this.isVoid()){
-            this.head = nodo;
-            nodo.anterior = nodo.siguiente = this.head;
-        } else {
-            NodoDoble<T> last = this.head.anterior;
-            nodo.siguiente = this.head;
-            nodo.anterior = last;
-            this.head.anterior = nodo;
-            last.siguiente = nodo;
-            this.head = nodo;
-        }
-    }
+//    public void addToHead(T dato){
+//        NodoDoble<T> nodo = new NodoDoble<>();
+//        nodo.dato = dato;
+//        if(this.isVoid()){
+//            this.head = nodo;
+//            nodo.anterior = nodo.siguiente = this.head;
+//        } else {
+//            NodoDoble<T> last = this.head.anterior;
+//            nodo.siguiente = this.head;
+//            nodo.anterior = last;
+//            this.head.anterior = nodo;
+//            last.siguiente = nodo;
+//            this.head = nodo;
+//        }
+//    }
     
     public void addToEnd(T dato) {
-        NodoDoble<T> nodo=new NodoDoble<T>();
+        NodoDoble<T> nodo=new NodoDoble<>();
         nodo.dato = dato;
         if (isVoid()) {
-            nodo.anterior = nodo.siguiente = nodo;             
             this.head = nodo;
+            this.last = this.head;
+            this.head.siguiente = this.head;
+            this.head.anterior = this.last;
+//            nodo.anterior = nodo.siguiente = nodo;             
+//            this.head = nodo;
         } else {
-            NodoDoble<T> last = this.head.anterior;
+            this.last.siguiente = nodo;
+            nodo.anterior = this.last;
             nodo.siguiente = this.head;
-            nodo.anterior = last;
-            this.head.anterior = nodo;
-            last.siguiente = nodo;
+            this.last = nodo;
+            this.head.anterior = this.last;
+//            NodoDoble<T> last = this.head.anterior;
+//            nodo.siguiente = this.head;
+//            nodo.anterior = last;
+//            this.head.anterior = nodo;
+//            last.siguiente = nodo;
         }
     }
     

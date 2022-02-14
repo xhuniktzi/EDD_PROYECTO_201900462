@@ -138,7 +138,6 @@ class Logic {
     
     public void execStep(){
         randomClientes();
-        blancoNegroImpresora.printImage(listaEspera);
         listaVentanillas.insertarClienteVentanilla(colaRecepcion.dequeue());
         listaVentanillas.ingresarUnElementoPila();
         listaVentanillas.encolarImpresiones(colorImpresora.queue, blancoNegroImpresora.queue, listaEspera);
@@ -169,31 +168,37 @@ class Logic {
             
             // Cola impresora blanco y negro
             str.append("subgraph clusterPrintBN {\n");
+            str.append("label=\"Cola Impresora Blanco y Negro\"");
             str.append(blancoNegroImpresora.queue.graph(TipoImagen.BLANCONEGRO));
             str.append("}");
             
             // Cola impresora a color
             str.append("subgraph clusterPrintColor {\n");
+            str.append("label=\"Cola Impresora Color\"");
             str.append(colorImpresora.queue.graph(TipoImagen.COLOR));
             str.append("}");
             
             // Cola recepcion
             str.append("subgraph clusterColaRecepcion {\n");
+            str.append("label=\"Cola Recepcion\"");
             str.append(colaRecepcion.graph());
             str.append("}");
             
             // Lista de ventanillas
             str.append("subgraph clusterListaVentanillas {\n");
+            str.append("label=\"Ventanillas\"");
             str.append(listaVentanillas.graph());
             str.append("}");
             
             // Lista espera
             str.append("subgraph clusterListaEspera {\n");
+            str.append("label=\"Lista de espera\"");
             str.append(listaEspera.graph());
             str.append("}");
             
             // Lista atendidos
             str.append("subgraph clusterListaAtendidos {\n");
+            str.append("label=\"Atendidos\"");
             str.append(listaAtendidos.graph());
             str.append("}");
             

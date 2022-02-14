@@ -20,11 +20,11 @@ public class ColaImpresoras extends Queue<Imagen>{
         String tipoId = null;
         switch (tipo){
             case BLANCONEGRO:
-                tipoString = "Blanco y Negro";
+                tipoString = "Impresora a Blanco y Negro";
                 tipoId = "BN";
                 break;
             case COLOR:
-                tipoString = "Color";
+                tipoString = "Impresora a Color";
                 tipoId = "C";
                 break;
         }

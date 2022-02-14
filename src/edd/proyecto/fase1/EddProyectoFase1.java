@@ -11,7 +11,6 @@ import Impl.ListaClientesAtendidos;
 import Impl.ListaClientesEspera;
 import Impl.ListaVentanillas;
 import Modelos.Cliente;
-import Modelos.Imagen;
 import Modelos.Impresora;
 import Modelos.Ventanilla;
 import java.io.FileOutputStream;
@@ -145,6 +144,7 @@ class Logic {
         listaVentanillas.encolarImpresiones(colorImpresora.queue, blancoNegroImpresora.queue, listaEspera);
         colorImpresora.printImage(listaEspera);
         blancoNegroImpresora.printImage(listaEspera);
+        listaEspera.popClientesCompletados(listaAtendidos);
     }
     
     private void randomClientes(){

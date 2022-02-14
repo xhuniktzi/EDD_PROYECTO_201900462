@@ -42,7 +42,7 @@ public class ListaVentanillas extends LinkedList<Ventanilla> {
                     }
                     espera.addToEnd(auxc.dato.cliente);
                     auxc.dato.cliente = null;
-                    return;
+//                    return;
                 }
             }
             auxc = auxc.siguiente;

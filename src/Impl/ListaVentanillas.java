@@ -24,6 +24,7 @@ public class ListaVentanillas extends LinkedList<Ventanilla> {
                 auxc.dato.cliente = cliente;
                 auxc.dato.cliente.idVentanilla = auxc.dato.id;
                 auxc.dato.cliente.pasos++;
+                System.out.println("Cliente: "+auxc.dato.cliente.nombre + ", ahora en la ventanilla: "+auxc.dato.nombre);
                 return;
             }
             auxc = auxc.siguiente;
@@ -35,11 +36,16 @@ public class ListaVentanillas extends LinkedList<Ventanilla> {
         while(auxc != null){
             if (auxc.dato.cliente != null){
                 if (auxc.dato.cliente.imgBlancoNegro == 0 && auxc.dato.cliente.imgColor == 0){
+                    System.out.println("Todas las Impresiones del cliente: "+auxc.dato.cliente.nombre + ", agregadas a la pila");
                     while(!auxc.dato.pilaImagenes.isVoid()){
-                        if (auxc.dato.pilaImagenes.head.dato.tipo == TipoImagen.COLOR)
+                        if (auxc.dato.pilaImagenes.head.dato.tipo == TipoImagen.COLOR){
                             color.enqueue(auxc.dato.pilaImagenes.pop());
-                        else if (auxc.dato.pilaImagenes.head.dato.tipo == TipoImagen.BLANCONEGRO)
+                            System.out.println("Impresion a color del cliente: "+auxc.dato.cliente.nombre + ", en ventanilla: "+ auxc.dato.nombre +", agregada a la cola");
+                        }
+                        else if (auxc.dato.pilaImagenes.head.dato.tipo == TipoImagen.BLANCONEGRO){
                             blanconegro.enqueue(auxc.dato.pilaImagenes.pop());
+                            System.out.println("Impresion a blanco y negro del cliente: "+auxc.dato.cliente.nombre + ", en ventanilla: "+ auxc.dato.nombre + ", agregada a la cola");
+                        }
                     }
                     espera.addToEnd(auxc.dato.cliente);
                     auxc.dato.cliente = null;
@@ -49,21 +55,7 @@ public class ListaVentanillas extends LinkedList<Ventanilla> {
             auxc = auxc.siguiente;
         }
     }
-    
-//    public void esperarClientes(){
-//        NodoSimple<Ventanilla> auxc = this.head;
-//        while(auxc != null){
-//            if (auxc.dato.cliente != null){
-//                if (auxc.dato.cliente.imgBlancoNegro == 0 && auxc.dato.cliente.imgColor == 0){
-//                    espera.addToEnd(auxc.dato.cliente);
-//                    auxc.dato.cliente = null;
-//                    return;
-//                }
-//            }
-//            auxc = auxc.siguiente;
-//        }
-//    }
-//    
+  
     public void ingresarUnElementoPila(){
         NodoSimple<Ventanilla> auxc = this.head;
             while(auxc != null){
@@ -71,9 +63,11 @@ public class ListaVentanillas extends LinkedList<Ventanilla> {
                     auxc.dato.cliente.pasos++;
                     if (auxc.dato.cliente.imgColor > 0){
                         auxc.dato.pilaImagenes.push(new Imagen(TipoImagen.COLOR, auxc.dato.cliente.id));
+                        System.out.println("Apilando imagen a color en ventanilla: "+ auxc.dato.nombre + ", del cliente: "+auxc.dato.cliente.nombre);
                         auxc.dato.cliente.imgColor--;
                     }else if (auxc.dato.cliente.imgBlancoNegro > 0){
                         auxc.dato.pilaImagenes.push(new Imagen(TipoImagen.BLANCONEGRO, auxc.dato.cliente.id));
+                        System.out.println("Apilando imagen a blanco y negro en ventanilla: "+ auxc.dato.nombre + ", del cliente: "+auxc.dato.cliente.nombre);
                         auxc.dato.cliente.imgBlancoNegro--;
                     }
                 }

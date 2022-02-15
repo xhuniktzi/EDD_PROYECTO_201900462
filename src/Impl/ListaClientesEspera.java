@@ -47,9 +47,11 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
                 if (aux.dato.id.equals(id)){
                     switch (img.tipo){
                         case BLANCONEGRO:
+                            System.out.println("Agregando imagen Blanco y Negro al cliente: "+ aux.dato.nombre);
                             aux.dato.imgBlancoNegro++;
                             break;
                         case COLOR:
+                            System.out.println("Agregando imagen a Color al cliente: "+ aux.dato.nombre);
                             aux.dato.imgColor++;
                             break;
                     }
@@ -67,6 +69,7 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
                 if (aux.dato.imgBlancoNegro == aux.dato.imgBlancoNegroConst && aux.dato.imgColor == aux.dato.imgColorConst){
                     atendidos.addToEnd(aux.dato);
                     this.deleteById(aux.dato.id);
+                    System.out.println("Todas las impresiones completadas del Cliente: "+ aux.dato.nombre);
                     return;
                 }
                     

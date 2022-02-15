@@ -34,25 +34,9 @@ public class Impresora {
     public void printImage(ListaClientesEspera espera){
         Imagen img = this.queue.dequeue();
         if (img != null){
+            Cliente cl = espera.getById(img.clientId);
             espera.appendImageToCliente(img.clientId, img);
-        
-//        turnos++;
-//        if(tipo == TipoImagen.COLOR && turnos == 2){
-//            Imagen img = this.queue.dequeue();
-//            if (img != null){
-//                espera.appendImageToCliente(img.clientId, img);
-//                turnos = 0;
-//                return;
-//            }
-//        } 
-//        if (tipo == TipoImagen.BLANCONEGRO && turnos == 1){
-//            Imagen img = this.queue.dequeue();
-//            if (img != null){
-//                espera.appendImageToCliente(img.clientId, img);
-//                turnos = 0;
-//                return;
-//            }
-//        }
+            System.out.println("Imprimiendo imagen: "+ img.tipo.toString() + " del cliente: "+cl.nombre);
         
         }
     }

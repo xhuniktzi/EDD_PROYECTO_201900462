@@ -6,6 +6,7 @@
 package edd.proyecto.fase1;
 
 import Enums.TipoImagen;
+import Estructuras.Stack;
 import Impl.ColaRecepcion;
 import Impl.ListaClientesAtendidos;
 import Impl.ListaClientesEspera;
@@ -13,10 +14,19 @@ import Impl.ListaVentanillas;
 import Modelos.Cliente;
 import Modelos.Impresora;
 import Modelos.Ventanilla;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.UUID;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -29,7 +39,7 @@ public class EddProyectoFase1 {
     
     static Scanner sc;
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, FileNotFoundException, ParseException {
         // TODO code application logic here
         sc = new Scanner(System.in);
         Logic l = new Logic();
@@ -111,6 +121,9 @@ class Logic {
     ListaClientesEspera listaEspera;
     ListaClientesAtendidos listaAtendidos;
     
+    private int remaingColorSteps;
+    private int remaingBlancoNegroSteps;
+    
     public Logic() {
         blancoNegroImpresora = new Impresora(TipoImagen.BLANCONEGRO);
         colorImpresora = new Impresora(TipoImagen.COLOR);
@@ -118,12 +131,10 @@ class Logic {
         listaVentanillas = new ListaVentanillas();
         listaEspera = new ListaClientesEspera();
         listaAtendidos = new ListaClientesAtendidos();
+        
+        this.remaingBlancoNegroSteps = 1;
+        this.remaingColorSteps = 2;
     }
-//    
-//    public void testInit(){
-//        cargarClientes();
-//        cargarVentanillas(6);
-//    }
     
     public void cargarVentanillas(int cant){
         for (int i = 0; i < cant; i++) {
@@ -132,8 +143,37 @@ class Logic {
         }
     }
     
-    public void cargarClientes(){
-        randomClientes();
+    public void cargarClientes() throws FileNotFoundException, IOException, ParseException{
+        Stack<Cliente> pilaClientes = new Stack<>();
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileFilter(new FileNameExtensionFilter("Archivos JSON", "json"));
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+            JSONParser parser = new JSONParser();
+            File f = chooser.getSelectedFile();
+            Object obj = parser.parse(new FileReader(f));
+            JSONObject objJson = (JSONObject) obj;
+            
+            objJson.keySet().forEach(keyStr -> {
+//                System.out.println("Key: " + keyStr);
+                if (((JSONObject) objJson.get(keyStr)).keySet() != null){
+                    Cliente cl = new Cliente();
+                    ((JSONObject) objJson.get(keyStr)).keySet().forEach(keyStr2 -> {
+                        Object keyValue = ((JSONObject) objJson.get(keyStr)).get(keyStr2);
+                        if(keyStr2.equals("nombre_cliente"))
+                            cl.nombre = keyValue.toString();
+                        if(keyStr2.equals("img_color"))
+                            cl.imgColorConst = cl.imgColor = Integer.valueOf(keyValue.toString());
+                        if(keyStr2.equals("img_bw"))
+                            cl.imgBlancoNegroConst = cl.imgBlancoNegro = Integer.valueOf(keyValue.toString());
+                    });
+                    pilaClientes.push(cl);
+                }
+            }); 
+        }
+        
+        while (!pilaClientes.isVoid()){
+            colaRecepcion.enqueue(pilaClientes.pop());
+        }
     }
     
     public void execStep(){
@@ -141,8 +181,20 @@ class Logic {
         listaVentanillas.insertarClienteVentanilla(colaRecepcion.dequeue());
         listaVentanillas.ingresarUnElementoPila();
         listaVentanillas.encolarImpresiones(colorImpresora.queue, blancoNegroImpresora.queue, listaEspera);
-        colorImpresora.printImage(listaEspera);
-        blancoNegroImpresora.printImage(listaEspera);
+        
+        if (this.remaingColorSteps > 0){
+            remaingColorSteps--;
+        } else {
+            colorImpresora.printImage(listaEspera);
+            remaingColorSteps = 2;
+        }
+        
+        if (this.remaingBlancoNegroSteps > 0){
+            remaingBlancoNegroSteps--;
+        } else {
+            blancoNegroImpresora.printImage(listaEspera);
+            remaingBlancoNegroSteps = 1;
+        }
         listaEspera.popClientesCompletados(listaAtendidos);
     }
     

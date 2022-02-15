@@ -27,10 +27,14 @@ public class Cliente {
 //    private int imgBlancoNegroProcessed;
     public ListaImpresiones listaImages;
 
-    public Cliente(String nombre) {
+    public Cliente(){
         this.id = EddProyectoFase1.generateGuid();
-        this.nombre = nombre;
         this.listaImages = new ListaImpresiones();
+    }
+    
+    public Cliente(String nombre) {
+        this();
+        this.nombre = nombre;
     }
 
     public Cliente(String nombre, int imgColor, int imgBlancoNegro) {

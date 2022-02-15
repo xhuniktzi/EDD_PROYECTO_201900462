@@ -20,7 +20,7 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
         if(!isVoid()){
             NodoDoble<Cliente> aux = this.head;
             do {
-                str.append(aux.dato.listaImages.graph(aux.dato.id));
+                str.append(aux.dato.listaImages.graph(aux.dato.id, this));
                 str.append(aux.dato.id).append("[label=\"").append(aux.dato.nombre)
                         .append("\n Color: ").append(aux.dato.imgColorConst)
                         .append("\n Blanco y Negro: ").append(aux.dato.imgBlancoNegroConst)
@@ -43,6 +43,7 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
         if(!isVoid()){
             NodoDoble<Cliente> aux = this.head;
             do {
+                aux.dato.pasos++;
                 if (aux.dato.id.equals(id)){
                     switch (img.tipo){
                         case BLANCONEGRO:
@@ -72,6 +73,19 @@ public class ListaClientesEspera extends DoubleCircularList<Cliente>{
                 aux = aux.siguiente;
             } while (aux != this.head);
         }
+    }
+    
+    public Cliente getById(String id){
+        if (!this.isVoid()){
+            NodoDoble<Cliente> aux = this.head;
+            do {
+                if(aux.dato.id.equals(id))
+                    return aux.dato;
+                
+                aux = aux.siguiente;
+            } while (aux != this.head);
+        }
+        return null;
     }
     
     private void deleteById(String id){

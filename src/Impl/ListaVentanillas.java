@@ -23,6 +23,7 @@ public class ListaVentanillas extends LinkedList<Ventanilla> {
             if (auxc.dato.cliente == null){
                 auxc.dato.cliente = cliente;
                 auxc.dato.cliente.idVentanilla = auxc.dato.id;
+                auxc.dato.cliente.pasos++;
                 return;
             }
             auxc = auxc.siguiente;
@@ -67,6 +68,7 @@ public class ListaVentanillas extends LinkedList<Ventanilla> {
         NodoSimple<Ventanilla> auxc = this.head;
             while(auxc != null){
                 if (auxc.dato.cliente != null){
+                    auxc.dato.cliente.pasos++;
                     if (auxc.dato.cliente.imgColor > 0){
                         auxc.dato.pilaImagenes.push(new Imagen(TipoImagen.COLOR, auxc.dato.cliente.id));
                         auxc.dato.cliente.imgColor--;

@@ -3,389 +3,723 @@ rankdir=LR;
 subgraph clusterPrintBN {
 /* Cola blanco y negro */
 label="Cola Impresora Blanco y Negro";
-a36a7841eb954e763de85c1599[label="BLANCONEGRO"];
-a36a7841eb954e763de85c1599->eabaa6f6b6147ba87c49d8297fcb155;
-eabaa6f6b6147ba87c49d8297fcb155[label="BLANCONEGRO"];
-eabaa6f6b6147ba87c49d8297fcb155->b22e24864b9486cb29292dcc448f8d0;
-b22e24864b9486cb29292dcc448f8d0[label="BLANCONEGRO"];
-b22e24864b9486cb29292dcc448f8d0->bae3985574ba382a47209dfa31167;
-bae3985574ba382a47209dfa31167[label="BLANCONEGRO"];
-bae3985574ba382a47209dfa31167->fc2ec94bbe49f982e8e76127d034f0;
-fc2ec94bbe49f982e8e76127d034f0[label="BLANCONEGRO"];
-fc2ec94bbe49f982e8e76127d034f0->b7a28ea4d3192bfee050a10f3fa;
-b7a28ea4d3192bfee050a10f3fa[label="BLANCONEGRO"];
-b7a28ea4d3192bfee050a10f3fa->dffdc372f604d13b19aa4e964a32607;
-dffdc372f604d13b19aa4e964a32607[label="BLANCONEGRO"];
-dffdc372f604d13b19aa4e964a32607->db1ebbcb1430883288a83dfc1bd78;
-db1ebbcb1430883288a83dfc1bd78[label="BLANCONEGRO"];
-db1ebbcb1430883288a83dfc1bd78->ca51c22a1c942ae99974a497bf26575;
-ca51c22a1c942ae99974a497bf26575[label="BLANCONEGRO"];
-ca51c22a1c942ae99974a497bf26575->a2e0f9ae194957b12ee19cff1c7c54;
-a2e0f9ae194957b12ee19cff1c7c54[label="BLANCONEGRO"];
-a2e0f9ae194957b12ee19cff1c7c54->a6e07b4edb84ccbf79fce22cf6;
-a6e07b4edb84ccbf79fce22cf6[label="BLANCONEGRO"];
-a6e07b4edb84ccbf79fce22cf6->eb436dd69431b8a377d32f25622f5;
-eb436dd69431b8a377d32f25622f5[label="BLANCONEGRO"];
-eb436dd69431b8a377d32f25622f5->dbf7c5a424d4e2fa3b952e4665f108a;
-dbf7c5a424d4e2fa3b952e4665f108a[label="BLANCONEGRO"];
-dbf7c5a424d4e2fa3b952e4665f108a->a5c40db7cf1475fbcdcabc198168b94;
-a5c40db7cf1475fbcdcabc198168b94[label="BLANCONEGRO"];
-a5c40db7cf1475fbcdcabc198168b94->a6bafeacdc44df6ba6406d9d4deb9de;
-a6bafeacdc44df6ba6406d9d4deb9de[label="BLANCONEGRO"];
-a6bafeacdc44df6ba6406d9d4deb9de->b8c4e6bf5884b53939ce9ec4941e7e5;
-b8c4e6bf5884b53939ce9ec4941e7e5[label="BLANCONEGRO"];
-b8c4e6bf5884b53939ce9ec4941e7e5->d03d214cd489491d0026876c6bc57;
-d03d214cd489491d0026876c6bc57[label="BLANCONEGRO"];
-d03d214cd489491d0026876c6bc57->bbd08c6e2a443fb178facca80bc6fc;
-bbd08c6e2a443fb178facca80bc6fc[label="BLANCONEGRO"];
-bbd08c6e2a443fb178facca80bc6fc->fae1c524e95b559784bca21c3bb;
-fae1c524e95b559784bca21c3bb[label="BLANCONEGRO"];
-fae1c524e95b559784bca21c3bb->cbeb62868b42f6808a52a00d63c488;
-cbeb62868b42f6808a52a00d63c488[label="BLANCONEGRO"];
-cbeb62868b42f6808a52a00d63c488->efea810f7ce4ec8a845f181b4115abb;
-efea810f7ce4ec8a845f181b4115abb[label="BLANCONEGRO"];
-efea810f7ce4ec8a845f181b4115abb->f6638ace174a24a9e74a532eab1768;
-f6638ace174a24a9e74a532eab1768[label="BLANCONEGRO"];
-f6638ace174a24a9e74a532eab1768->beb3b8ea4a1409a9dd543b7c01e41b2;
-beb3b8ea4a1409a9dd543b7c01e41b2[label="BLANCONEGRO"];
-beb3b8ea4a1409a9dd543b7c01e41b2->f3135034546b7a16a0cc147969758;
-f3135034546b7a16a0cc147969758[label="BLANCONEGRO"];
-f3135034546b7a16a0cc147969758->afce43795cc4124b9a12b06865ba834;
-afce43795cc4124b9a12b06865ba834[label="BLANCONEGRO"];
-afce43795cc4124b9a12b06865ba834->caf02b3940844c4a2ce30105f67ead3;
-caf02b3940844c4a2ce30105f67ead3[label="BLANCONEGRO"];
-caf02b3940844c4a2ce30105f67ead3->c9da3c7f335414da11a4ba59401170d;
-c9da3c7f335414da11a4ba59401170d[label="BLANCONEGRO"];
-c9da3c7f335414da11a4ba59401170d->fbf5048140c49049d070549b3bf0;
-fbf5048140c49049d070549b3bf0[label="BLANCONEGRO"];
-fbf5048140c49049d070549b3bf0->bb63a3895433aa57f05a8ae5352d3;
-bb63a3895433aa57f05a8ae5352d3[label="BLANCONEGRO"];
-bb63a3895433aa57f05a8ae5352d3->f140572748839123f66f0e0cfd72;
-f140572748839123f66f0e0cfd72[label="BLANCONEGRO"];
-f140572748839123f66f0e0cfd72->ca2fb2376fa4486b310ba4e64107d2a;
-ca2fb2376fa4486b310ba4e64107d2a[label="BLANCONEGRO"];
-ca2fb2376fa4486b310ba4e64107d2a->e82c1797a5e49e78e0c43d42b9cd534;
-e82c1797a5e49e78e0c43d42b9cd534[label="BLANCONEGRO"];
-e82c1797a5e49e78e0c43d42b9cd534->d5d035bc7144102bbda8fe3e235aab8;
-d5d035bc7144102bbda8fe3e235aab8[label="BLANCONEGRO"];
+ef9803ccc0d4d6ab1b38e72e2daedc0[label="BLANCONEGRO
+Cliente: Celeste Molina"];
+ef9803ccc0d4d6ab1b38e72e2daedc0->ad815635714cd8bd0c812410eee24b;
+ad815635714cd8bd0c812410eee24b[label="BLANCONEGRO
+Cliente: Jorge Suarez"];
+ad815635714cd8bd0c812410eee24b->bcacd3802114b8d9160429376ccb054;
+bcacd3802114b8d9160429376ccb054[label="BLANCONEGRO
+Cliente: Jorge Suarez"];
+bcacd3802114b8d9160429376ccb054->d77c3333b44739874071234d35ece;
+d77c3333b44739874071234d35ece[label="BLANCONEGRO
+Cliente: Jorge Suarez"];
+d77c3333b44739874071234d35ece->af970e8c024005ad8e34afef5056b6;
+af970e8c024005ad8e34afef5056b6[label="BLANCONEGRO
+Cliente: Jorge Hernandez"];
+af970e8c024005ad8e34afef5056b6->ddcabc72d4b829ba1850abbdb27a0;
+ddcabc72d4b829ba1850abbdb27a0[label="BLANCONEGRO
+Cliente: Jorge Hernandez"];
+ddcabc72d4b829ba1850abbdb27a0->bd2fecec9b4de9b5d3b2afec0126d4;
+bd2fecec9b4de9b5d3b2afec0126d4[label="BLANCONEGRO
+Cliente: Jorge Hernandez"];
+bd2fecec9b4de9b5d3b2afec0126d4->db1ecb3f746c484ca1058531e3b50;
+db1ecb3f746c484ca1058531e3b50[label="BLANCONEGRO
+Cliente: Jorge Hernandez"];
+db1ecb3f746c484ca1058531e3b50->a2ce6fcbfca4ca7b27eb9547d0d813f;
+a2ce6fcbfca4ca7b27eb9547d0d813f[label="BLANCONEGRO
+Cliente: Pedro Velasquez"];
+a2ce6fcbfca4ca7b27eb9547d0d813f->adf9f57a158409fbdc21d6dadb35b87;
+adf9f57a158409fbdc21d6dadb35b87[label="BLANCONEGRO
+Cliente: Miguel Lopez"];
+adf9f57a158409fbdc21d6dadb35b87->dc3da72a70d4a70837067d60962066a;
+dc3da72a70d4a70837067d60962066a[label="BLANCONEGRO
+Cliente: Miguel Lopez"];
+dc3da72a70d4a70837067d60962066a->c79e5e441aa39cc07348b29a45;
+c79e5e441aa39cc07348b29a45[label="BLANCONEGRO
+Cliente: Miguel Lopez"];
+c79e5e441aa39cc07348b29a45->debdc42e63b4a0eb9d67c4f2b6c51ff;
+debdc42e63b4a0eb9d67c4f2b6c51ff[label="BLANCONEGRO
+Cliente: Miguel Lopez"];
+debdc42e63b4a0eb9d67c4f2b6c51ff->a550d00064f43bd98b150070a1df2dc;
+a550d00064f43bd98b150070a1df2dc[label="BLANCONEGRO
+Cliente: Diego Rodriguez"];
+a550d00064f43bd98b150070a1df2dc->cb3bcc44505479bba72b26e5abac2ec;
+cb3bcc44505479bba72b26e5abac2ec[label="BLANCONEGRO
+Cliente: Ruben Rodriguez"];
+cb3bcc44505479bba72b26e5abac2ec->fabb2fcbed549818a0a2441c0aa5e53;
+fabb2fcbed549818a0a2441c0aa5e53[label="BLANCONEGRO
+Cliente: Ruben Rodriguez"];
+fabb2fcbed549818a0a2441c0aa5e53->fb83fed9eb34530a7e4e70accce38c7;
+fb83fed9eb34530a7e4e70accce38c7[label="BLANCONEGRO
+Cliente: Ruben Rodriguez"];
+fb83fed9eb34530a7e4e70accce38c7->eee129264e47be81e4a0dc6b9a5b;
+eee129264e47be81e4a0dc6b9a5b[label="BLANCONEGRO
+Cliente: Ruben Hernandez"];
+eee129264e47be81e4a0dc6b9a5b->fee417c4bad4bffa49aa5aeb50b2869;
+fee417c4bad4bffa49aa5aeb50b2869[label="BLANCONEGRO
+Cliente: Ruben Hernandez"];
+fee417c4bad4bffa49aa5aeb50b2869->fc17448cab4471db8c2c4cc8ebfea85;
+fc17448cab4471db8c2c4cc8ebfea85[label="BLANCONEGRO
+Cliente: Ruben Hernandez"];
+fc17448cab4471db8c2c4cc8ebfea85->efa6849f4b3958429651e9551;
+efa6849f4b3958429651e9551[label="BLANCONEGRO
+Cliente: Ruben Hernandez"];
+efa6849f4b3958429651e9551->ea76ab9a1744658705a141fef5d875;
+ea76ab9a1744658705a141fef5d875[label="BLANCONEGRO
+Cliente: Miguel Suarez"];
+ea76ab9a1744658705a141fef5d875->f3d2b6c44eca5fd7eedbda4cbc0;
+f3d2b6c44eca5fd7eedbda4cbc0[label="BLANCONEGRO
+Cliente: Pedro Velasquez"];
+f3d2b6c44eca5fd7eedbda4cbc0->a4dfe674c3994d9868a8603e712;
+a4dfe674c3994d9868a8603e712[label="BLANCONEGRO
+Cliente: Pedro Velasquez"];
+a4dfe674c3994d9868a8603e712->ddaf309e3ec9a011;
+ddaf309e3ec9a011[label="BLANCONEGRO
+Cliente: Pedro Velasquez"];
+ddaf309e3ec9a011->a3a98b4f25b95b9f19bedd620e;
+a3a98b4f25b95b9f19bedd620e[label="BLANCONEGRO
+Cliente: Pedro Velasquez"];
+a3a98b4f25b95b9f19bedd620e->ab2cd7dd82d4dfa9f1030e5487dbb4f;
+ab2cd7dd82d4dfa9f1030e5487dbb4f[label="BLANCONEGRO
+Cliente: Ruben Velasquez"];
+ab2cd7dd82d4dfa9f1030e5487dbb4f->ac052592467195c13c28f3be11fe;
+ac052592467195c13c28f3be11fe[label="BLANCONEGRO
+Cliente: Jorge Aguirre"];
+ac052592467195c13c28f3be11fe->dff19e4c4654e36978bf03d51555b6b;
+dff19e4c4654e36978bf03d51555b6b[label="BLANCONEGRO
+Cliente: Ruben Molina"];
+dff19e4c4654e36978bf03d51555b6b->cb1f4147d014e41a198330cff0bec51;
+cb1f4147d014e41a198330cff0bec51[label="BLANCONEGRO
+Cliente: Ruben Molina"];
+cb1f4147d014e41a198330cff0bec51->e70b9f47b114db4beb0022e260e8e0a;
+e70b9f47b114db4beb0022e260e8e0a[label="BLANCONEGRO
+Cliente: Jorge Suarez"];
+e70b9f47b114db4beb0022e260e8e0a->f13ea6a435796e5b2399ac9147b;
+f13ea6a435796e5b2399ac9147b[label="BLANCONEGRO
+Cliente: Dulce Suarez"];
+f13ea6a435796e5b2399ac9147b->c80ad5ce64a4d1dbbbf3f359e0b0678;
+c80ad5ce64a4d1dbbbf3f359e0b0678[label="BLANCONEGRO
+Cliente: Dulce Suarez"];
+c80ad5ce64a4d1dbbbf3f359e0b0678->ab479734726476bb8ee4b78ba29de7d;
+ab479734726476bb8ee4b78ba29de7d[label="BLANCONEGRO
+Cliente: Miguel Aguirre"];
+ab479734726476bb8ee4b78ba29de7d->ab80740fe4fc989c866dd533966dc;
+ab80740fe4fc989c866dd533966dc[label="BLANCONEGRO
+Cliente: Miguel Aguirre"];
+ab80740fe4fc989c866dd533966dc->f6aba4786a4f6486627d23075cc8ac;
+f6aba4786a4f6486627d23075cc8ac[label="BLANCONEGRO
+Cliente: Juan Molina"];
+f6aba4786a4f6486627d23075cc8ac->efdbbbffe244b17acc721f2677d623d;
+efdbbbffe244b17acc721f2677d623d[label="BLANCONEGRO
+Cliente: Juan Molina"];
+efdbbbffe244b17acc721f2677d623d->aa7167304f8487e889a13ba608e02d0;
+aa7167304f8487e889a13ba608e02d0[label="BLANCONEGRO
+Cliente: Leslie Velasquez"];
+aa7167304f8487e889a13ba608e02d0->d768c879804711a050fe791bbb4449;
+d768c879804711a050fe791bbb4449[label="BLANCONEGRO
+Cliente: Celeste Velasquez"];
+d768c879804711a050fe791bbb4449->ddcb123fcf445f6bda5f46699d2566a;
+ddcb123fcf445f6bda5f46699d2566a[label="BLANCONEGRO
+Cliente: Sofia Lopez"];
+ddcb123fcf445f6bda5f46699d2566a->fbb946e6c6a4c149c9a7d7adf161bc0;
+fbb946e6c6a4c149c9a7d7adf161bc0[label="BLANCONEGRO
+Cliente: Sofia Lopez"];
+fbb946e6c6a4c149c9a7d7adf161bc0->d5965a89425fa63cb217a74c1af5;
+d5965a89425fa63cb217a74c1af5[label="BLANCONEGRO
+Cliente: Miguel Aguirre"];
+d5965a89425fa63cb217a74c1af5->c82e3c1407447c6a18894cf3a2ef9aa;
+c82e3c1407447c6a18894cf3a2ef9aa[label="BLANCONEGRO
+Cliente: Miguel Aguirre"];
+c82e3c1407447c6a18894cf3a2ef9aa->adddc49c72448b5b107068f9850cf0a;
+adddc49c72448b5b107068f9850cf0a[label="BLANCONEGRO
+Cliente: Diego Lopez"];
+adddc49c72448b5b107068f9850cf0a->ddda20c0db4549a88acbc8572a1263;
+ddda20c0db4549a88acbc8572a1263[label="BLANCONEGRO
+Cliente: Dulce Velasquez"];
 BN[label="Impresora a Blanco y Negro"];
-d5d035bc7144102bbda8fe3e235aab8-> BN;
+ddda20c0db4549a88acbc8572a1263-> BN;
 }subgraph clusterPrintColor {
 /* Cola color */
 label="Cola Impresora Color";
-eb7a2badbe84f079792ede2eb3df834[label="COLOR"];
-eb7a2badbe84f079792ede2eb3df834->e3f74f86a330711c857edf7e;
-e3f74f86a330711c857edf7e[label="COLOR"];
-e3f74f86a330711c857edf7e->ca6eb336d3b4e57a719f2b18fc85324;
-ca6eb336d3b4e57a719f2b18fc85324[label="COLOR"];
-ca6eb336d3b4e57a719f2b18fc85324->ebf5d0aecb848938b4c12dd8c066ad4;
-ebf5d0aecb848938b4c12dd8c066ad4[label="COLOR"];
-ebf5d0aecb848938b4c12dd8c066ad4->b3b7304854771adc7967a1a7abcea;
-b3b7304854771adc7967a1a7abcea[label="COLOR"];
-b3b7304854771adc7967a1a7abcea->cff28f489595e55e2f0ba7b2c8;
-cff28f489595e55e2f0ba7b2c8[label="COLOR"];
-cff28f489595e55e2f0ba7b2c8->efa35f4e49d2a3e84c34823ff203;
-efa35f4e49d2a3e84c34823ff203[label="COLOR"];
-efa35f4e49d2a3e84c34823ff203->d4c8360fdfc447d86f42c0657cf0146;
-d4c8360fdfc447d86f42c0657cf0146[label="COLOR"];
-d4c8360fdfc447d86f42c0657cf0146->da985ff520433abcd5b063dcbd4749;
-da985ff520433abcd5b063dcbd4749[label="COLOR"];
-da985ff520433abcd5b063dcbd4749->ea38b4b86a30e7edb272c128a;
-ea38b4b86a30e7edb272c128a[label="COLOR"];
-ea38b4b86a30e7edb272c128a->da81e3dfa2453e9139175f1fc15b56;
-da81e3dfa2453e9139175f1fc15b56[label="COLOR"];
-da81e3dfa2453e9139175f1fc15b56->cd6ec46ed9662d258b2d4b864;
-cd6ec46ed9662d258b2d4b864[label="COLOR"];
-cd6ec46ed9662d258b2d4b864->ddc59b2564823be2346f5b4582992;
-ddc59b2564823be2346f5b4582992[label="COLOR"];
-ddc59b2564823be2346f5b4582992->c640f1234e6f8c60e5cde319c39f;
-c640f1234e6f8c60e5cde319c39f[label="COLOR"];
-c640f1234e6f8c60e5cde319c39f->a57622d7e5a422994006d15ecfe5ef1;
-a57622d7e5a422994006d15ecfe5ef1[label="COLOR"];
-a57622d7e5a422994006d15ecfe5ef1->cbd10c94f17a3d78155e6c892bb;
-cbd10c94f17a3d78155e6c892bb[label="COLOR"];
-cbd10c94f17a3d78155e6c892bb->abe705cba042848a02943f9efe1bc1;
-abe705cba042848a02943f9efe1bc1[label="COLOR"];
-abe705cba042848a02943f9efe1bc1->bf88d10b674f9989be8f0317103086;
-bf88d10b674f9989be8f0317103086[label="COLOR"];
-bf88d10b674f9989be8f0317103086->ecae85456d9cd2575af86f43aa;
-ecae85456d9cd2575af86f43aa[label="COLOR"];
-ecae85456d9cd2575af86f43aa->c6f489fb7a74d03bc066e33c0faa433;
-c6f489fb7a74d03bc066e33c0faa433[label="COLOR"];
-c6f489fb7a74d03bc066e33c0faa433->a6c7c70f41bd9b158902a95c9f8d;
-a6c7c70f41bd9b158902a95c9f8d[label="COLOR"];
-a6c7c70f41bd9b158902a95c9f8d->f7bfda0d94e4186dd677c962abaa1;
-f7bfda0d94e4186dd677c962abaa1[label="COLOR"];
-f7bfda0d94e4186dd677c962abaa1->f012f787de4012b91df4be8fc0740f;
-f012f787de4012b91df4be8fc0740f[label="COLOR"];
-f012f787de4012b91df4be8fc0740f->cf6143cacb44172bb8e6c0f18ac14d5;
-cf6143cacb44172bb8e6c0f18ac14d5[label="COLOR"];
-cf6143cacb44172bb8e6c0f18ac14d5->c53b723e837412e9c8292c3e2d3e8e0;
-c53b723e837412e9c8292c3e2d3e8e0[label="COLOR"];
-c53b723e837412e9c8292c3e2d3e8e0->e9277b44b91bbd1553d92fabf3b;
-e9277b44b91bbd1553d92fabf3b[label="COLOR"];
-e9277b44b91bbd1553d92fabf3b->c5b42cb3492bbdb10f91994542b9;
-c5b42cb3492bbdb10f91994542b9[label="COLOR"];
-c5b42cb3492bbdb10f91994542b9->e61fbc3a8a64be3b8e8cfd2d067a7ab;
-e61fbc3a8a64be3b8e8cfd2d067a7ab[label="COLOR"];
-e61fbc3a8a64be3b8e8cfd2d067a7ab->ca4bdd008a443d5910bf32ed2f28c6a;
-ca4bdd008a443d5910bf32ed2f28c6a[label="COLOR"];
-ca4bdd008a443d5910bf32ed2f28c6a->b072f6e124326970c78567321177a;
-b072f6e124326970c78567321177a[label="COLOR"];
+ff3f4aa4215b7295ff52996befc[label="COLOR
+Cliente: Celeste Molina"];
+ff3f4aa4215b7295ff52996befc->a1d38d9d46c5974f06b451342080;
+a1d38d9d46c5974f06b451342080[label="COLOR
+Cliente: Celeste Molina"];
+a1d38d9d46c5974f06b451342080->f47b6db14155a58f4e24f8f46fd8;
+f47b6db14155a58f4e24f8f46fd8[label="COLOR
+Cliente: Celeste Molina"];
+f47b6db14155a58f4e24f8f46fd8->b567222062499da32415182f2245d2;
+b567222062499da32415182f2245d2[label="COLOR
+Cliente: Jorge Suarez"];
+b567222062499da32415182f2245d2->bead978c874f95890c689e8c532d22;
+bead978c874f95890c689e8c532d22[label="COLOR
+Cliente: Jorge Suarez"];
+bead978c874f95890c689e8c532d22->fbadbd099b9449491c0f7e0f428de6c;
+fbadbd099b9449491c0f7e0f428de6c[label="COLOR
+Cliente: Jorge Suarez"];
+fbadbd099b9449491c0f7e0f428de6c->f049c72a454a5a81cd8d076222527e;
+f049c72a454a5a81cd8d076222527e[label="COLOR
+Cliente: Jorge Hernandez"];
+f049c72a454a5a81cd8d076222527e->fe31eb3544d2a977fef94ffde58cf;
+fe31eb3544d2a977fef94ffde58cf[label="COLOR
+Cliente: Jorge Hernandez"];
+fe31eb3544d2a977fef94ffde58cf->a67575d11849d79d5423799cb9758d;
+a67575d11849d79d5423799cb9758d[label="COLOR
+Cliente: Jorge Hernandez"];
+a67575d11849d79d5423799cb9758d->cea700bf2da4b5880a6eacfa22d07e3;
+cea700bf2da4b5880a6eacfa22d07e3[label="COLOR
+Cliente: Miguel Lopez"];
+cea700bf2da4b5880a6eacfa22d07e3->ccc097deebc4769a59a115fc0710c2c;
+ccc097deebc4769a59a115fc0710c2c[label="COLOR
+Cliente: Miguel Lopez"];
+ccc097deebc4769a59a115fc0710c2c->fbec20e91844238df610de68c17c96;
+fbec20e91844238df610de68c17c96[label="COLOR
+Cliente: Miguel Lopez"];
+fbec20e91844238df610de68c17c96->bd0b1000d2d49cf90f417d093a0970d;
+bd0b1000d2d49cf90f417d093a0970d[label="COLOR
+Cliente: Miguel Lopez"];
+bd0b1000d2d49cf90f417d093a0970d->b3c0c3d633c439fb05c2cfc02c67ab2;
+b3c0c3d633c439fb05c2cfc02c67ab2[label="COLOR
+Cliente: Diego Rodriguez"];
+b3c0c3d633c439fb05c2cfc02c67ab2->fe668c9c8fc4a1690ce84359985a1e0;
+fe668c9c8fc4a1690ce84359985a1e0[label="COLOR
+Cliente: Diego Rodriguez"];
+fe668c9c8fc4a1690ce84359985a1e0->ba2af23f81432fb4985e232fd51007;
+ba2af23f81432fb4985e232fd51007[label="COLOR
+Cliente: Ruben Rodriguez"];
+ba2af23f81432fb4985e232fd51007->f972c7ecb64432b1403b2125d83bba;
+f972c7ecb64432b1403b2125d83bba[label="COLOR
+Cliente: Ruben Rodriguez"];
+f972c7ecb64432b1403b2125d83bba->d1584e84941b4b00f9dec00e8540d;
+d1584e84941b4b00f9dec00e8540d[label="COLOR
+Cliente: Miguel Suarez"];
+d1584e84941b4b00f9dec00e8540d->a6666c992444992ad716b6162b3b924;
+a6666c992444992ad716b6162b3b924[label="COLOR
+Cliente: Miguel Suarez"];
+a6666c992444992ad716b6162b3b924->cabae98b04c0885d5;
+cabae98b04c0885d5[label="COLOR
+Cliente: Pedro Velasquez"];
+cabae98b04c0885d5->f8d1883db842a49a7120999be2f143;
+f8d1883db842a49a7120999be2f143[label="COLOR
+Cliente: Pedro Velasquez"];
+f8d1883db842a49a7120999be2f143->cba1b74860a4d6ea2658604c916627e;
+cba1b74860a4d6ea2658604c916627e[label="COLOR
+Cliente: Pedro Velasquez"];
+cba1b74860a4d6ea2658604c916627e->b338459387f453d996f9ca9da55e4d7;
+b338459387f453d996f9ca9da55e4d7[label="COLOR
+Cliente: Pedro Velasquez"];
+b338459387f453d996f9ca9da55e4d7->fbfaa1864372a49e9d72e8f2f91c;
+fbfaa1864372a49e9d72e8f2f91c[label="COLOR
+Cliente: Ruben Velasquez"];
+fbfaa1864372a49e9d72e8f2f91c->def4911d84199b3fcec1bd3230e5e;
+def4911d84199b3fcec1bd3230e5e[label="COLOR
+Cliente: Ruben Velasquez"];
+def4911d84199b3fcec1bd3230e5e->d6d89f4a6f0439a88ebaffa4be06806;
+d6d89f4a6f0439a88ebaffa4be06806[label="COLOR
+Cliente: Jorge Aguirre"];
+d6d89f4a6f0439a88ebaffa4be06806->ad27f6cb6405c8643bccfebc69292;
+ad27f6cb6405c8643bccfebc69292[label="COLOR
+Cliente: Jorge Aguirre"];
+ad27f6cb6405c8643bccfebc69292->ef251f7dcb04edbab25050d10a78928;
+ef251f7dcb04edbab25050d10a78928[label="COLOR
+Cliente: Ruben Molina"];
+ef251f7dcb04edbab25050d10a78928->faed6527c24e60ad7690e6b0bddbb5;
+faed6527c24e60ad7690e6b0bddbb5[label="COLOR
+Cliente: Ruben Molina"];
+faed6527c24e60ad7690e6b0bddbb5->a47deb75a6b46f3b05ba25e4b48de31;
+a47deb75a6b46f3b05ba25e4b48de31[label="COLOR
+Cliente: Miguel Aguirre"];
+a47deb75a6b46f3b05ba25e4b48de31->bf6ac2e2c4d80a56cb4f05488e2dc;
+bf6ac2e2c4d80a56cb4f05488e2dc[label="COLOR
+Cliente: Miguel Aguirre"];
+bf6ac2e2c4d80a56cb4f05488e2dc->ab48398320660665aca5c8;
+ab48398320660665aca5c8[label="COLOR
+Cliente: Juan Molina"];
+ab48398320660665aca5c8->ce36f887453b9536be7bcb37e27f;
+ce36f887453b9536be7bcb37e27f[label="COLOR
+Cliente: Juan Molina"];
+ce36f887453b9536be7bcb37e27f->b9d8c91e84582ab34931443c13c05;
+b9d8c91e84582ab34931443c13c05[label="COLOR
+Cliente: Leslie Velasquez"];
+b9d8c91e84582ab34931443c13c05->adfcc9600647eebd38aa04200caf56;
+adfcc9600647eebd38aa04200caf56[label="COLOR
+Cliente: Leslie Velasquez"];
+adfcc9600647eebd38aa04200caf56->d36ae2bc9a34028b20c24179f9e4ed8;
+d36ae2bc9a34028b20c24179f9e4ed8[label="COLOR
+Cliente: Leslie Velasquez"];
+d36ae2bc9a34028b20c24179f9e4ed8->cf17f86c2f4271bf255d18c9c971df;
+cf17f86c2f4271bf255d18c9c971df[label="COLOR
+Cliente: Leslie Velasquez"];
+cf17f86c2f4271bf255d18c9c971df->ade45958bd186e2184ef361;
+ade45958bd186e2184ef361[label="COLOR
+Cliente: Celeste Velasquez"];
+ade45958bd186e2184ef361->f6e11be62ae4730afc2d122cbb61373;
+f6e11be62ae4730afc2d122cbb61373[label="COLOR
+Cliente: Celeste Velasquez"];
+f6e11be62ae4730afc2d122cbb61373->bc39c6b4b94972c6ba3a81f9bfd;
+bc39c6b4b94972c6ba3a81f9bfd[label="COLOR
+Cliente: Celeste Velasquez"];
+bc39c6b4b94972c6ba3a81f9bfd->d6daeb5f858404b904798a7269f8656;
+d6daeb5f858404b904798a7269f8656[label="COLOR
+Cliente: Celeste Velasquez"];
+d6daeb5f858404b904798a7269f8656->dfddf75410470987fc495fd769f65e;
+dfddf75410470987fc495fd769f65e[label="COLOR
+Cliente: Sofia Lopez"];
+dfddf75410470987fc495fd769f65e->ebebb739edc4d748ca912e892fc4937;
+ebebb739edc4d748ca912e892fc4937[label="COLOR
+Cliente: Diego Lopez"];
+ebebb739edc4d748ca912e892fc4937->f1584d477ca21f1040ac7b8a78;
+f1584d477ca21f1040ac7b8a78[label="COLOR
+Cliente: Diego Lopez"];
+f1584d477ca21f1040ac7b8a78->a515010f73e4e16a31a556f4b51ae60;
+a515010f73e4e16a31a556f4b51ae60[label="COLOR
+Cliente: Diego Lopez"];
+a515010f73e4e16a31a556f4b51ae60->e914e91737e4162902153fd925a31ec;
+e914e91737e4162902153fd925a31ec[label="COLOR
+Cliente: Diego Lopez"];
+e914e91737e4162902153fd925a31ec->aafec94cf4008aded988ba559b0cc;
+aafec94cf4008aded988ba559b0cc[label="COLOR
+Cliente: Ruben Hernandez"];
+aafec94cf4008aded988ba559b0cc->b710243fe4ac1af3506ce974c766b;
+b710243fe4ac1af3506ce974c766b[label="COLOR
+Cliente: Ruben Hernandez"];
+b710243fe4ac1af3506ce974c766b->fcd986c3f844b9b57f6be7aef61bd9;
+fcd986c3f844b9b57f6be7aef61bd9[label="COLOR
+Cliente: Ruben Hernandez"];
+fcd986c3f844b9b57f6be7aef61bd9->c81699a574811971e8eaa2199971e;
+c81699a574811971e8eaa2199971e[label="COLOR
+Cliente: Sofia Aguirre"];
+c81699a574811971e8eaa2199971e->fdecaa47a6448238b1dcb2a31186e83;
+fdecaa47a6448238b1dcb2a31186e83[label="COLOR
+Cliente: Sofia Aguirre"];
+fdecaa47a6448238b1dcb2a31186e83->e0b9b14b4fbd542c0adf4329df;
+e0b9b14b4fbd542c0adf4329df[label="COLOR
+Cliente: Celeste Molina"];
+e0b9b14b4fbd542c0adf4329df->fd3b859c84eb981f7c39110871c94;
+fd3b859c84eb981f7c39110871c94[label="COLOR
+Cliente: Miguel Muñoz"];
+fd3b859c84eb981f7c39110871c94->a254a4404e9d74ac160119f03a;
+a254a4404e9d74ac160119f03a[label="COLOR
+Cliente: Dulce Muñoz"];
+a254a4404e9d74ac160119f03a->f1e0921c4f94a4c7384c39d5ad12;
+f1e0921c4f94a4c7384c39d5ad12[label="COLOR
+Cliente: Dulce Muñoz"];
+f1e0921c4f94a4c7384c39d5ad12->ecfa111ab2448ea9b475b093f9ed290;
+ecfa111ab2448ea9b475b093f9ed290[label="COLOR
+Cliente: Dulce Muñoz"];
+ecfa111ab2448ea9b475b093f9ed290->eb6e917547e4b1fca2356fbfca6d;
+eb6e917547e4b1fca2356fbfca6d[label="COLOR
+Cliente: Diego Rivera"];
+eb6e917547e4b1fca2356fbfca6d->be53e24b44dda44ed77a8b8c8fe0;
+be53e24b44dda44ed77a8b8c8fe0[label="COLOR
+Cliente: Jorge Velasquez"];
+be53e24b44dda44ed77a8b8c8fe0->aab9fa91bb04c40a664545e93189a22;
+aab9fa91bb04c40a664545e93189a22[label="COLOR
+Cliente: Jorge Velasquez"];
+aab9fa91bb04c40a664545e93189a22->fcd20a2e6f449d7823365657f48e982;
+fcd20a2e6f449d7823365657f48e982[label="COLOR
+Cliente: Jorge Velasquez"];
+fcd20a2e6f449d7823365657f48e982->c11dc7fc5e14b8eb1b5f3cdbf43d3e0;
+c11dc7fc5e14b8eb1b5f3cdbf43d3e0[label="COLOR
+Cliente: Leslie Lopez"];
+c11dc7fc5e14b8eb1b5f3cdbf43d3e0->dc57b3a01a143a3b2180a781bf1ec01;
+dc57b3a01a143a3b2180a781bf1ec01[label="COLOR
+Cliente: Leslie Lopez"];
+dc57b3a01a143a3b2180a781bf1ec01->ceac1efcd4873b1283c3b8717909d;
+ceac1efcd4873b1283c3b8717909d[label="COLOR
+Cliente: Leslie Lopez"];
 C[label="Impresora a Color"];
-b072f6e124326970c78567321177a-> C;
+ceac1efcd4873b1283c3b8717909d-> C;
 }subgraph clusterColaRecepcion {
 /* Cola recepcion */
 label="Cola Recepcion";
-bc166e8f36c4286a5071dfb8715cb87[label=" Dulce Suarez
- Color: 2
- Blanco y Negro: 0 "];
-bc166e8f36c4286a5071dfb8715cb87->bcbe1914737b2f6a7500a723113;
-bcbe1914737b2f6a7500a723113[label=" Leslie Hernandez
- Color: 0
+efcc52aec9e4e65a6c6ef55f7093434[label=" Diego Aguirre
+ Color: 4
  Blanco y Negro: 1 "];
-bcbe1914737b2f6a7500a723113->a038c2994e8291e09514ac0d43e6;
-a038c2994e8291e09514ac0d43e6[label=" Leslie Lopez
+efcc52aec9e4e65a6c6ef55f7093434->c27b5a00aa4f6ea6dcdf4773712124;
+c27b5a00aa4f6ea6dcdf4773712124[label=" Pedro Muñoz
+ Color: 2
+ Blanco y Negro: 4 "];
+c27b5a00aa4f6ea6dcdf4773712124->df49da084f8e885d535bce0e95fd;
+df49da084f8e885d535bce0e95fd[label=" Diego Velasquez
+ Color: 1
+ Blanco y Negro: 0 "];
+df49da084f8e885d535bce0e95fd->bf9c2e5c514f1eab4a36dbac1e2639;
+bf9c2e5c514f1eab4a36dbac1e2639[label=" Leslie Aguirre
+ Color: 4
+ Blanco y Negro: 4 "];
+bf9c2e5c514f1eab4a36dbac1e2639->abac07ca6648de8de9c38ee425b960;
+abac07ca6648de8de9c38ee425b960[label=" Jorge Rodriguez
+ Color: 1
+ Blanco y Negro: 0 "];
+abac07ca6648de8de9c38ee425b960->ef8ab956748bead2902e994cf0402;
+ef8ab956748bead2902e994cf0402[label=" Celeste Aguirre
+ Color: 4
+ Blanco y Negro: 4 "];
+ef8ab956748bead2902e994cf0402->ffa8a9343444eaf651ad967fa6792;
+ffa8a9343444eaf651ad967fa6792[label=" Miguel Aguirre
+ Color: 2
+ Blanco y Negro: 4 "];
+ffa8a9343444eaf651ad967fa6792->baac602c44400bb25acbc74f17af78;
+baac602c44400bb25acbc74f17af78[label=" Jorge Aguirre
  Color: 0
  Blanco y Negro: 3 "];
-a038c2994e8291e09514ac0d43e6->fff96e525840c59cd2857c6e95c15c;
-fff96e525840c59cd2857c6e95c15c[label=" Ruben Lopez
- Color: 1
- Blanco y Negro: 3 "];
-fff96e525840c59cd2857c6e95c15c->afc3d72f943858ebc4b5e137e9a13;
-afc3d72f943858ebc4b5e137e9a13[label=" Ruben Escobar
- Color: 4
- Blanco y Negro: 4 "];
-afc3d72f943858ebc4b5e137e9a13->da37c06fd534574a1619a55d60eecc4;
-da37c06fd534574a1619a55d60eecc4[label=" Pedro Rivera
- Color: 1
- Blanco y Negro: 2 "];
-da37c06fd534574a1619a55d60eecc4->e658692db4d42548185e053363392e7;
-e658692db4d42548185e053363392e7[label=" Leslie Muñoz
- Color: 3
- Blanco y Negro: 2 "];
-e658692db4d42548185e053363392e7->d84c93cece458ea0d28ef451cbbb9a;
-d84c93cece458ea0d28ef451cbbb9a[label=" Ruben Hernandez
- Color: 3
- Blanco y Negro: 2 "];
-d84c93cece458ea0d28ef451cbbb9a->db4bee2f944ddb2c0cb5557a23ef1;
-db4bee2f944ddb2c0cb5557a23ef1[label=" Jorge Molina
- Color: 4
- Blanco y Negro: 4 "];
-db4bee2f944ddb2c0cb5557a23ef1->eec9468f44c6b18e0daae8cbafc5;
-eec9468f44c6b18e0daae8cbafc5[label=" Leslie Aguirre
- Color: 2
- Blanco y Negro: 3 "];
-eec9468f44c6b18e0daae8cbafc5->ebe5372daa4cb19c301f00df70d29b;
-ebe5372daa4cb19c301f00df70d29b[label=" Juan Muñoz
- Color: 2
- Blanco y Negro: 0 "];
-ebe5372daa4cb19c301f00df70d29b->a88679b64b6aa3a64af71fa27ef9;
-a88679b64b6aa3a64af71fa27ef9[label=" Celeste Rodriguez
- Color: 2
- Blanco y Negro: 0 "];
-a88679b64b6aa3a64af71fa27ef9->cffa4597b64a5239ad6af476;
-cffa4597b64a5239ad6af476[label=" Ruben Lopez
- Color: 3
- Blanco y Negro: 4 "];
-cffa4597b64a5239ad6af476->d54f46ccae04974bd800a1c16330a17;
-d54f46ccae04974bd800a1c16330a17[label=" Pedro Molina
- Color: 4
- Blanco y Negro: 4 "];
-d54f46ccae04974bd800a1c16330a17->f4e90af6c842c2ae6a69d3c31a5458;
-f4e90af6c842c2ae6a69d3c31a5458[label=" Sofia Velasquez
- Color: 3
- Blanco y Negro: 4 "];
-f4e90af6c842c2ae6a69d3c31a5458->e5abaf4a4834b9a5cc55b97cf1bf;
-e5abaf4a4834b9a5cc55b97cf1bf[label=" Sofia Hernandez
- Color: 2
- Blanco y Negro: 2 "];
-e5abaf4a4834b9a5cc55b97cf1bf->b44da7bd9394f579750f6893ec340b0;
-b44da7bd9394f579750f6893ec340b0[label=" Sofia Escobar
- Color: 2
- Blanco y Negro: 3 "];
-b44da7bd9394f579750f6893ec340b0->cfae1558fb4f548d28c17abbd5deaa;
-cfae1558fb4f548d28c17abbd5deaa[label=" Leslie Aguirre
+baac602c44400bb25acbc74f17af78->cce8a0c793543ccb4f15a59d813da64;
+cce8a0c793543ccb4f15a59d813da64[label=" Jorge Rodriguez
  Color: 0
+ Blanco y Negro: 0 "];
+cce8a0c793543ccb4f15a59d813da64->e8708c134845c49107d1acbaa5f9c6;
+e8708c134845c49107d1acbaa5f9c6[label=" Pedro Molina
+ Color: 1
+ Blanco y Negro: 4 "];
+e8708c134845c49107d1acbaa5f9c6->bf25ed4e68f49f882db6209e6cd1284;
+bf25ed4e68f49f882db6209e6cd1284[label=" Celeste Muñoz
+ Color: 2
+ Blanco y Negro: 4 "];
+bf25ed4e68f49f882db6209e6cd1284->e7fc88d4b9b80a51d4cf061d42c;
+e7fc88d4b9b80a51d4cf061d42c[label=" Pedro Rivera
+ Color: 1
+ Blanco y Negro: 0 "];
+e7fc88d4b9b80a51d4cf061d42c->cd607d4f8e4e2f9b094644cfdcf269;
+cd607d4f8e4e2f9b094644cfdcf269[label=" Leslie Rivera
+ Color: 4
+ Blanco y Negro: 0 "];
+cd607d4f8e4e2f9b094644cfdcf269->f33e35198664feaa3f3ff3ce48a5528;
+f33e35198664feaa3f3ff3ce48a5528[label=" Leslie Muñoz
+ Color: 3
+ Blanco y Negro: 2 "];
+f33e35198664feaa3f3ff3ce48a5528->abbbbbb594f4aaeca54235f636cc0;
+abbbbbb594f4aaeca54235f636cc0[label=" Dulce Lopez
+ Color: 2
+ Blanco y Negro: 0 "];
+abbbbbb594f4aaeca54235f636cc0->c5e4c3ff9541d89f09a05ab92dcf80;
+c5e4c3ff9541d89f09a05ab92dcf80[label=" Ruben Suarez
+ Color: 0
+ Blanco y Negro: 3 "];
+c5e4c3ff9541d89f09a05ab92dcf80->f365965be24189b60a23e478c0798a;
+f365965be24189b60a23e478c0798a[label=" Juan Lopez
+ Color: 4
+ Blanco y Negro: 0 "];
+f365965be24189b60a23e478c0798a->c64698b4a43aa0301ab11f9d103;
+c64698b4a43aa0301ab11f9d103[label=" Jorge Velasquez
+ Color: 4
+ Blanco y Negro: 3 "];
+c64698b4a43aa0301ab11f9d103->da7950979942554e9a2;
+da7950979942554e9a2[label=" Ruben Molina
+ Color: 1
+ Blanco y Negro: 3 "];
+da7950979942554e9a2->e5c387599904d50a7852e59375be5c2;
+e5c387599904d50a7852e59375be5c2[label=" Ruben Muñoz
+ Color: 2
+ Blanco y Negro: 3 "];
+e5c387599904d50a7852e59375be5c2->c75c856fb8745f2b1aaec5d521aa8df;
+c75c856fb8745f2b1aaec5d521aa8df[label=" Sofia Muñoz
+ Color: 2
  Blanco y Negro: 1 "];
-cfae1558fb4f548d28c17abbd5deaa->ecf69e7ffdd4be08558ff7ce354940e;
-ecf69e7ffdd4be08558ff7ce354940e[label=" Sofia Rodriguez
+c75c856fb8745f2b1aaec5d521aa8df->c73c97324635848a56e14bda4cad;
+c73c97324635848a56e14bda4cad[label=" Celeste Velasquez
+ Color: 3
+ Blanco y Negro: 1 "];
+c73c97324635848a56e14bda4cad->fdd18529e6348f488e820439b138fad;
+fdd18529e6348f488e820439b138fad[label=" Jorge Rodriguez
+ Color: 0
+ Blanco y Negro: 3 "];
+fdd18529e6348f488e820439b138fad->dd41fa5fc4b799ce5a79695e169f3;
+dd41fa5fc4b799ce5a79695e169f3[label=" Jorge Escobar
  Color: 1
+ Blanco y Negro: 3 "];
+dd41fa5fc4b799ce5a79695e169f3->b1b6673a5d542deb1927a7bc96faca8;
+b1b6673a5d542deb1927a7bc96faca8[label=" Juan Aguirre
+ Color: 1
+ Blanco y Negro: 2 "];
+b1b6673a5d542deb1927a7bc96faca8->af6d72dec441f9c9918a8c3304126;
+af6d72dec441f9c9918a8c3304126[label=" Jorge Rodriguez
+ Color: 3
  Blanco y Negro: 0 "];
-ecf69e7ffdd4be08558ff7ce354940e->afe6a4044437497b8d7e99a9dcc56;
-afe6a4044437497b8d7e99a9dcc56[label=" Diego Escobar
+af6d72dec441f9c9918a8c3304126->db840f4ce4918b60f64e90a15aab2;
+db840f4ce4918b60f64e90a15aab2[label=" Ruben Rodriguez
+ Color: 1
+ Blanco y Negro: 2 "];
+db840f4ce4918b60f64e90a15aab2->df9b004a9e87eab2a20d230eab;
+df9b004a9e87eab2a20d230eab[label=" Dulce Aguirre
  Color: 2
- Blanco y Negro: 4 "];
-afe6a4044437497b8d7e99a9dcc56->eba28e36fb74525b17c8668927141b5;
-eba28e36fb74525b17c8668927141b5[label=" Ruben Suarez
- Color: 1
  Blanco y Negro: 0 "];
-eba28e36fb74525b17c8668927141b5->eb03b72014b1880d55da476dc0606;
-eb03b72014b1880d55da476dc0606[label=" Miguel Lopez
- Color: 1
- Blanco y Negro: 0 "];
-eb03b72014b1880d55da476dc0606->bccfd073d746acaea26aa283fdf6fe;
-bccfd073d746acaea26aa283fdf6fe[label=" Celeste Muñoz
- Color: 1
+df9b004a9e87eab2a20d230eab->cb5c5230cb84905ba4c8c90479df407;
+cb5c5230cb84905ba4c8c90479df407[label=" Jorge Hernandez
+ Color: 0
  Blanco y Negro: 3 "];
 }subgraph clusterListaVentanillas {
 /* Ventanillas */
 label="Ventanillas";
-bdb1abcc46348dd83bb209d75e8c72d[label=" Ventanilla 0 "];
-bdb1abcc46348dd83bb209d75e8c72d->da9af09443f455f803e3f409a673419;
-bdb1abcc46348dd83bb209d75e8c72d->ea2c0ea254b9dbdbdbd15175ad851;
-ea2c0ea254b9dbdbdbd15175ad851[label="BLANCONEGRO"];
-ea2c0ea254b9dbdbdbd15175ad851->bb70a79c2d64c18add2aa67494d8752;
-bb70a79c2d64c18add2aa67494d8752[label="BLANCONEGRO"];
-efb6bc4fbbf4cf0adf39fe7285450a9[label="Dulce Escobar
- Color: 0
+fbbfb230449dbae08f8fdbfe8b3c[label=" Ventanilla 0 "];
+fbbfb230449dbae08f8fdbfe8b3c->cbfd286e8a4eeba69bc3aebbb587b4;
+fbbfb230449dbae08f8fdbfe8b3c->c280eb5511241759d11ce99146457e9;
+c280eb5511241759d11ce99146457e9[label="COLOR"];
+c280eb5511241759d11ce99146457e9->ee9a2543384c39820a738ed8dfecd2;
+ee9a2543384c39820a738ed8dfecd2[label="COLOR"];
+ee9a2543384c39820a738ed8dfecd2->eea9ccefe9546679d14dee712b0ef4a;
+eea9ccefe9546679d14dee712b0ef4a[label="COLOR"];
+eea9ccefe9546679d14dee712b0ef4a->e448944e953420bbe9fdf230a0ea06d;
+e448944e953420bbe9fdf230a0ea06d[label="COLOR"];
+b6a71ee6e8e49ddbcdbbb2a0fdcc906[label="Juan Molina
+ Color: 4
+ Blanco y Negro: 2"];
+fbbfb230449dbae08f8fdbfe8b3c->b6a71ee6e8e49ddbcdbbb2a0fdcc906;
+cbfd286e8a4eeba69bc3aebbb587b4[label=" Ventanilla 1 "];
+cbfd286e8a4eeba69bc3aebbb587b4->c299bbaa9c4dbf88fc906783381883;
+cbfd286e8a4eeba69bc3aebbb587b4->c09d924c6ea40b481c70d8a60671c19;
+c09d924c6ea40b481c70d8a60671c19[label="COLOR"];
+c09d924c6ea40b481c70d8a60671c19->ee8c8424d5a4a89bcc0996c196b3ddf;
+ee8c8424d5a4a89bcc0996c196b3ddf[label="COLOR"];
+be413bdd5e4764adcbbeb864c3bc2b[label="Leslie Hernandez
+ Color: 4
  Blanco y Negro: 3"];
-bdb1abcc46348dd83bb209d75e8c72d->efb6bc4fbbf4cf0adf39fe7285450a9;
-da9af09443f455f803e3f409a673419[label=" Ventanilla 1 "];
-da9af09443f455f803e3f409a673419->ed63be234eefa2532141e9e3c337;
-ed63be234eefa2532141e9e3c337[label=" Ventanilla 2 "];
-ed63be234eefa2532141e9e3c337->edb703b2e2844bdb87359610a6cc579;
-edb703b2e2844bdb87359610a6cc579[label="COLOR"];
-baf4bf5fa784c27912e181768462479[label="Sofia Hernandez
- Color: 3
- Blanco y Negro: 0"];
-ed63be234eefa2532141e9e3c337->baf4bf5fa784c27912e181768462479;
+cbfd286e8a4eeba69bc3aebbb587b4->be413bdd5e4764adcbbeb864c3bc2b;
+c299bbaa9c4dbf88fc906783381883[label=" Ventanilla 2 "];
+c299bbaa9c4dbf88fc906783381883->d9541a792c490ab1fd44a37856b9c4;
+d9541a792c490ab1fd44a37856b9c4[label="BLANCONEGRO"];
+d9541a792c490ab1fd44a37856b9c4->ef47b4066a4b3f84b673644d252f9f;
+ef47b4066a4b3f84b673644d252f9f[label="COLOR"];
+ef47b4066a4b3f84b673644d252f9f->de5b0047c417cbf36267b245a0ce0;
+de5b0047c417cbf36267b245a0ce0[label="COLOR"];
+addc3f7efe84f19882aebe0a6d72505[label="Celeste Hernandez
+ Color: 2
+ Blanco y Negro: 4"];
+c299bbaa9c4dbf88fc906783381883->addc3f7efe84f19882aebe0a6d72505;
 }subgraph clusterListaAtendidos {
 /* Atendidos */
 label="Atendidos";
-cb36aaf66b245479d9aaca0d7158053[label="Juan Perez
+cab11ba518d45f4ae9ed44f68758b9e[label="Juan Perez
  Color: 3
- Blanco y Negro: 0"];
-cb36aaf66b245479d9aaca0d7158053->e6b5eaf017464694a01b45a93f1c15;
-e6b5eaf017464694a01b45a93f1c15[label="Andres Lopez
+ Blanco y Negro: 0
+ Pasos: 11"];
+cab11ba518d45f4ae9ed44f68758b9e->e32a71c3d4eaab3b362618c65a873;
+e32a71c3d4eaab3b362618c65a873[label="Andres Lopez
  Color: 3
- Blanco y Negro: 2"];
-e6b5eaf017464694a01b45a93f1c15->caf8aeb4480a6497e4e959ae80c;
-caf8aeb4480a6497e4e959ae80c[label="Luiz Higueros
+ Blanco y Negro: 2
+ Pasos: 20"];
+e32a71c3d4eaab3b362618c65a873->cfb29c04b4be1b3c4170e3f7088bb;
+cfb29c04b4be1b3c4170e3f7088bb[label="Luiz Higueros
  Color: 2
- Blanco y Negro: 1"];
+ Blanco y Negro: 1
+ Pasos: 23"];
+cfb29c04b4be1b3c4170e3f7088bb->bbd03e003a48aaa498595639151c15;
+bbd03e003a48aaa498595639151c15[label="Leslie Rivera
+ Color: 0
+ Blanco y Negro: 1
+ Pasos: 25"];
+bbd03e003a48aaa498595639151c15->ba5e9d340d140fc93918c2f0638a1d0;
+ba5e9d340d140fc93918c2f0638a1d0[label="Miguel Molina
+ Color: 4
+ Blanco y Negro: 3
+ Pasos: 32"];
+ba5e9d340d140fc93918c2f0638a1d0->f6fd1e1af24f3db7a1815b574ac348;
+f6fd1e1af24f3db7a1815b574ac348[label="Leslie Rivera
+ Color: 3
+ Blanco y Negro: 4
+ Pasos: 40"];
+f6fd1e1af24f3db7a1815b574ac348->f75f14be1424e728fbbf6a99cd10810;
+f75f14be1424e728fbbf6a99cd10810[label="Diego Aguirre
+ Color: 2
+ Blanco y Negro: 4
+ Pasos: 44"];
 }subgraph clusterListaEspera {
 /* Lista Espera */
 label="Lista de espera";
-aca59ef34e741bd90a05603d0b67750->be60814ba8b43f2ba1873f3d27b34fd;
-be60814ba8b43f2ba1873f3d27b34fd[label="BLANCONEGRO"];
-be60814ba8b43f2ba1873f3d27b34fd->acb36844ca4892a7929770568a8d9a;
-acb36844ca4892a7929770568a8d9a[label="COLOR"];
-acb36844ca4892a7929770568a8d9a->eee2f639f4787ae42fe66fae0c00c;
-eee2f639f4787ae42fe66fae0c00c[label="COLOR"];
-aca59ef34e741bd90a05603d0b67750[label="Celeste Escobar
- Color: 3
- Blanco y Negro: 1"];
-aca59ef34e741bd90a05603d0b67750->c7b340f6214852871dd3b141abbbec;
-aca59ef34e741bd90a05603d0b67750->cfb6f15b304ef3918c8a14f25d4b3b;
-cfb6f15b304ef3918c8a14f25d4b3b->acb60dbeb3746e6be884ffe895d1cfd;
-acb60dbeb3746e6be884ffe895d1cfd[label="BLANCONEGRO"];
-acb60dbeb3746e6be884ffe895d1cfd->fc3326af934b768311729e205a23e7;
-fc3326af934b768311729e205a23e7[label="BLANCONEGRO"];
-fc3326af934b768311729e205a23e7->ee8335e86be48f185761f8893490fa6;
-ee8335e86be48f185761f8893490fa6[label="BLANCONEGRO"];
-ee8335e86be48f185761f8893490fa6->ad577f13d402baff801328e9fa8e8;
-ad577f13d402baff801328e9fa8e8[label="BLANCONEGRO"];
-cfb6f15b304ef3918c8a14f25d4b3b[label="Celeste Hernandez
- Color: 2
- Blanco y Negro: 4"];
-cfb6f15b304ef3918c8a14f25d4b3b->aca59ef34e741bd90a05603d0b67750;
-cfb6f15b304ef3918c8a14f25d4b3b->aa474927f0481eae9e020394ef5a43;
-aa474927f0481eae9e020394ef5a43->d6fc71082db472ab27ed79b31f7c102;
-d6fc71082db472ab27ed79b31f7c102[label="BLANCONEGRO"];
-d6fc71082db472ab27ed79b31f7c102->fe0ad3b461b988ba90b4dbdde12;
-fe0ad3b461b988ba90b4dbdde12[label="BLANCONEGRO"];
-fe0ad3b461b988ba90b4dbdde12->bfaa5289714516a1c405aac4301e67;
-bfaa5289714516a1c405aac4301e67[label="BLANCONEGRO"];
-aa474927f0481eae9e020394ef5a43[label="Ruben Lopez
- Color: 3
- Blanco y Negro: 3"];
-aa474927f0481eae9e020394ef5a43->cfb6f15b304ef3918c8a14f25d4b3b;
-aa474927f0481eae9e020394ef5a43->cf94e18b844473fbf07fda34caad439;
-cf94e18b844473fbf07fda34caad439->de254f8b45d08fa471b420d32c82;
-de254f8b45d08fa471b420d32c82[label="BLANCONEGRO"];
-cf94e18b844473fbf07fda34caad439[label="Ruben Rivera
- Color: 1
- Blanco y Negro: 1"];
-cf94e18b844473fbf07fda34caad439->aa474927f0481eae9e020394ef5a43;
-cf94e18b844473fbf07fda34caad439->b8668f1c403bbe2f0fa419ee17d7;
-b8668f1c403bbe2f0fa419ee17d7->f39fcbc847688b90970f27d08512;
-f39fcbc847688b90970f27d08512[label="BLANCONEGRO"];
-b8668f1c403bbe2f0fa419ee17d7[label="Ruben Molina
+bebb44861554d2eb0b8807cb3aeff32->ced484e8dd765a406494ec0;
+ced484e8dd765a406494ec0[label="COLOR
+Cliente: Leslie Lopez"];
+bebb44861554d2eb0b8807cb3aeff32[label="Leslie Lopez
  Color: 4
+ Blanco y Negro: 0"];
+bebb44861554d2eb0b8807cb3aeff32->b6cc76ddc74990a085af02a4c8605d;
+bebb44861554d2eb0b8807cb3aeff32->bb819870549e8b42fe32a71c5010a;
+bb819870549e8b42fe32a71c5010a->af13cce3d89442db35aa01b08d1ca8c;
+af13cce3d89442db35aa01b08d1ca8c[label="BLANCONEGRO
+Cliente: Jorge Velasquez"];
+bb819870549e8b42fe32a71c5010a[label="Jorge Velasquez
+ Color: 3
  Blanco y Negro: 1"];
-b8668f1c403bbe2f0fa419ee17d7->cf94e18b844473fbf07fda34caad439;
-b8668f1c403bbe2f0fa419ee17d7->cbf1659e7164a5fb3d27c8a94008624;
-cbf1659e7164a5fb3d27c8a94008624->ec3e278dd2e4f619456f1e1ec5948ed;
-ec3e278dd2e4f619456f1e1ec5948ed[label="BLANCONEGRO"];
-cbf1659e7164a5fb3d27c8a94008624[label="Leslie Molina
+bb819870549e8b42fe32a71c5010a->bebb44861554d2eb0b8807cb3aeff32;
+bb819870549e8b42fe32a71c5010a->d6fd9e6a48c980d6cd5db1ca6784;
+d6fd9e6a48c980d6cd5db1ca6784->c2942f88348dda74a4a3f7f25615c;
+c2942f88348dda74a4a3f7f25615c[label="BLANCONEGRO
+Cliente: Diego Rivera"];
+c2942f88348dda74a4a3f7f25615c->beaa9c515d4efeb9d8f70e8bc48d0f;
+beaa9c515d4efeb9d8f70e8bc48d0f[label="BLANCONEGRO
+Cliente: Diego Rivera"];
+d6fd9e6a48c980d6cd5db1ca6784[label="Diego Rivera
  Color: 1
- Blanco y Negro: 3"];
-cbf1659e7164a5fb3d27c8a94008624->b8668f1c403bbe2f0fa419ee17d7;
-cbf1659e7164a5fb3d27c8a94008624->b1cc9a98a449d0b6fdc12e57ec237b;
-b1cc9a98a449d0b6fdc12e57ec237b[label="Leslie Rivera
- Color: 1
- Blanco y Negro: 3"];
-b1cc9a98a449d0b6fdc12e57ec237b->cbf1659e7164a5fb3d27c8a94008624;
-b1cc9a98a449d0b6fdc12e57ec237b->ecebda07cf441a4a7a71862c606337d;
-ecebda07cf441a4a7a71862c606337d[label="Jorge Escobar
- Color: 0
- Blanco y Negro: 4"];
-ecebda07cf441a4a7a71862c606337d->b1cc9a98a449d0b6fdc12e57ec237b;
-ecebda07cf441a4a7a71862c606337d->b445db9654821804d8758f599c5a8;
-b445db9654821804d8758f599c5a8[label="Sofia Rodriguez
- Color: 0
  Blanco y Negro: 2"];
-b445db9654821804d8758f599c5a8->ecebda07cf441a4a7a71862c606337d;
-b445db9654821804d8758f599c5a8->bfcdf79ed47ec88f75175c7d9e3fc;
-bfcdf79ed47ec88f75175c7d9e3fc[label="Leslie Hernandez
+d6fd9e6a48c980d6cd5db1ca6784->bb819870549e8b42fe32a71c5010a;
+d6fd9e6a48c980d6cd5db1ca6784->b3ae7daea47bf94f4660392014272;
+b3ae7daea47bf94f4660392014272[label="Dulce Muñoz
+ Color: 3
+ Blanco y Negro: 0"];
+b3ae7daea47bf94f4660392014272->d6fd9e6a48c980d6cd5db1ca6784;
+b3ae7daea47bf94f4660392014272->de0ee4df6b333b3a802d1bffc;
+de0ee4df6b333b3a802d1bffc->fcec73b1b8847668957bd2723e3bd45;
+fcec73b1b8847668957bd2723e3bd45[label="BLANCONEGRO
+Cliente: Miguel Muñoz"];
+de0ee4df6b333b3a802d1bffc[label="Miguel Muñoz
  Color: 1
  Blanco y Negro: 1"];
-bfcdf79ed47ec88f75175c7d9e3fc->b445db9654821804d8758f599c5a8;
-bfcdf79ed47ec88f75175c7d9e3fc->cdab52f3a41eab290f9e65c2b1784;
-cdab52f3a41eab290f9e65c2b1784[label="Miguel Rivera
+de0ee4df6b333b3a802d1bffc->b3ae7daea47bf94f4660392014272;
+de0ee4df6b333b3a802d1bffc->a8feffed41c18ce89ae0f226c41b;
+a8feffed41c18ce89ae0f226c41b[label="Celeste Molina
  Color: 1
  Blanco y Negro: 0"];
-cdab52f3a41eab290f9e65c2b1784->bfcdf79ed47ec88f75175c7d9e3fc;
-cdab52f3a41eab290f9e65c2b1784->e2b2692e3342af97adbe4f3d97d19f;
-e2b2692e3342af97adbe4f3d97d19f[label="Pedro Velasquez
- Color: 1
- Blanco y Negro: 1"];
-e2b2692e3342af97adbe4f3d97d19f->cdab52f3a41eab290f9e65c2b1784;
-e2b2692e3342af97adbe4f3d97d19f->ddcae7f6a54805ba36c8a9161ab4f6;
-ddcae7f6a54805ba36c8a9161ab4f6[label="Miguel Rivera
+a8feffed41c18ce89ae0f226c41b->de0ee4df6b333b3a802d1bffc;
+a8feffed41c18ce89ae0f226c41b->bda28548f683b6a666d52a03d0;
+bda28548f683b6a666d52a03d0->cdc686ffed74e61b9b8e06b2fbf046b;
+cdc686ffed74e61b9b8e06b2fbf046b[label="BLANCONEGRO
+Cliente: Sofia Aguirre"];
+cdc686ffed74e61b9b8e06b2fbf046b->f1d6573f4449f4833a504ff350600f;
+f1d6573f4449f4833a504ff350600f[label="BLANCONEGRO
+Cliente: Sofia Aguirre"];
+f1d6573f4449f4833a504ff350600f->f7b15b16e644d389fb73d089bbd5e4a;
+f7b15b16e644d389fb73d089bbd5e4a[label="BLANCONEGRO
+Cliente: Sofia Aguirre"];
+bda28548f683b6a666d52a03d0[label="Sofia Aguirre
+ Color: 2
+ Blanco y Negro: 3"];
+bda28548f683b6a666d52a03d0->a8feffed41c18ce89ae0f226c41b;
+bda28548f683b6a666d52a03d0->dbccd9898f8487cb249fd24cbb31a96;
+dbccd9898f8487cb249fd24cbb31a96->baf618583c84cea9de8f512eaf506d0;
+baf618583c84cea9de8f512eaf506d0[label="BLANCONEGRO
+Cliente: Ruben Hernandez"];
+baf618583c84cea9de8f512eaf506d0->feab0aeee54bdc83a9ae7c823b47d7;
+feab0aeee54bdc83a9ae7c823b47d7[label="BLANCONEGRO
+Cliente: Ruben Hernandez"];
+feab0aeee54bdc83a9ae7c823b47d7->c06e0da9e3402db9b91c550af210cd;
+c06e0da9e3402db9b91c550af210cd[label="BLANCONEGRO
+Cliente: Ruben Hernandez"];
+dbccd9898f8487cb249fd24cbb31a96[label="Ruben Hernandez
+ Color: 3
+ Blanco y Negro: 3"];
+dbccd9898f8487cb249fd24cbb31a96->bda28548f683b6a666d52a03d0;
+dbccd9898f8487cb249fd24cbb31a96->efe6aaf22473991c86fca6ed2eecd;
+efe6aaf22473991c86fca6ed2eecd->cdc94f93b124bc4925b8cb48ed74d39;
+cdc94f93b124bc4925b8cb48ed74d39[label="BLANCONEGRO
+Cliente: Dulce Velasquez"];
+cdc94f93b124bc4925b8cb48ed74d39->fc34934270a200096b4190f1d7;
+fc34934270a200096b4190f1d7[label="BLANCONEGRO
+Cliente: Dulce Velasquez"];
+efe6aaf22473991c86fca6ed2eecd[label="Dulce Velasquez
+ Color: 0
+ Blanco y Negro: 3"];
+efe6aaf22473991c86fca6ed2eecd->dbccd9898f8487cb249fd24cbb31a96;
+efe6aaf22473991c86fca6ed2eecd->beb46e7a5272482b924af8f;
+beb46e7a5272482b924af8f[label="Diego Lopez
  Color: 4
- Blanco y Negro: 2"];
-ddcae7f6a54805ba36c8a9161ab4f6->e2b2692e3342af97adbe4f3d97d19f;
-ddcae7f6a54805ba36c8a9161ab4f6->fd17bfd44bfab147bd04e37cf93c;
-fd17bfd44bfab147bd04e37cf93c[label="Dulce Escobar
- Color: 1
- Blanco y Negro: 4"];
-fd17bfd44bfab147bd04e37cf93c->ddcae7f6a54805ba36c8a9161ab4f6;
-fd17bfd44bfab147bd04e37cf93c->b48c4b9c5c43729bb1693bf19de9f3;
-b48c4b9c5c43729bb1693bf19de9f3[label="Celeste Aguirre
- Color: 1
- Blanco y Negro: 3"];
-b48c4b9c5c43729bb1693bf19de9f3->fd17bfd44bfab147bd04e37cf93c;
-b48c4b9c5c43729bb1693bf19de9f3->ea7d13111e453699fa9075d58dd3d1;
-ea7d13111e453699fa9075d58dd3d1[label="Sofia Rivera
- Color: 1
- Blanco y Negro: 3"];
-ea7d13111e453699fa9075d58dd3d1->b48c4b9c5c43729bb1693bf19de9f3;
-ea7d13111e453699fa9075d58dd3d1->dff8190fd434baf81e37ada404c95;
-dff8190fd434baf81e37ada404c95[label="Leslie Suarez
+ Blanco y Negro: 1"];
+beb46e7a5272482b924af8f->efe6aaf22473991c86fca6ed2eecd;
+beb46e7a5272482b924af8f->b33fbda34ab2a01d14f8bd8febf3;
+b33fbda34ab2a01d14f8bd8febf3[label="Miguel Aguirre
  Color: 0
  Blanco y Negro: 2"];
-dff8190fd434baf81e37ada404c95->ea7d13111e453699fa9075d58dd3d1;
-dff8190fd434baf81e37ada404c95->af249fe83e664f6a53063b9;
-af249fe83e664f6a53063b9[label="Celeste Aguirre
+b33fbda34ab2a01d14f8bd8febf3->beb46e7a5272482b924af8f;
+b33fbda34ab2a01d14f8bd8febf3->fb27a4c6184118a6a48838b55c4a37;
+fb27a4c6184118a6a48838b55c4a37[label="Sofia Lopez
+ Color: 1
+ Blanco y Negro: 2"];
+fb27a4c6184118a6a48838b55c4a37->b33fbda34ab2a01d14f8bd8febf3;
+fb27a4c6184118a6a48838b55c4a37->acbe6ad99cc418182136ee52824a7bf;
+acbe6ad99cc418182136ee52824a7bf[label="Celeste Velasquez
+ Color: 4
+ Blanco y Negro: 1"];
+acbe6ad99cc418182136ee52824a7bf->fb27a4c6184118a6a48838b55c4a37;
+acbe6ad99cc418182136ee52824a7bf->e3f4d6f877f82d79ed40b71;
+e3f4d6f877f82d79ed40b71[label="Leslie Velasquez
+ Color: 4
+ Blanco y Negro: 1"];
+e3f4d6f877f82d79ed40b71->acbe6ad99cc418182136ee52824a7bf;
+e3f4d6f877f82d79ed40b71->cb05b5d658493287ef49a2a5fc959a;
+cb05b5d658493287ef49a2a5fc959a[label="Juan Molina
+ Color: 2
+ Blanco y Negro: 2"];
+cb05b5d658493287ef49a2a5fc959a->e3f4d6f877f82d79ed40b71;
+cb05b5d658493287ef49a2a5fc959a->dedfeb7f94e689cea16fc1d3e2045;
+dedfeb7f94e689cea16fc1d3e2045[label="Miguel Aguirre
+ Color: 2
+ Blanco y Negro: 2"];
+dedfeb7f94e689cea16fc1d3e2045->cb05b5d658493287ef49a2a5fc959a;
+dedfeb7f94e689cea16fc1d3e2045->bfefbcc89a4b18bee040f1e41348be;
+bfefbcc89a4b18bee040f1e41348be[label="Dulce Suarez
+ Color: 0
+ Blanco y Negro: 2"];
+bfefbcc89a4b18bee040f1e41348be->dedfeb7f94e689cea16fc1d3e2045;
+bfefbcc89a4b18bee040f1e41348be->c0b1e3710604064b97365e891d2cccc;
+c0b1e3710604064b97365e891d2cccc[label="Jorge Suarez
+ Color: 0
+ Blanco y Negro: 1"];
+c0b1e3710604064b97365e891d2cccc->bfefbcc89a4b18bee040f1e41348be;
+c0b1e3710604064b97365e891d2cccc->aee33dcde42c29fbfe5c9a36ad7af;
+aee33dcde42c29fbfe5c9a36ad7af[label="Ruben Molina
+ Color: 2
+ Blanco y Negro: 2"];
+aee33dcde42c29fbfe5c9a36ad7af->c0b1e3710604064b97365e891d2cccc;
+aee33dcde42c29fbfe5c9a36ad7af->d64af49e6524f7b8735d30b7328ee7e;
+d64af49e6524f7b8735d30b7328ee7e[label="Jorge Aguirre
+ Color: 2
+ Blanco y Negro: 1"];
+d64af49e6524f7b8735d30b7328ee7e->aee33dcde42c29fbfe5c9a36ad7af;
+d64af49e6524f7b8735d30b7328ee7e->a495364d4887c612938e6016e6;
+a495364d4887c612938e6016e6[label="Ruben Velasquez
+ Color: 2
+ Blanco y Negro: 1"];
+a495364d4887c612938e6016e6->d64af49e6524f7b8735d30b7328ee7e;
+a495364d4887c612938e6016e6->bb5e27c1a964052986aacd7890655ec;
+bb5e27c1a964052986aacd7890655ec[label="Pedro Velasquez
  Color: 4
  Blanco y Negro: 4"];
-af249fe83e664f6a53063b9->dff8190fd434baf81e37ada404c95;
-af249fe83e664f6a53063b9->c7b340f6214852871dd3b141abbbec;
-c7b340f6214852871dd3b141abbbec[label="Pedro Escobar
+bb5e27c1a964052986aacd7890655ec->a495364d4887c612938e6016e6;
+bb5e27c1a964052986aacd7890655ec->b72c60b409bbff0593751709ad9;
+b72c60b409bbff0593751709ad9[label="Miguel Suarez
+ Color: 2
+ Blanco y Negro: 1"];
+b72c60b409bbff0593751709ad9->bb5e27c1a964052986aacd7890655ec;
+b72c60b409bbff0593751709ad9->fae59f09490c86f76718cc714474;
+fae59f09490c86f76718cc714474[label="Ruben Hernandez
+ Color: 0
+ Blanco y Negro: 4"];
+fae59f09490c86f76718cc714474->b72c60b409bbff0593751709ad9;
+fae59f09490c86f76718cc714474->dba55fc5b04d5bad8b3fb7d02c0069;
+dba55fc5b04d5bad8b3fb7d02c0069[label="Ruben Rodriguez
+ Color: 2
+ Blanco y Negro: 3"];
+dba55fc5b04d5bad8b3fb7d02c0069->fae59f09490c86f76718cc714474;
+dba55fc5b04d5bad8b3fb7d02c0069->faffa4bc8b457b836e253913e7a722;
+faffa4bc8b457b836e253913e7a722[label="Diego Rodriguez
+ Color: 2
+ Blanco y Negro: 1"];
+faffa4bc8b457b836e253913e7a722->dba55fc5b04d5bad8b3fb7d02c0069;
+faffa4bc8b457b836e253913e7a722->b2ebec1cf04c44815f8f0f3c39bd68;
+b2ebec1cf04c44815f8f0f3c39bd68[label="Miguel Lopez
+ Color: 4
+ Blanco y Negro: 4"];
+b2ebec1cf04c44815f8f0f3c39bd68->faffa4bc8b457b836e253913e7a722;
+b2ebec1cf04c44815f8f0f3c39bd68->be70b5d0df41acb3e7caf8ee81a2f2;
+be70b5d0df41acb3e7caf8ee81a2f2[label="Pedro Velasquez
+ Color: 0
+ Blanco y Negro: 1"];
+be70b5d0df41acb3e7caf8ee81a2f2->b2ebec1cf04c44815f8f0f3c39bd68;
+be70b5d0df41acb3e7caf8ee81a2f2->f539c8d154085b3d4ba06d215334c;
+f539c8d154085b3d4ba06d215334c[label="Jorge Hernandez
  Color: 3
- Blanco y Negro: 2"];
-c7b340f6214852871dd3b141abbbec->af249fe83e664f6a53063b9;
-c7b340f6214852871dd3b141abbbec->aca59ef34e741bd90a05603d0b67750;
+ Blanco y Negro: 4"];
+f539c8d154085b3d4ba06d215334c->be70b5d0df41acb3e7caf8ee81a2f2;
+f539c8d154085b3d4ba06d215334c->fa9812e0ec486f8de099c85e40d2cd;
+fa9812e0ec486f8de099c85e40d2cd[label="Jorge Suarez
+ Color: 3
+ Blanco y Negro: 3"];
+fa9812e0ec486f8de099c85e40d2cd->f539c8d154085b3d4ba06d215334c;
+fa9812e0ec486f8de099c85e40d2cd->b6cc76ddc74990a085af02a4c8605d;
+b6cc76ddc74990a085af02a4c8605d[label="Celeste Molina
+ Color: 3
+ Blanco y Negro: 1"];
+b6cc76ddc74990a085af02a4c8605d->fa9812e0ec486f8de099c85e40d2cd;
+b6cc76ddc74990a085af02a4c8605d->bebb44861554d2eb0b8807cb3aeff32;
 }}

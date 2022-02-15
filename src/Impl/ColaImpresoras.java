@@ -8,6 +8,7 @@ package Impl;
 import Enums.TipoImagen;
 import Estructuras.NodoDoble;
 import Estructuras.Queue;
+import Modelos.Cliente;
 import Modelos.Imagen;
 
 /**
@@ -15,7 +16,7 @@ import Modelos.Imagen;
  * @author Xhunik_Local
  */
 public class ColaImpresoras extends Queue<Imagen>{
-    public String graph(TipoImagen tipo){
+    public String graph(TipoImagen tipo, ListaClientesEspera espera){
         String tipoString = null;
         String tipoId = null;
         switch (tipo){
@@ -33,12 +34,17 @@ public class ColaImpresoras extends Queue<Imagen>{
         if(!this.isVoid()){
             NodoDoble<Imagen> auxc = this.head;
             while(auxc != null){
-                str.append(auxc.dato.id).append("[label=\"").append(auxc.dato.tipo.toString()).append("\"];\n");
+                Cliente cl = espera.getById(auxc.dato.clientId);
+                if (cl != null){
+                    str.append(auxc.dato.id).append("[label=\"").append(auxc.dato.tipo.toString())
+                            .append("\n").append("Cliente: ").append(cl.nombre)
+                            .append("\"];\n");
 
-                if (auxc.siguiente != null)
-                    str.append(auxc.dato.id).append("->").append(auxc.siguiente.dato.id).append(";\n");
+                    if (auxc.siguiente != null)
+                        str.append(auxc.dato.id).append("->").append(auxc.siguiente.dato.id).append(";\n");
 
-                auxc = auxc.siguiente;
+                    auxc = auxc.siguiente;
+                }
             }
             str.append(tipoId).append("[label=\"").append(tipoString).append("\"];\n");
             if (this.last != null)

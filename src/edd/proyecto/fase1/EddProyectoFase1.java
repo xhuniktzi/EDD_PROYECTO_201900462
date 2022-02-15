@@ -64,6 +64,16 @@ public class EddProyectoFase1 {
                 case 3:
                     l.graph();
                     break;
+                case 4:
+                    l.printReports();
+                    break;
+                case 5:
+                    System.out.println("-------------------------------------");
+                    System.out.println("Proyecto Fase 1 - EDD");
+                    System.out.println("Carnet: 201900462");
+                    System.out.println("Nombre: Xhunik Miguel");
+                    System.out.println("-------------------------------------");
+                    break;
                 case 6:
                     break OUTER;
                 default:
@@ -134,6 +144,19 @@ class Logic {
         
         this.remaingBlancoNegroSteps = 1;
         this.remaingColorSteps = 2;
+    }
+    
+    public void printReports(){
+        System.out.println("Imprimir");
+        System.out.println("5 clientes con mas impresiones a color:");
+        listaAtendidos.sortByColorAsc();
+        listaAtendidos.printFive();
+        System.out.println("5 clientes con menos impresiones a blanco y negro:");
+        listaAtendidos.sortByBlancoNegroDesc();
+        listaAtendidos.printFive();
+        System.out.println("Cliente con mas pasos en el sistema");
+        listaAtendidos.sortBySteps();
+        listaAtendidos.printOne();
     }
     
     public void cargarVentanillas(int cant){
@@ -222,14 +245,14 @@ class Logic {
             str.append("subgraph clusterPrintBN {\n");
             str.append("/* Cola blanco y negro */\n");
             str.append("label=\"Cola Impresora Blanco y Negro\";\n");
-            str.append(blancoNegroImpresora.queue.graph(TipoImagen.BLANCONEGRO));
+            str.append(blancoNegroImpresora.queue.graph(TipoImagen.BLANCONEGRO, listaEspera));
             str.append("}");
             
             // Cola impresora a color
             str.append("subgraph clusterPrintColor {\n");
             str.append("/* Cola color */\n");
             str.append("label=\"Cola Impresora Color\";\n");
-            str.append(colorImpresora.queue.graph(TipoImagen.COLOR));
+            str.append(colorImpresora.queue.graph(TipoImagen.COLOR, listaEspera));
             str.append("}");
             
             // Cola recepcion

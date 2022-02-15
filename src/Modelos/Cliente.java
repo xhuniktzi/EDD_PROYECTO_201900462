@@ -30,6 +30,7 @@ public class Cliente {
     public Cliente(){
         this.id = EddProyectoFase1.generateGuid();
         this.listaImages = new ListaImpresiones();
+        this.pasos = 0;
     }
     
     public Cliente(String nombre) {

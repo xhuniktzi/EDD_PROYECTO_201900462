@@ -53,6 +53,18 @@ public class ListaClientesAtendidos extends LinkedList<Cliente> {
             System.out.println("Cliente: " + this.head.dato.nombre);
     }
     
+    public void printAll(){
+        int count = 0;
+        if(!this.isVoid()){
+            NodoSimple<Cliente> auxc = this.head;
+            while(auxc != null){
+                count++;
+                System.out.println(count + ". Cliente: " + auxc.dato.nombre);
+                auxc = auxc.siguiente;
+            }        
+        }
+    }
+    
     public void sortBySteps(){
         int n = this.getSize();
         for (int i = 0; i < n-1; i++){
@@ -98,7 +110,7 @@ public class ListaClientesAtendidos extends LinkedList<Cliente> {
         }
     }
     
-    private Cliente getByIndex(int index){
+    public Cliente getByIndex(int index){
         int count = 0;
         NodoSimple<Cliente> nodo = this.head;
         while (nodo != null){
@@ -132,34 +144,4 @@ public class ListaClientesAtendidos extends LinkedList<Cliente> {
         }
         return count;
     }
-//    
-//        def get_size(self):
-//        count = 0
-//        node = self.head
-//        while node != None:
-//            node = node.next
-//            count = count + 1
-//        return count
-    
-//        def get_by_index(self, index: int):
-//        count = 0
-//        node = self.head
-//        while node != None:
-//            if index == count:
-//                return node.data
-//            count = count + 1
-//            node = node.next
-//        return None
-//
-//    # Añade un elemento en el indice
-//    def set_by_index(self, index: int, data):
-//        count = 0
-//        node = self.head
-//        while node != None:
-//            if index == count:
-//                node.data = data
-//                return
-//            count = count + 1
-//            node = node.next
-//        return
 }

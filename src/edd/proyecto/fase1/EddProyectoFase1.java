@@ -134,6 +134,8 @@ class Logic {
     private int remaingColorSteps;
     private int remaingBlancoNegroSteps;
     
+    Scanner sc;
+    
     public Logic() {
         blancoNegroImpresora = new Impresora(TipoImagen.BLANCONEGRO);
         colorImpresora = new Impresora(TipoImagen.COLOR);
@@ -144,6 +146,8 @@ class Logic {
         
         this.remaingBlancoNegroSteps = 1;
         this.remaingColorSteps = 2;
+        
+        sc = new Scanner(System.in);
     }
     
     public void printReports(){
@@ -157,6 +161,16 @@ class Logic {
         System.out.println("Cliente con mas pasos en el sistema");
         listaAtendidos.sortBySteps();
         listaAtendidos.printOne();
+        System.out.println("Clientes actualmente en el sistema");
+        listaAtendidos.printAll();
+        System.out.println("ingrese un numero: ");
+        int value = sc.nextInt();
+        
+        Cliente cl = listaAtendidos.getByIndex(value - 1);
+        System.out.println("Cliente:" + cl.nombre);
+        System.out.println("Imagenes a blanco y negro: " + cl.imgBlancoNegroConst);
+        System.out.println("Imagenes a color: " + cl.imgColorConst);
+        System.out.println("Pasos: " + cl.pasos);
     }
     
     public void cargarVentanillas(int cant){

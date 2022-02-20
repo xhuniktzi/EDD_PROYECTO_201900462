@@ -21,10 +21,6 @@ public class Cliente {
     public String idVentanilla;
     public int imgBlancoNegroConst;
     public int imgColorConst;
-//    private int imgColorToProcess;
-//    private int imgColorProcessed;
-//    private int imgBlancoNegroToProcess;
-//    private int imgBlancoNegroProcessed;
     public ListaImpresiones listaImages;
 
     public Cliente(){
@@ -44,15 +40,4 @@ public class Cliente {
         this.imgBlancoNegroConst = this.imgBlancoNegro = imgBlancoNegro;
     }
     
-    
-    
-//    public boolean processColor(){
-//        imgColorProcessed++;
-//        return this.imgColorProcessed < this.imgColorToProcess;
-//    }
-//    
-//    public boolean processBlancoNegro(){
-//        imgBlancoNegroProcessed++;
-//        return this.imgBlancoNegroProcessed < this.imgBlancoNegroToProcess;
-//    }
 }

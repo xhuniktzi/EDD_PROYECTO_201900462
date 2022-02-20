@@ -161,16 +161,19 @@ class Logic {
         System.out.println("Cliente con mas pasos en el sistema");
         listaAtendidos.sortBySteps();
         listaAtendidos.printOne();
-        System.out.println("Clientes actualmente en el sistema");
-        listaAtendidos.printAll();
-        System.out.println("ingrese un numero: ");
-        int value = sc.nextInt();
         
-        Cliente cl = listaAtendidos.getByIndex(value - 1);
-        System.out.println("Cliente:" + cl.nombre);
-        System.out.println("Imagenes a blanco y negro: " + cl.imgBlancoNegroConst);
-        System.out.println("Imagenes a color: " + cl.imgColorConst);
-        System.out.println("Pasos: " + cl.pasos);
+        if(listaAtendidos.getSize() > 0 ){
+            System.out.println("Clientes actualmente en el sistema");
+            listaAtendidos.printAll();
+            System.out.println("ingrese un numero: ");
+            int value = sc.nextInt();
+
+            Cliente cl = listaAtendidos.getByIndex(value - 1);
+            System.out.println("Cliente:" + cl.nombre);
+            System.out.println("Imagenes a blanco y negro: " + cl.imgBlancoNegroConst);
+            System.out.println("Imagenes a color: " + cl.imgColorConst);
+            System.out.println("Pasos: " + cl.pasos);
+        }
     }
     
     public void cargarVentanillas(int cant){

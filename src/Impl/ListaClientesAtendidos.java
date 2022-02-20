@@ -135,7 +135,7 @@ public class ListaClientesAtendidos extends LinkedList<Cliente> {
         }
     }
     
-    private int getSize(){
+    public int getSize(){
         int count = 0;
         NodoSimple<Cliente> nodo = this.head;
         while(nodo != null){

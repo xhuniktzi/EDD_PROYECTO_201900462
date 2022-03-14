@@ -5,30 +5,68 @@
  */
 package Estructuras;
 
-import Edd.Proyecto.Fase2.Fase2;
+import Modelos.Cliente;
+
 
 /**
  *
  * @author Xhunik_Local
  */
 public class BTreeClients {
-    public BTreeNodeClient root;
-    public int grado = Fase2.grado;
+    BTreeNodeClient root;
+    int MinDeg;
 
-    public BTreeClients() {
+    public BTreeClients(int deg){
         this.root = null;
+        this.MinDeg = deg;
     }
-    
-    public void recorrer(){
-        if (this.root != null)
-            this.root.recorrer();
-        System.out.println();
+
+    public void traverse(){
+        if (root != null){
+            root.traverse();
+        }
     }
-    
-    public BTreeNodeClient buscar(int k){
-        if (this.root == null)
-            return null;
-        else
-            return this.root.buscar(k);
+
+    public BTreeNodeClient search(int key){
+        return root == null ? null : root.search(key);
+    }
+
+    public void insert(Cliente key){
+        if (root == null){
+
+            root = new BTreeNodeClient(MinDeg,true);
+            root.keys.setByIndex(0, key);
+            root.num = 1;
+        }
+        else {
+            if (root.num == 2*MinDeg-1){
+                BTreeNodeClient s = new BTreeNodeClient(MinDeg,false);
+                s.children.setByIndex(0, root);
+                s.splitChild(0,root);
+                int i = 0;
+                if (s.keys.getByIndex(0).dpi < key.dpi)
+                    i++;
+                s.children.getByIndex(i).insertNotFull(key);
+
+                root = s;
+            }
+            else
+                root.insertNotFull(key);
+        }
+    }
+
+    public void remove(int key){
+        if (root == null){
+            System.out.println("The tree is empty");
+            return;
+        }
+        root.remove(key);
+
+        if (root.num == 0){ 
+            if (root.isLeaf)
+                root = null;
+            else
+                root = root.children.getByIndex(0);
+        }
     }
 }

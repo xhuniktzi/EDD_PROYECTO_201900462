@@ -22,12 +22,12 @@ public class BTreeClients {
     }
 
     public void traverse(){
-        if (root != null){
+        if (root != null)
             root.traverse();
-        }
+        System.out.println();
     }
 
-    public BTreeNodeClient search(int key){
+    public BTreeNodeClient search(String key){
         return root == null ? null : root.search(key);
     }
 
@@ -44,7 +44,7 @@ public class BTreeClients {
                 s.children.setByIndex(0, root);
                 s.splitChild(0,root);
                 int i = 0;
-                if (s.keys.getByIndex(0).dpi < key.dpi)
+                if (s.keys.getByIndex(0).dpi.compareTo(key.dpi) < 0)
                     i++;
                 s.children.getByIndex(i).insertNotFull(key);
 
@@ -55,7 +55,7 @@ public class BTreeClients {
         }
     }
 
-    public void remove(int key){
+    public void remove(String key){
         if (root == null){
             System.out.println("The tree is empty");
             return;

@@ -28,18 +28,18 @@ public class BTreeNodeClient {
         this.num = 0;
     }
 
-    public int findKey(int key){
+    public int findKey(String key){
         int idx = 0;
-        while (idx < num && keys.getByIndex(idx).dpi < key)
+        while (idx < num && keys.getByIndex(idx).dpi.compareTo(key) < 0)
             ++idx;
         return idx;
     }
 
 
-    public void remove(int key){
+    public void remove(String key){
 
         int idx = findKey(key);
-        if (idx < num && keys.getByIndex(idx).dpi == key){
+        if (idx < num && keys.getByIndex(idx).dpi.equals(key)){
             if (isLeaf)
                 removeFromLeaf(idx);
             else
@@ -69,7 +69,7 @@ public class BTreeNodeClient {
     }
 
     public void removeFromNonLeaf(int idx){
-        int key = keys.getByIndex(idx).dpi;
+        String key = keys.getByIndex(idx).dpi;
         if (children.getByIndex(idx).num >= MinDeg){
             Cliente pred = getPred(idx);
             keys.setByIndex(idx, pred);
@@ -187,7 +187,7 @@ public class BTreeNodeClient {
         int i = num -1;
 
         if (isLeaf){
-            while (i >= 0 && keys.getByIndex(i).dpi > key.dpi){
+            while (i >= 0 && keys.getByIndex(i).dpi.compareTo(key.dpi) > 0){
                 keys.setByIndex(i + 1, keys.getByIndex(i));
                 i--;
             }
@@ -195,11 +195,11 @@ public class BTreeNodeClient {
             num = num +1;
         }
         else{
-            while (i >= 0 && keys.getByIndex(i).dpi > key.dpi)
+            while (i >= 0 && keys.getByIndex(i).dpi.compareTo(key.dpi) > 0)
                 i--;
             if (children.getByIndex(i+1).num == 2*MinDeg - 1){
                 splitChild(i+1,children.getByIndex(i + 1));
-                if (keys.getByIndex(i + 1).dpi < key.dpi)
+                if (keys.getByIndex(i + 1).dpi.compareTo(key.dpi) < 0)
                     i++;
             }
             children.getByIndex(i + 1).insertNotFull(key);
@@ -237,7 +237,7 @@ public class BTreeNodeClient {
         for (i = 0; i< num; i++){
             if (!isLeaf)
                 children.getByIndex(i).traverse();
-            System.out.printf(" %d",keys.getByIndex(i).dpi);
+            System.out.printf(" %s",keys.getByIndex(i).dpi);
         }
 
         if (!isLeaf){
@@ -245,12 +245,12 @@ public class BTreeNodeClient {
         }
     }
 
-    public BTreeNodeClient search(int key){
+    public BTreeNodeClient search(String key){
         int i = 0;
-        while (i < num && key > keys.getByIndex(i).dpi)
+        while (i < num && key.compareTo(keys.getByIndex(i).dpi) > 0)
             i++;
 
-        if (keys.getByIndex(i).dpi == key)
+        if (keys.getByIndex(i).dpi.equals(key))
             return this;
         if (isLeaf)
             return null;

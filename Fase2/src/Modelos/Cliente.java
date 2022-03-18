@@ -10,7 +10,7 @@ package Modelos;
  * @author Xhunik_Local
  */
 public class Cliente {
-    public int dpi;
+    public String dpi;
     public String nombre_cliente;
     public String password;
 }

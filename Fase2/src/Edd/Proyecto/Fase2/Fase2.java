@@ -5,9 +5,6 @@
  */
 package Edd.Proyecto.Fase2;
 
-import Estructuras.BTreeClients;
-import Modelos.Cliente;
-
 /**
  *
  * @author Xhunik_Local

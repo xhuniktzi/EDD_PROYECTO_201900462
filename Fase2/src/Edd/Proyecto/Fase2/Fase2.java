@@ -22,6 +22,9 @@ public class Fase2 {
     public static void main(String[] args) {
         // TODO code application logic here
 
+        // public API
+        // insert, remove, findClienteByDpi, graph
+        
         BTreeClients t = new BTreeClients(2);
         t.insert(new Cliente("0", "Persona 12", "clave"));
         t.insert(new Cliente("1", "Persona 13", "clave"));

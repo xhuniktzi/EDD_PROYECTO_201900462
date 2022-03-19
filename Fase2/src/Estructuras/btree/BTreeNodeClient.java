@@ -5,7 +5,7 @@ import Modelos.Cliente;
 
 public class BTreeNodeClient {
     ListaEnlazadaSimple<Cliente> dataEntries;
-    private int t;
+    private final int t;
     ListaEnlazadaSimple<BTreeNodeClient> children;
     int num;
     boolean isLeaf;
@@ -155,26 +155,26 @@ public class BTreeNodeClient {
     }
 
 
-    public void insertNotFull(Cliente dpi){
+    public void insertNotFull(Cliente c){
         int i = num -1;
 
         if (isLeaf){
-            while (i >= 0 && dataEntries.getByIndex(i).dpi.compareTo(dpi.dpi) > 0){
+            while (i >= 0 && dataEntries.getByIndex(i).dpi.compareTo(c.dpi) > 0){
                 dataEntries.setByIndex(i + 1, dataEntries.getByIndex(i));
                 i--;
             }
-            dataEntries.setByIndex(i + 1, dpi);
+            dataEntries.setByIndex(i + 1, c);
             num = num +1;
         }
         else{
-            while (i >= 0 && dataEntries.getByIndex(i).dpi.compareTo(dpi.dpi) > 0)
+            while (i >= 0 && dataEntries.getByIndex(i).dpi.compareTo(c.dpi) > 0)
                 i--;
             if (children.getByIndex(i+1).num == 2*t - 1){
                 split(i+1,children.getByIndex(i + 1));
-                if (dataEntries.getByIndex(i + 1).dpi.compareTo(dpi.dpi) < 0)
+                if (dataEntries.getByIndex(i + 1).dpi.compareTo(c.dpi) < 0)
                     i++;
             }
-            children.getByIndex(i + 1).insertNotFull(dpi);
+            children.getByIndex(i + 1).insertNotFull(c);
         }
     }
 

@@ -13,4 +13,10 @@ public class Cliente {
     public String dpi;
     public String nombre_cliente;
     public String password;
+    
+    public Cliente(String dpi, String nombre_cliente, String password){
+        this.dpi = dpi;
+        this.nombre_cliente = nombre_cliente;
+        this.password = password;
+    }
 }

@@ -1,17 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Estructuras.btree;
 
 import Modelos.Cliente;
 
-
-/**
- *
- * @author Xhunik_Local
- */
 public class BTreeClients {
     BTreeNodeClient root;
     int t;
@@ -23,46 +13,50 @@ public class BTreeClients {
         this.t = deg;
     }
 
-    public void traverse(){
+    public void printTree(){
         if (root != null)
-            root.traverse();
+            root.printTree();
         System.out.println();
     }
 
-    public BTreeNodeClient search(String key){
-        return root == null ? null : root.search(key);
+    public Cliente findClienteByDpi(String dpi){
+        BTreeNodeClient node = root == null ? null : root.findClienteByDpi(dpi);
+        if (node != null)
+        {
+            int index = node.findKey(dpi);
+            return node.dataEntries.getByIndex(index);
+        } else { 
+            return null;
+        }
     }
 
-    public void insert(Cliente key){
+    public void insert(Cliente c){
         if (root == null){
-
             root = new BTreeNodeClient(t,true);
-            root.dataEntries.setByIndex(0, key);
+            root.dataEntries.setByIndex(0, c);
             root.num = 1;
         }
         else {
             if (root.num == 2*t-1){
                 BTreeNodeClient s = new BTreeNodeClient(t,false);
                 s.children.setByIndex(0, root);
-                s.splitChild(0,root);
+                s.split(0,root);
                 int i = 0;
-                if (s.dataEntries.getByIndex(0).dpi.compareTo(key.dpi) < 0)
+                if (s.dataEntries.getByIndex(0).dpi.compareTo(c.dpi) < 0)
                     i++;
-                s.children.getByIndex(i).insertNotFull(key);
-
+                s.children.getByIndex(i).insertNotFull(c);
                 root = s;
             }
             else
-                root.insertNotFull(key);
+                root.insertNotFull(c);
         }
     }
 
-    public void remove(String key){
+    public void remove(String dpi){
         if (root == null){
-            System.out.println("The tree is empty");
             return;
         }
-        root.remove(key);
+        root.remove(dpi);
 
         if (root.num == 0){ 
             if (root.isLeaf)

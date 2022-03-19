@@ -35,10 +35,10 @@ public class Fase2 {
         t.insert(new Cliente("9", "Persona 15", "clave inicio"));
         t.insert(new Cliente("10", "Persona 15", "clave inicio"));
         
-        
-        t.traverse();
-        System.out.println();
-       t.graph();
+        t.remove("0");
+        t.remove("1");
+        t.remove("2");
+        t.graph();
     }
     
 }

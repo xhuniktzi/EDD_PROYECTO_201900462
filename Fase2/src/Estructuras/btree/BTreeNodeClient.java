@@ -1,19 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Estructuras.btree;
 
 import Modelos.Cliente;
 
-/**
- *
- * @author Xhunik_Local
- */
 public class BTreeNodeClient {
     ListaEnlazadaSimple<Cliente> dataEntries;
-    int t;
+    private int t;
     ListaEnlazadaSimple<BTreeNodeClient> children;
     int num;
     boolean isLeaf;
@@ -28,142 +20,122 @@ public class BTreeNodeClient {
         this.num = 0;
     }
 
-    public int findKey(String key){
-        int idx = 0;
-        while (idx < num && dataEntries.getByIndex(idx).dpi.compareTo(key) < 0)
-            ++idx;
-        return idx;
+    public int findKey(String dpi){
+        int index = 0;
+        while (index < num && dataEntries.getByIndex(index).dpi.compareTo(dpi) < 0)
+            ++index;
+        return index;
     }
 
 
-    public void remove(String key){
-
-        int idx = findKey(key);
-        if (idx < num && dataEntries.getByIndex(idx).dpi.equals(key)){
-            if (isLeaf)
-                removeFromLeaf(idx);
-            else
-                removeFromNonLeaf(idx);
-        }
-        else{
+    public void remove(String dpi){
+        int index = findKey(dpi);
+        if (index < num && dataEntries.getByIndex(index).dpi.equals(dpi)){
             if (isLeaf){
-                System.out.printf("The key %d is does not exist in the tree\n",key);
-                return;
+                for (int i = index +1;i < num;++i)
+                    dataEntries.setByIndex(i - 1, dataEntries.getByIndex(i));
+                num--;
+            } else{
+                if (children.getByIndex(index).num >= t){
+                    Cliente pred = getPrev(index);
+                    dataEntries.setByIndex(index, pred);
+                    children.getByIndex(index).remove(pred.dpi);
+                }
+                else if (children.getByIndex(index + 1).num >= t){
+                    Cliente succ = getNext(index);
+                    dataEntries.setByIndex(index, succ);
+                    children.getByIndex(index + 1).remove(succ.dpi);
+                }
+                else{
+                    union(index);
+                    children.getByIndex(index).remove(dpi);
+                }
             }
-            boolean flag = idx == num; 
+        } else {
+            if (isLeaf)
+                return;
+            boolean flag = index == num; 
             
-            if (children.getByIndex(idx).num < t)
-                fill(idx);
+            if (children.getByIndex(index).num < t)
+                fill(index);
 
-            if (flag && idx > num)
-                children.getByIndex(idx - 1).remove(key);
+            if (flag && index > num)
+                children.getByIndex(index - 1).remove(dpi);
             else
-                children.getByIndex(idx).remove(key);
+                children.getByIndex(index).remove(dpi);
         }
     }
 
-    public void removeFromLeaf(int idx){
-        for (int i = idx +1;i < num;++i)
-            dataEntries.setByIndex(i - 1, dataEntries.getByIndex(i));
-        num --;
-    }
-
-    public void removeFromNonLeaf(int idx){
-        String key = dataEntries.getByIndex(idx).dpi;
-        if (children.getByIndex(idx).num >= t){
-            Cliente pred = getPred(idx);
-            dataEntries.setByIndex(idx, pred);
-            children.getByIndex(idx).remove(pred.dpi);
-        }
-        else if (children.getByIndex(idx + 1).num >= t){
-            Cliente succ = getSucc(idx);
-            dataEntries.setByIndex(idx, succ);
-            children.getByIndex(idx + 1).remove(succ.dpi);
-        }
-        else{
-            merge(idx);
-            children.getByIndex(idx).remove(key);
-        }
-    }
-
-    public Cliente getPred(int idx){
-        BTreeNodeClient cur = children.getByIndex(idx);
+    private Cliente getPrev(int index){
+        BTreeNodeClient cur = children.getByIndex(index);
         while (!cur.isLeaf)
             cur = cur.children.getByIndex(cur.num);
         return cur.dataEntries.getByIndex(cur.num-1);
     }
 
-    public Cliente getSucc(int idx){
-        BTreeNodeClient cur = children.getByIndex(idx + 1);
+    private Cliente getNext(int index){
+        BTreeNodeClient cur = children.getByIndex(index + 1);
         while (!cur.isLeaf)
             cur = cur.children.getByIndex(0);
         return cur.dataEntries.getByIndex(0);
     }
 
-    public void fill(int idx){
-        if (idx != 0 && children.getByIndex(idx - 1).num >= t)
-            borrowFromPrev(idx);
-        else if (idx != num && children.getByIndex(idx + 1).num >= t)
-            borrowFromNext(idx);
+    private void fill(int index){
+        if (index != 0 && children.getByIndex(index - 1).num >= t){
+            BTreeNodeClient child = children.getByIndex(index);
+            BTreeNodeClient sibling = children.getByIndex(index - 1);
+
+            for (int i = child.num-1; i >= 0; --i)
+                child.dataEntries.setByIndex(i + 1, child.dataEntries.getByIndex(i));
+
+            if (!child.isLeaf){
+                for (int i = child.num; i >= 0; --i)
+                    child.children.setByIndex(i + 1, child.children.getByIndex(i));
+            }
+
+            child.dataEntries.setByIndex(0, dataEntries.getByIndex(index - 1));
+            if (!child.isLeaf)
+                child.children.setByIndex(0, sibling.children.getByIndex(sibling.num));
+
+            dataEntries.setByIndex(index - 1, sibling.dataEntries.getByIndex(sibling.num - 1));
+            child.num += 1;
+            sibling.num -= 1;
+        }
+        else if (index != num && children.getByIndex(index + 1).num >= t){
+            BTreeNodeClient child = children.getByIndex(index);
+           BTreeNodeClient sibling = children.getByIndex(index + 1);
+
+           child.dataEntries.setByIndex(child.num, dataEntries.getByIndex(index));
+
+           if (!child.isLeaf)
+               child.children.setByIndex(child.num + 1, sibling.children.getByIndex(0));
+
+           dataEntries.setByIndex(index, sibling.dataEntries.getByIndex(0));
+
+           for (int i = 1; i < sibling.num; ++i)
+               sibling.dataEntries.setByIndex(i - 1, sibling.dataEntries.getByIndex(i));
+
+           if (!sibling.isLeaf){
+               for (int i= 1; i <= sibling.num;++i)
+                   sibling.children.setByIndex(i - 1, sibling.children.getByIndex(i));
+           }
+           child.num += 1;
+           sibling.num -= 1;
+        }
         else{
-            if (idx != num)
-                merge(idx);
+            if (index != num)
+                union(index);
             else
-                merge(idx-1);
+                union(index-1);
         }
     }
 
-    public void borrowFromPrev(int idx){
+    private void union(int index){
 
-        BTreeNodeClient child = children.getByIndex(idx);
-        BTreeNodeClient sibling = children.getByIndex(idx - 1);
+        BTreeNodeClient child = children.getByIndex(index);
+        BTreeNodeClient sibling = children.getByIndex(index + 1);
 
-        for (int i = child.num-1; i >= 0; --i)
-            child.dataEntries.setByIndex(i + 1, child.dataEntries.getByIndex(i));
-
-        if (!child.isLeaf){
-            for (int i = child.num; i >= 0; --i)
-                child.children.setByIndex(i + 1, child.children.getByIndex(i));
-        }
-
-        child.dataEntries.setByIndex(0, dataEntries.getByIndex(idx - 1));
-        if (!child.isLeaf)
-            child.children.setByIndex(0, sibling.children.getByIndex(sibling.num));
-
-        dataEntries.setByIndex(idx - 1, sibling.dataEntries.getByIndex(sibling.num - 1));
-        child.num += 1;
-        sibling.num -= 1;
-    }
-
-    public void borrowFromNext(int idx){
-
-        BTreeNodeClient child = children.getByIndex(idx);
-        BTreeNodeClient sibling = children.getByIndex(idx + 1);
-
-        child.dataEntries.setByIndex(child.num, dataEntries.getByIndex(idx));
-
-        if (!child.isLeaf)
-            child.children.setByIndex(child.num + 1, sibling.children.getByIndex(0));
-
-        dataEntries.setByIndex(idx, sibling.dataEntries.getByIndex(0));
-
-        for (int i = 1; i < sibling.num; ++i)
-            sibling.dataEntries.setByIndex(i - 1, sibling.dataEntries.getByIndex(i));
-
-        if (!sibling.isLeaf){
-            for (int i= 1; i <= sibling.num;++i)
-                sibling.children.setByIndex(i - 1, sibling.children.getByIndex(i));
-        }
-        child.num += 1;
-        sibling.num -= 1;
-    }
-
-    public void merge(int idx){
-
-        BTreeNodeClient child = children.getByIndex(idx);
-        BTreeNodeClient sibling = children.getByIndex(idx + 1);
-
-        child.dataEntries.setByIndex(t - 1, dataEntries.getByIndex(idx));
+        child.dataEntries.setByIndex(t - 1, dataEntries.getByIndex(index));
 
         for (int i =0 ; i< sibling.num; ++i)
             child.dataEntries.setByIndex(i + t, sibling.dataEntries.getByIndex(i));
@@ -173,9 +145,9 @@ public class BTreeNodeClient {
                 child.children.setByIndex(i + t, sibling.children.getByIndex(i));
         }
 
-        for (int i = idx+1; i<num; ++i)
+        for (int i = index+1; i<num; ++i)
             dataEntries.setByIndex(i - 1, dataEntries.getByIndex(i));
-        for (int i = idx+2;i<=num;++i)
+        for (int i = index+2;i<=num;++i)
             children.setByIndex(i - 1, children.getByIndex(i));
 
         child.num += sibling.num + 1;
@@ -183,31 +155,31 @@ public class BTreeNodeClient {
     }
 
 
-    public void insertNotFull(Cliente key){
+    public void insertNotFull(Cliente dpi){
         int i = num -1;
 
         if (isLeaf){
-            while (i >= 0 && dataEntries.getByIndex(i).dpi.compareTo(key.dpi) > 0){
+            while (i >= 0 && dataEntries.getByIndex(i).dpi.compareTo(dpi.dpi) > 0){
                 dataEntries.setByIndex(i + 1, dataEntries.getByIndex(i));
                 i--;
             }
-            dataEntries.setByIndex(i + 1, key);
+            dataEntries.setByIndex(i + 1, dpi);
             num = num +1;
         }
         else{
-            while (i >= 0 && dataEntries.getByIndex(i).dpi.compareTo(key.dpi) > 0)
+            while (i >= 0 && dataEntries.getByIndex(i).dpi.compareTo(dpi.dpi) > 0)
                 i--;
             if (children.getByIndex(i+1).num == 2*t - 1){
-                splitChild(i+1,children.getByIndex(i + 1));
-                if (dataEntries.getByIndex(i + 1).dpi.compareTo(key.dpi) < 0)
+                split(i+1,children.getByIndex(i + 1));
+                if (dataEntries.getByIndex(i + 1).dpi.compareTo(dpi.dpi) < 0)
                     i++;
             }
-            children.getByIndex(i + 1).insertNotFull(key);
+            children.getByIndex(i + 1).insertNotFull(dpi);
         }
     }
 
 
-    public void splitChild(int i, BTreeNodeClient y){
+    public void split(int i, BTreeNodeClient y){
         BTreeNodeClient z = new BTreeNodeClient(y.t,y.isLeaf);
         z.num = t - 1;
 
@@ -232,28 +204,28 @@ public class BTreeNodeClient {
     }
 
 
-    public void traverse(){
+    public void printTree(){
         int i;
         for (i = 0; i< num; i++){
             if (!isLeaf)
-                children.getByIndex(i).traverse();
+                children.getByIndex(i).printTree();
             System.out.printf(" %s",dataEntries.getByIndex(i).dpi);
         }
 
         if (!isLeaf){
-            children.getByIndex(i).traverse();
+            children.getByIndex(i).printTree();
         }
     }
 
-    public BTreeNodeClient search(String key){
+    public BTreeNodeClient findClienteByDpi(String dpi){
         int i = 0;
-        while (i < num && key.compareTo(dataEntries.getByIndex(i).dpi) > 0)
+        while (i < num && dpi.compareTo(dataEntries.getByIndex(i).dpi) > 0)
             i++;
 
-        if (dataEntries.getByIndex(i).dpi.equals(key))
+        if (dataEntries.getByIndex(i).dpi.equals(dpi))
             return this;
         if (isLeaf)
             return null;
-        return children.getByIndex(i).search(key);
+        return children.getByIndex(i).findClienteByDpi(dpi);
     }
 }

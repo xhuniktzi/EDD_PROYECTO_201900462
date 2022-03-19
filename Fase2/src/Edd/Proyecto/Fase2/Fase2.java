@@ -5,7 +5,7 @@
  */
 package Edd.Proyecto.Fase2;
 
-import Estructuras.BTreeClients;
+import Estructuras.btree.BTreeClients;
 import Modelos.Cliente;
 
 /**
@@ -20,7 +20,7 @@ public class Fase2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        BTreeClients t = new BTreeClients(5);
+        BTreeClients t = new BTreeClients(3);
         Cliente c1 = new Cliente();
         c1.dpi = "12345678";
         t.insert(c1);
@@ -59,7 +59,7 @@ public class Fase2 {
         
         t.traverse();
         System.out.println();
-       
+       t.graph();
     }
     
 }

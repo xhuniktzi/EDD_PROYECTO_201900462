@@ -21,49 +21,17 @@ public class Fase2 {
     public static void main(String[] args) {
         // TODO code application logic here
         BTreeClients t = new BTreeClients(2);
-        Cliente c1 = new Cliente();
-        c1.dpi = "12345678";
-        t.insert(c1);
-        
-        Cliente c2 = new Cliente();
-        c2.dpi = "546694856";
-        t.insert(c2);
-        
-        Cliente c3 = new Cliente();
-        c3.dpi = "84612151";
-        t.insert(c3);
-        
-        Cliente c4 = new Cliente();
-        c4.dpi = "811616185";
-        t.insert(c4);
-        
-        Cliente c5 = new Cliente();
-        c5.dpi = "9166112";
-        t.insert(c5);
-        
-        Cliente c6 = new Cliente();
-        c6.dpi = "812116515";
-        t.insert(c6);
-        
-        Cliente c7 = new Cliente();
-        c7.dpi = "2299131";
-        t.insert(c7);
-        
-        Cliente c8 = new Cliente();
-        c8.dpi = "1642915151";
-        t.insert(c8);
-        
-        Cliente c9 = new Cliente();
-        c9.dpi = "963119123";
-        t.insert(c9);
-        
-        Cliente c10 = new Cliente();
-        c10.dpi = "965332221566";
-        t.insert(c10);
-        
-        Cliente c11 = new Cliente();
-        c11.dpi = "02256889";
-        t.insert(c11);
+        t.insert(new Cliente("12345678", "Persona 12", "clave"));
+        t.insert(new Cliente("546694856", "Persona 13", "clave"));
+        t.insert(new Cliente("84612151", "Persona 14", "clave"));
+        t.insert(new Cliente("811616185", "Persona 15", "clave rara"));
+        t.insert(new Cliente("9166112", "Persona 15", "clave"));
+        t.insert(new Cliente("812116515", "Persona 15", "clave"));
+        t.insert(new Cliente("2299131", "Persona 15", "clave"));
+        t.insert(new Cliente("1642915151", "Persona 15", "clave"));
+        t.insert(new Cliente("963119123", "Persona 15", "clave inicio"));
+        t.insert(new Cliente("965332221566", "Persona 15", "clave inicio"));
+        t.insert(new Cliente("02256889", "Persona 15", "clave inicio"));
         
         t.traverse();
         System.out.println();

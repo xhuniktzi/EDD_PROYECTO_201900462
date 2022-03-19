@@ -23,8 +23,8 @@ public class BTreeNodeClient {
 
         this.MinDeg = deg;
         this.isLeaf = isLeaf;
-        this.keys = new ListaEnlazadaSimple<>(2*this.MinDeg - 1);
-        this.children = new ListaEnlazadaSimple<>(2 * this.MinDeg);
+        this.keys = new ListaEnlazadaSimple<>(2 * this.MinDeg);
+        this.children = new ListaEnlazadaSimple<>(2 * this.MinDeg + 1);
         this.num = 0;
     }
 

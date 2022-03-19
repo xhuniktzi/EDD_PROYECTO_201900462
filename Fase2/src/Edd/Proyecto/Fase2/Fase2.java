@@ -23,18 +23,20 @@ public class Fase2 {
         // TODO code application logic here
 
         BTreeClients t = new BTreeClients(2);
-        t.insert(new Cliente("12345678", "Persona 12", "clave"));
-        t.insert(new Cliente("546694856", "Persona 13", "clave"));
-        t.insert(new Cliente("84612151", "Persona 14", "clave"));
-        t.insert(new Cliente("811616185", "Persona 15", "clave rara"));
-        t.insert(new Cliente("9166112", "Persona 15", "clave"));
-        t.insert(new Cliente("812116515", "Persona 15", "clave"));
-        t.insert(new Cliente("2299131", "Persona 15", "clave"));
-        t.insert(new Cliente("1642915151", "Persona 15", "clave"));
-        t.insert(new Cliente("963119123", "Persona 15", "clave inicio"));
-        t.insert(new Cliente("965332221566", "Persona 15", "clave inicio"));
-        t.insert(new Cliente("02256889", "Persona 15", "clave inicio"));
+        t.insert(new Cliente("0", "Persona 12", "clave"));
+        t.insert(new Cliente("1", "Persona 13", "clave"));
+        t.insert(new Cliente("2", "Persona 14", "clave"));
+        t.insert(new Cliente("3", "Persona 15", "clave rara"));
+        t.insert(new Cliente("4", "Persona 15", "clave"));
+        t.insert(new Cliente("5", "Persona 15", "clave"));
+        t.insert(new Cliente("6", "Persona 15", "clave"));
+        t.insert(new Cliente("7", "Persona 15", "clave"));
+        t.insert(new Cliente("8", "Persona 15", "clave inicio"));
+        t.insert(new Cliente("9", "Persona 15", "clave inicio"));
+        t.insert(new Cliente("10", "Persona 15", "clave inicio"));
         
+        
+        t.traverse();
         System.out.println();
        t.graph();
     }

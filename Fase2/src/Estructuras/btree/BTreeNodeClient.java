@@ -12,8 +12,8 @@ import Modelos.Cliente;
  * @author Xhunik_Local
  */
 public class BTreeNodeClient {
-    ListaEnlazadaSimple<Cliente> keys;
-    int MinDeg;
+    ListaEnlazadaSimple<Cliente> dataEntries;
+    int t;
     ListaEnlazadaSimple<BTreeNodeClient> children;
     int num;
     boolean isLeaf;
@@ -21,16 +21,16 @@ public class BTreeNodeClient {
     // constructor
     public BTreeNodeClient(int deg, boolean isLeaf){
 
-        this.MinDeg = deg;
+        this.t = deg;
         this.isLeaf = isLeaf;
-        this.keys = new ListaEnlazadaSimple<>(2 * this.MinDeg);
-        this.children = new ListaEnlazadaSimple<>(2 * this.MinDeg + 1);
+        this.dataEntries = new ListaEnlazadaSimple<>(2 * this.t + 1); // 2 * t - 1
+        this.children = new ListaEnlazadaSimple<>(2 * this.t); // 2 * t
         this.num = 0;
     }
 
     public int findKey(String key){
         int idx = 0;
-        while (idx < num && keys.getByIndex(idx).dpi.compareTo(key) < 0)
+        while (idx < num && dataEntries.getByIndex(idx).dpi.compareTo(key) < 0)
             ++idx;
         return idx;
     }
@@ -39,7 +39,7 @@ public class BTreeNodeClient {
     public void remove(String key){
 
         int idx = findKey(key);
-        if (idx < num && keys.getByIndex(idx).dpi.equals(key)){
+        if (idx < num && dataEntries.getByIndex(idx).dpi.equals(key)){
             if (isLeaf)
                 removeFromLeaf(idx);
             else
@@ -52,7 +52,7 @@ public class BTreeNodeClient {
             }
             boolean flag = idx == num; 
             
-            if (children.getByIndex(idx).num < MinDeg)
+            if (children.getByIndex(idx).num < t)
                 fill(idx);
 
             if (flag && idx > num)
@@ -64,20 +64,20 @@ public class BTreeNodeClient {
 
     public void removeFromLeaf(int idx){
         for (int i = idx +1;i < num;++i)
-            keys.setByIndex(i - 1, keys.getByIndex(i));
+            dataEntries.setByIndex(i - 1, dataEntries.getByIndex(i));
         num --;
     }
 
     public void removeFromNonLeaf(int idx){
-        String key = keys.getByIndex(idx).dpi;
-        if (children.getByIndex(idx).num >= MinDeg){
+        String key = dataEntries.getByIndex(idx).dpi;
+        if (children.getByIndex(idx).num >= t){
             Cliente pred = getPred(idx);
-            keys.setByIndex(idx, pred);
+            dataEntries.setByIndex(idx, pred);
             children.getByIndex(idx).remove(pred.dpi);
         }
-        else if (children.getByIndex(idx + 1).num >= MinDeg){
+        else if (children.getByIndex(idx + 1).num >= t){
             Cliente succ = getSucc(idx);
-            keys.setByIndex(idx, succ);
+            dataEntries.setByIndex(idx, succ);
             children.getByIndex(idx + 1).remove(succ.dpi);
         }
         else{
@@ -90,20 +90,20 @@ public class BTreeNodeClient {
         BTreeNodeClient cur = children.getByIndex(idx);
         while (!cur.isLeaf)
             cur = cur.children.getByIndex(cur.num);
-        return cur.keys.getByIndex(cur.num-1);
+        return cur.dataEntries.getByIndex(cur.num-1);
     }
 
     public Cliente getSucc(int idx){
         BTreeNodeClient cur = children.getByIndex(idx + 1);
         while (!cur.isLeaf)
             cur = cur.children.getByIndex(0);
-        return cur.keys.getByIndex(0);
+        return cur.dataEntries.getByIndex(0);
     }
 
     public void fill(int idx){
-        if (idx != 0 && children.getByIndex(idx - 1).num >= MinDeg)
+        if (idx != 0 && children.getByIndex(idx - 1).num >= t)
             borrowFromPrev(idx);
-        else if (idx != num && children.getByIndex(idx + 1).num >= MinDeg)
+        else if (idx != num && children.getByIndex(idx + 1).num >= t)
             borrowFromNext(idx);
         else{
             if (idx != num)
@@ -119,18 +119,18 @@ public class BTreeNodeClient {
         BTreeNodeClient sibling = children.getByIndex(idx - 1);
 
         for (int i = child.num-1; i >= 0; --i)
-            child.keys.setByIndex(i + 1, child.keys.getByIndex(i));
+            child.dataEntries.setByIndex(i + 1, child.dataEntries.getByIndex(i));
 
         if (!child.isLeaf){
             for (int i = child.num; i >= 0; --i)
                 child.children.setByIndex(i + 1, child.children.getByIndex(i));
         }
 
-        child.keys.setByIndex(0, keys.getByIndex(idx - 1));
+        child.dataEntries.setByIndex(0, dataEntries.getByIndex(idx - 1));
         if (!child.isLeaf)
             child.children.setByIndex(0, sibling.children.getByIndex(sibling.num));
 
-        keys.setByIndex(idx - 1, sibling.keys.getByIndex(sibling.num - 1));
+        dataEntries.setByIndex(idx - 1, sibling.dataEntries.getByIndex(sibling.num - 1));
         child.num += 1;
         sibling.num -= 1;
     }
@@ -140,15 +140,15 @@ public class BTreeNodeClient {
         BTreeNodeClient child = children.getByIndex(idx);
         BTreeNodeClient sibling = children.getByIndex(idx + 1);
 
-        child.keys.setByIndex(child.num, keys.getByIndex(idx));
+        child.dataEntries.setByIndex(child.num, dataEntries.getByIndex(idx));
 
         if (!child.isLeaf)
             child.children.setByIndex(child.num + 1, sibling.children.getByIndex(0));
 
-        keys.setByIndex(idx, sibling.keys.getByIndex(0));
+        dataEntries.setByIndex(idx, sibling.dataEntries.getByIndex(0));
 
         for (int i = 1; i < sibling.num; ++i)
-            sibling.keys.setByIndex(i - 1, sibling.keys.getByIndex(i));
+            sibling.dataEntries.setByIndex(i - 1, sibling.dataEntries.getByIndex(i));
 
         if (!sibling.isLeaf){
             for (int i= 1; i <= sibling.num;++i)
@@ -163,18 +163,18 @@ public class BTreeNodeClient {
         BTreeNodeClient child = children.getByIndex(idx);
         BTreeNodeClient sibling = children.getByIndex(idx + 1);
 
-        child.keys.setByIndex(MinDeg - 1, keys.getByIndex(idx));
+        child.dataEntries.setByIndex(t - 1, dataEntries.getByIndex(idx));
 
         for (int i =0 ; i< sibling.num; ++i)
-            child.keys.setByIndex(i + MinDeg, sibling.keys.getByIndex(i));
+            child.dataEntries.setByIndex(i + t, sibling.dataEntries.getByIndex(i));
 
         if (!child.isLeaf){
             for (int i = 0;i <= sibling.num; ++i)
-                child.children.setByIndex(i + MinDeg, sibling.children.getByIndex(i));
+                child.children.setByIndex(i + t, sibling.children.getByIndex(i));
         }
 
         for (int i = idx+1; i<num; ++i)
-            keys.setByIndex(i - 1, keys.getByIndex(i));
+            dataEntries.setByIndex(i - 1, dataEntries.getByIndex(i));
         for (int i = idx+2;i<=num;++i)
             children.setByIndex(i - 1, children.getByIndex(i));
 
@@ -187,19 +187,19 @@ public class BTreeNodeClient {
         int i = num -1;
 
         if (isLeaf){
-            while (i >= 0 && keys.getByIndex(i).dpi.compareTo(key.dpi) > 0){
-                keys.setByIndex(i + 1, keys.getByIndex(i));
+            while (i >= 0 && dataEntries.getByIndex(i).dpi.compareTo(key.dpi) > 0){
+                dataEntries.setByIndex(i + 1, dataEntries.getByIndex(i));
                 i--;
             }
-            keys.setByIndex(i + 1, key);
+            dataEntries.setByIndex(i + 1, key);
             num = num +1;
         }
         else{
-            while (i >= 0 && keys.getByIndex(i).dpi.compareTo(key.dpi) > 0)
+            while (i >= 0 && dataEntries.getByIndex(i).dpi.compareTo(key.dpi) > 0)
                 i--;
-            if (children.getByIndex(i+1).num == 2*MinDeg - 1){
+            if (children.getByIndex(i+1).num == 2*t - 1){
                 splitChild(i+1,children.getByIndex(i + 1));
-                if (keys.getByIndex(i + 1).dpi.compareTo(key.dpi) < 0)
+                if (dataEntries.getByIndex(i + 1).dpi.compareTo(key.dpi) < 0)
                     i++;
             }
             children.getByIndex(i + 1).insertNotFull(key);
@@ -208,16 +208,16 @@ public class BTreeNodeClient {
 
 
     public void splitChild(int i, BTreeNodeClient y){
-        BTreeNodeClient z = new BTreeNodeClient(y.MinDeg,y.isLeaf);
-        z.num = MinDeg - 1;
+        BTreeNodeClient z = new BTreeNodeClient(y.t,y.isLeaf);
+        z.num = t - 1;
 
-        for (int j = 0; j < MinDeg-1; j++)
-            z.keys.setByIndex(j, y.keys.getByIndex(j + MinDeg));
+        for (int j = 0; j < t-1; j++)
+            z.dataEntries.setByIndex(j, y.dataEntries.getByIndex(j + t));
         if (!y.isLeaf){
-            for (int j = 0; j < MinDeg; j++)
-                z.children.setByIndex(j, y.children.getByIndex(j + MinDeg));
+            for (int j = 0; j < t; j++)
+                z.children.setByIndex(j, y.children.getByIndex(j + t));
         }
-        y.num = MinDeg-1;
+        y.num = t-1;
 
         for (int j = num; j >= i+1; j--)
             children.setByIndex(j + 1, children.getByIndex(j));
@@ -225,8 +225,8 @@ public class BTreeNodeClient {
 
         
         for (int j = num-1;j >= i;j--)
-            keys.setByIndex(j + 1, keys.getByIndex(j));
-        keys.setByIndex(i, y.keys.getByIndex(MinDeg - 1));
+            dataEntries.setByIndex(j + 1, dataEntries.getByIndex(j));
+        dataEntries.setByIndex(i, y.dataEntries.getByIndex(t - 1));
 
         num = num + 1;
     }
@@ -237,7 +237,7 @@ public class BTreeNodeClient {
         for (i = 0; i< num; i++){
             if (!isLeaf)
                 children.getByIndex(i).traverse();
-            System.out.printf(" %s",keys.getByIndex(i).dpi);
+            System.out.printf(" %s",dataEntries.getByIndex(i).dpi);
         }
 
         if (!isLeaf){
@@ -247,10 +247,10 @@ public class BTreeNodeClient {
 
     public BTreeNodeClient search(String key){
         int i = 0;
-        while (i < num && key.compareTo(keys.getByIndex(i).dpi) > 0)
+        while (i < num && key.compareTo(dataEntries.getByIndex(i).dpi) > 0)
             i++;
 
-        if (keys.getByIndex(i).dpi.equals(key))
+        if (dataEntries.getByIndex(i).dpi.equals(key))
             return this;
         if (isLeaf)
             return null;

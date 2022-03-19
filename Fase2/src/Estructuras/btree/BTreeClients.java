@@ -77,6 +77,7 @@ public class BTreeClients {
                 .append("node[color=\"blue\",style=\"rounded,filled\",fillcolor=lightgray, shape=record];\n");
         
         graphIdentity(this.root);
+        graphRelations(this.root);
         
         str.append("\n}\n");
         
@@ -118,17 +119,44 @@ public class BTreeClients {
                     }
                 }
             }
-        }
-        if (page != null){
             graphIdentity(page.children.getByIndex(0));
             graphIdentity(page.children.getByIndex(1));
             graphIdentity(page.children.getByIndex(2));
             graphIdentity(page.children.getByIndex(3));
             graphIdentity(page.children.getByIndex(4));
         }
+
     }
     
     private void graphRelations(BTreeNodeClient page){
-    
+        if (page != null){
+            if (page.keys.getByIndex(0) != null){
+                if (page.children.getByIndex(0) != null && page.children.getByIndex(0).keys.getByIndex(0) != null){
+                    str.append("\nNodo").append(page.keys.getByIndex(0).dpi)
+                            .append(":f0->Nodo").append(page.children.getByIndex(0).keys.getByIndex(0).dpi);
+                }
+                if (page.children.getByIndex(1) != null && page.children.getByIndex(1).keys.getByIndex(0) != null){
+                    str.append("\nNodo").append(page.keys.getByIndex(0).dpi)
+                            .append(":f2->Nodo").append(page.children.getByIndex(1).keys.getByIndex(0).dpi);
+                }
+                if (page.children.getByIndex(2) != null && page.children.getByIndex(2).keys.getByIndex(0) != null){
+                    str.append("\nNodo").append(page.keys.getByIndex(0).dpi)
+                            .append(":f4->Nodo").append(page.children.getByIndex(2).keys.getByIndex(0).dpi);
+                }
+                if (page.children.getByIndex(3) != null && page.children.getByIndex(3).keys.getByIndex(0) != null){
+                    str.append("\nNodo").append(page.keys.getByIndex(0).dpi)
+                            .append(":f6->Nodo").append(page.children.getByIndex(3).keys.getByIndex(0).dpi);
+                }
+                if (page.children.getByIndex(4) != null && page.children.getByIndex(4).keys.getByIndex(0) != null){
+                    str.append("\nNodo").append(page.keys.getByIndex(0).dpi)
+                            .append(":f8->Nodo").append(page.children.getByIndex(4).keys.getByIndex(0).dpi);
+                }
+            }
+            graphRelations(page.children.getByIndex(0));
+            graphRelations(page.children.getByIndex(1));
+            graphRelations(page.children.getByIndex(2));
+            graphRelations(page.children.getByIndex(3));
+            graphRelations(page.children.getByIndex(4));
+        }
     }
 }

@@ -5,12 +5,11 @@
  */
 package Edd.Proyecto.Fase2;
 
-<<<<<<< HEAD
-=======
+
 import Estructuras.btree.BTreeClients;
 import Modelos.Cliente;
 
->>>>>>> pruebas-binario
+
 /**
  *
  * @author Xhunik_Local
@@ -23,9 +22,7 @@ public class Fase2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-<<<<<<< HEAD
-       
-=======
+
         BTreeClients t = new BTreeClients(2);
         t.insert(new Cliente("12345678", "Persona 12", "clave"));
         t.insert(new Cliente("546694856", "Persona 13", "clave"));
@@ -39,10 +36,8 @@ public class Fase2 {
         t.insert(new Cliente("965332221566", "Persona 15", "clave inicio"));
         t.insert(new Cliente("02256889", "Persona 15", "clave inicio"));
         
-        t.traverse();
         System.out.println();
        t.graph();
->>>>>>> pruebas-binario
     }
     
 }

@@ -19,7 +19,7 @@ public class BTreeNodeClient {
     boolean isLeaf;
 
     // constructor
-    public BTreeNodeClient(int deg,boolean isLeaf){
+    public BTreeNodeClient(int deg, boolean isLeaf){
 
         this.MinDeg = deg;
         this.isLeaf = isLeaf;
@@ -207,7 +207,7 @@ public class BTreeNodeClient {
     }
 
 
-    public void splitChild(int i ,BTreeNodeClient y){
+    public void splitChild(int i, BTreeNodeClient y){
         BTreeNodeClient z = new BTreeNodeClient(y.MinDeg,y.isLeaf);
         z.num = MinDeg - 1;
 

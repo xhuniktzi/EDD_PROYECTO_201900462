@@ -16,7 +16,6 @@ import Modelos.Cliente;
  */
 public class Fase2 {
 
-    public static int grado;
     /**
      * @param args the command line arguments
      */

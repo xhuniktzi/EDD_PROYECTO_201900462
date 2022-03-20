@@ -10,10 +10,18 @@ package Estructuras.matriz;
  * @author Xhunik_Local
  */
 public class NodoMatriz {
+    public int x;
+    public int y;
+    public String color;
+    
     public NodoMatriz next;
     public NodoMatriz prev;
-    public NodoMatriz right;
-    public NodoMatriz left;
     public NodoMatriz up;
     public NodoMatriz down;
+    
+    public NodoMatriz(int x, int y, String color){
+        this.x = x;
+        this.y = y;
+        this.color = color;
+    }
 }

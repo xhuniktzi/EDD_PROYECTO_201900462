@@ -5,10 +5,7 @@
  */
 package Edd.Proyecto.Fase2;
 
-
-import Estructuras.btree.BTreeClients;
-import Modelos.Cliente;
-
+import Estructuras.matriz.Matriz;
 
 /**
  *
@@ -25,23 +22,31 @@ public class Fase2 {
         // public API
         // insert, remove, findClienteByDpi, graph
         
-        BTreeClients t = new BTreeClients(2);
-        t.insert(new Cliente("0", "Persona 12", "clave"));
-        t.insert(new Cliente("1", "Persona 13", "clave"));
-        t.insert(new Cliente("2", "Persona 14", "clave"));
-        t.insert(new Cliente("3", "Persona 15", "clave rara"));
-        t.insert(new Cliente("4", "Persona 15", "clave"));
-        t.insert(new Cliente("5", "Persona 15", "clave"));
-        t.insert(new Cliente("6", "Persona 15", "clave"));
-        t.insert(new Cliente("7", "Persona 15", "clave"));
-        t.insert(new Cliente("8", "Persona 15", "clave inicio"));
-        t.insert(new Cliente("9", "Persona 15", "clave inicio"));
-        t.insert(new Cliente("10", "Persona 15", "clave inicio"));
+//        BTreeClients t = new BTreeClients(2);
+//        t.insert(new Cliente("0", "Persona 12", "clave"));
+//        t.insert(new Cliente("1", "Persona 13", "clave"));
+//        t.insert(new Cliente("2", "Persona 14", "clave"));
+//        t.insert(new Cliente("3", "Persona 15", "clave rara"));
+//        t.insert(new Cliente("4", "Persona 15", "clave"));
+//        t.insert(new Cliente("5", "Persona 15", "clave"));
+//        t.insert(new Cliente("6", "Persona 15", "clave"));
+//        t.insert(new Cliente("7", "Persona 15", "clave"));
+//        t.insert(new Cliente("8", "Persona 15", "clave inicio"));
+//        t.insert(new Cliente("9", "Persona 15", "clave inicio"));
+//        t.insert(new Cliente("10", "Persona 15", "clave inicio"));
+//        
+//        t.remove("0");
+//        t.remove("1");
+//        t.remove("2");
+//        t.graph();
         
-        t.remove("0");
-        t.remove("1");
-        t.remove("2");
-        t.graph();
+        Matriz m = new Matriz("Matriz1");
+        m.insert(1,1,"ffff");
+        m.insert(2,1,"ffff");
+        m.insert(3,2,"ffff");
+        m.insert(1,4,"ffff");
+        m.insert(5,5,"ffff");
+        System.out.println(m.graph());
     }
     
 }

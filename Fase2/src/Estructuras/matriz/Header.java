@@ -10,7 +10,7 @@ package Estructuras.matriz;
  * @author Xhunik_Local
  */
 public class Header {
-    private NodoHeader head;
+    public NodoHeader head;
     
     public Header(){
         this.head = null;

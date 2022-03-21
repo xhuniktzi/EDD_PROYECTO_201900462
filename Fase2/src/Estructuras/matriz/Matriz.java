@@ -11,8 +11,8 @@ package Estructuras.matriz;
  */
 public class Matriz {
     public String name;
-    private final Header colsList; // coord x
-    private final Header rowsList; // coord y
+    private final Header colsList;
+    private final Header rowsList;
     
     public Matriz(String name) {
         this.name = name;
@@ -53,68 +53,70 @@ public class Matriz {
     public void insert(int x, int y, String color){
         NodoMatriz newCell = new NodoMatriz(x, y, color);
         
+        NodoMatriz check = this.returnIfExists(x, y);
+        if (check != null){
+            check.color = color;
+            return;
+        }
+        
         NodoHeader nodoCol = colsList.getHeader(x);
         if (nodoCol == null){
             nodoCol = new NodoHeader(x);
             colsList.setHeader(nodoCol);
             nodoCol.access = newCell;
+        } else if (y < nodoCol.access.y) {
+            newCell.down = nodoCol.access;
+            nodoCol.access.up = newCell;
+            nodoCol.access = newCell;
         } else {
-            if (y < nodoCol.access.y) {
-                newCell.down = nodoCol.access;
-                nodoCol.access.up = newCell;
-                nodoCol.access = newCell;
-            } else {
-                NodoMatriz aux = nodoCol.access;
-                while (aux.down != null){
-                    if (y < aux.down.y){
-                        newCell.down = aux.down;
-                        aux.down.up = newCell;
-                        aux.down = newCell;
-                        newCell.up = aux;
-                        break;
-                    }
-                    aux = aux.down;
-                }
-            
-                if (aux.down == null){
+            NodoMatriz aux = nodoCol.access;
+            while (aux.down != null){
+                if (y < aux.down.y){
+                    newCell.down = aux.down;
+                    aux.down.up = newCell;
                     aux.down = newCell;
                     newCell.up = aux;
+                    break;
                 }
+                aux = aux.down;
+            }
+
+            if (aux.down == null){
+                aux.down = newCell;
+                newCell.up = aux;
             }
         }
+        
 
         NodoHeader nodoFil = rowsList.getHeader(y);
         if (nodoFil == null){
             nodoFil = new NodoHeader(y);
             rowsList.setHeader(nodoFil);
             nodoFil.access = newCell;
+        } else if (x < nodoFil.access.x){
+            newCell.next = nodoFil.access;
+            nodoFil.access.prev = newCell;
+            nodoFil.access = newCell;
         } else {
-            if (x < nodoFil.access.x){
-                newCell.next = nodoFil.access;
-                nodoFil.access.prev = newCell;
-                nodoFil.access = newCell;
-            } else {
-                NodoMatriz aux = nodoFil.access;
-                while (aux.next != null) {
-                    if (x < aux.next.x) {
-                        newCell.next = aux.next;
-                        aux.next.prev = newCell;
-                        aux.next = newCell;
-                        newCell.prev = aux;
-                        break;
-                    }
-                    aux = aux.next;
-                }
-
-                if (aux.next == null){
+            NodoMatriz aux = nodoFil.access;
+            while (aux.next != null) {
+                if (x < aux.next.x) {
+                    newCell.next = aux.next;
+                    aux.next.prev = newCell;
                     aux.next = newCell;
-                    newCell.up = aux;
+                    newCell.prev = aux;
+                    break;
                 }
+                aux = aux.next;
             }
-        
-        } 
-        
 
+            if (aux.next == null){
+                aux.next = newCell;
+                newCell.up = aux;
+            }
+        }
+        
+        
     }
     
     public String graph(){
@@ -139,6 +141,25 @@ public class Matriz {
         return str.toString();
     }
     
+    
+    private NodoMatriz returnIfExists(int x, int y){
+        NodoHeader headRow = this.rowsList.getHeader(y);
+        if (headRow == null)
+            return null;
+        NodoHeader headCol = this.colsList.getHeader(x);
+        if (headCol == null)
+            return null;
+        
+        NodoMatriz aux = headRow.access;
+        while (aux != null){
+            if (aux.x == x)
+                return aux;
+            
+            aux = aux.next;
+        }
+        
+        return null;
+    }
     
     private String graphRowsNodes(){
         StringBuilder str = new StringBuilder();
@@ -223,7 +244,9 @@ public class Matriz {
             NodoMatriz aux = auxr.access;
             while (aux != null){
                 str.append("R").append(aux.y).append("_").append("C")
-                        .append(aux.x).append("[label = \"DATO\" width = 1.5, group = ").append(aux.y + 2).append("];\n");                
+                        .append(aux.x).append("[label = \" X: ").append(aux.x)
+                        .append(" Y: ").append(aux.y).append("Color: ").append(aux.color)
+                        .append("\" width = 1.5, group = ").append(aux.y + 2).append("];\n");                
                 aux = aux.next;
             }
             auxr = auxr.next;
@@ -265,7 +288,6 @@ public class Matriz {
             
             auxr = auxr.next;
         }
-        
         
         NodoHeader auxc = colsList.head;
         while (auxc != null){

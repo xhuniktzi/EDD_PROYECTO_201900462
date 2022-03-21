@@ -5,7 +5,9 @@
  */
 package Edd.Proyecto.Fase2;
 
+import Estructuras.btree.BTreeClients;
 import Estructuras.matriz.Matriz;
+import Modelos.Cliente;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -24,11 +26,31 @@ public class Fase2 {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
+     * @throws java.io.FileNotFoundException
+     * @throws org.json.simple.parser.ParseException
      */
     public static void main(String[] args) throws IOException, FileNotFoundException, ParseException {
         // TODO code application logic here
-        cargaMasivaCapa();
+//        cargaMasivaCapa();
+        cargaMasivaClientes();
 
+    }
+    
+    private static void cargaMasivaClientes() throws FileNotFoundException, IOException, ParseException{
+        BTreeClients b = new BTreeClients(2);
+        
+        JSONParser jsonParser = new JSONParser();
+        JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("./Clientes.json"));
+        Iterator<JSONObject> iterator = jsonArray.iterator();
+        while(iterator.hasNext()){
+            JSONObject cliente = iterator.next();
+            String dpi = (String) cliente.get("dpi");
+            String nombre_cliente = (String) cliente.get("nombre_cliente");
+            String password = (String) cliente.get("password");
+            b.insert(new Cliente(dpi, nombre_cliente, password));
+        }
+        generarDot("BTreeClients", b.graph());
     }
     
     private static void cargaMasivaCapa() throws FileNotFoundException, IOException, ParseException{

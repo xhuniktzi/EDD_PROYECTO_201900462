@@ -66,7 +66,7 @@ public class BTreeClients {
         }
     }
     
-    public void graph(){
+    public String graph(){
         str.append("digraph ArbolB{\n").append("\nrankdir=TB;\n")
                 .append("node[color=\"blue\",style=\"rounded,filled\",fillcolor=lightgray, shape=record];\n");
         
@@ -74,8 +74,7 @@ public class BTreeClients {
         graphRelations(this.root);
         
         str.append("\n}\n");
-        
-        System.out.println(str.toString());
+        return str.toString();
     }
     
     private void graphIdentity(BTreeNodeClient page){

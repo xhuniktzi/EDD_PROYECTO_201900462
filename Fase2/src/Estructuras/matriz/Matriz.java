@@ -10,11 +10,12 @@ package Estructuras.matriz;
  * @author Xhunik_Local
  */
 public class Matriz {
+    public int id;
     public String name;
     private final Header colsList;
     private final Header rowsList;
     
-    public Matriz(String name) {
+    public Matriz(int id, String name) {
         this.name = name;
         colsList = new Header();
         rowsList = new Header();
@@ -300,17 +301,17 @@ public class Matriz {
             
             while (aux != null){
                 
-                if (aux.next != null)
+                if (aux.down != null)
                     str.append("R").append(aux.y).append("_").append("C").append(aux.x)
                         .append(" -> ").append("R").append(aux.down.y)
                             .append("_").append("C").append(aux.down.x).append(";\n");
                 
-                if (aux.prev != null)
+                if (aux.up != null)
                     str.append("R").append(aux.y).append("_").append("C").append(aux.x)
                         .append(" -> ").append("R").append(aux.up.y)
                             .append("_").append("C").append(aux.up.x).append(";\n");
                 
-                aux = aux.next;
+                aux = aux.down;
             }
             
             auxc = auxc.next;

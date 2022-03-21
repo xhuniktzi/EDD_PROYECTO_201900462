@@ -6,6 +6,15 @@
 package Edd.Proyecto.Fase2;
 
 import Estructuras.matriz.Matriz;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -16,26 +25,41 @@ public class Fase2 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, FileNotFoundException, ParseException {
         // TODO code application logic here
-        
-        Matriz m = new Matriz("Matriz1");
-        m.insert(1,1,"ffff");
-        m.insert(2,1,"ffff");
-        m.insert(3,2,"ffff");
-        m.insert(1,4,"ffff");
-        m.insert(2,3,"ffff");
-        m.insert(2,3,"ffff");
-        m.insert(2,3,"ffff");
-        m.insert(2,3,"ddd");
-        m.insert(2,3,"dddddd");
-        
-        m.insert(1,3,"ffff");
-        m.insert(5,5,"ffff");
-//        m.printCols();
-//        m.printRows();
-        System.out.println(m.graph()); 
-//        System.out.println(m.graph());
+        cargaMasivaCapa();
+
     }
     
+    private static void cargaMasivaCapa() throws FileNotFoundException, IOException, ParseException{
+        JSONParser jsonParser = new JSONParser();
+        JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("./ImagenMario.json"));
+        Iterator<JSONObject> iterator = jsonArray.iterator();
+        while(iterator.hasNext()) {
+            JSONObject capa = iterator.next();
+            long id = (long) capa.get("id_capa");
+            System.out.println("ID: " + id);
+            JSONArray pixeles = (JSONArray) capa.get("pixeles");
+            Iterator<JSONObject> iterator2 = pixeles.iterator();
+            
+            Matriz m = new Matriz((int) id, "Capa");
+            while (iterator2.hasNext()){
+                JSONObject obj = iterator2.next();
+                long fila = (long) obj.get("fila");
+                long columna = (long) obj.get("columna");
+                String color = (String) obj.get("color");
+//                System.out.println("F: " + fila + " C: " + columna + " D: " + color);
+                m.insert((int) columna, (int) fila, color);
+            }
+            
+            generarDot("capa" + id, m.graph());
+        }
+    }
+    private static void generarDot(String name, String capa){
+        try (FileOutputStream out = new FileOutputStream(name + ".dot")) {
+            out.write(capa.getBytes());
+            out.close();
+            Runtime.getRuntime().exec("dot -Tjpg " + name + ".dot -o " + name + ".jpg");
+        } catch (Exception ex){}
+    }
 }

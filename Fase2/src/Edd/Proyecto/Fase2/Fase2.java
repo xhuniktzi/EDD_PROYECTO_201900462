@@ -45,8 +45,13 @@ public class Fase2 {
         m.insert(2,1,"ffff");
         m.insert(3,2,"ffff");
         m.insert(1,4,"ffff");
+        m.insert(2,3,"ffff");
+        m.insert(1,3,"ffff");
         m.insert(5,5,"ffff");
-        System.out.println(m.graph());
+//        m.printCols();
+//        m.printRows();
+        System.out.println(m.graph()); 
+//        System.out.println(m.graph());
     }
     
 }

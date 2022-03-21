@@ -19,7 +19,37 @@ public class Matriz {
         colsList = new Header();
         rowsList = new Header();
     }
+    public void printCols(){
+        System.out.println("Imprimir por columnas");
+        NodoHeader auxc = colsList.head;
+        while (auxc != null) {
+            System.out.println("Columna: " + auxc.pos + " -> ");
+            NodoMatriz aux = auxc.access;
+            while (aux != null){
+                System.out.println("X: " + aux.x + " Y: "+ aux.y + ". ");
+                aux = aux.down;
+            }
+            auxc = auxc.next;
+            System.out.println();
+        }
+    }
     
+    public void printRows(){
+        System.out.println("Imprimir por filas");
+        NodoHeader auxr = rowsList.head;
+        while (auxr != null) {
+            System.out.println("Fila: " + auxr.pos + " -> ");
+            NodoMatriz aux = auxr.access;
+            while (aux != null){
+                System.out.println("X: " + aux.x + " Y: "+ aux.y + ". ");
+                aux = aux.next;
+            }
+            auxr = auxr.next;
+            System.out.println();
+        }
+    }
+
+   
     public void insert(int x, int y, String color){
         NodoMatriz newCell = new NodoMatriz(x, y, color);
         
@@ -28,26 +58,28 @@ public class Matriz {
             nodoCol = new NodoHeader(x);
             colsList.setHeader(nodoCol);
             nodoCol.access = newCell;
-        } else if (y < nodoCol.access.y) {
-            newCell.down = nodoCol.access;
-            nodoCol.access.up = newCell;
-            nodoCol.access = newCell;
         } else {
-            NodoMatriz aux = nodoCol.access;
-            while (aux.down != null){
-                if (y < aux.down.y){
-                    newCell.down = aux.down;
-                    aux.down.up = newCell;
+            if (y < nodoCol.access.y) {
+                newCell.down = nodoCol.access;
+                nodoCol.access.up = newCell;
+                nodoCol.access = newCell;
+            } else {
+                NodoMatriz aux = nodoCol.access;
+                while (aux.down != null){
+                    if (y < aux.down.y){
+                        newCell.down = aux.down;
+                        aux.down.up = newCell;
+                        aux.down = newCell;
+                        newCell.up = aux;
+                        break;
+                    }
+                    aux = aux.down;
+                }
+            
+                if (aux.down == null){
                     aux.down = newCell;
                     newCell.up = aux;
-                    break;
                 }
-                aux = aux.down;
-            }
-            
-            if (aux.down == null){
-                aux.down = newCell;
-                newCell.up = aux;
             }
         }
 
@@ -56,34 +88,37 @@ public class Matriz {
             nodoFil = new NodoHeader(y);
             rowsList.setHeader(nodoFil);
             nodoFil.access = newCell;
-        }  else if (x < nodoFil.access.x){
-            newCell.next = nodoFil.access;
-            nodoFil.access.prev = newCell;
-            nodoFil.access = newCell;
         } else {
-            NodoMatriz aux = nodoFil.access;
-            while (aux.next != null) {
-                if (x < aux.next.x) {
-                    newCell.next = aux.next;
-                    aux.next.prev = newCell;
-                    aux.next = newCell;
-                    newCell.prev = aux;
-                    break;
+            if (x < nodoFil.access.x){
+                newCell.next = nodoFil.access;
+                nodoFil.access.prev = newCell;
+                nodoFil.access = newCell;
+            } else {
+                NodoMatriz aux = nodoFil.access;
+                while (aux.next != null) {
+                    if (x < aux.next.x) {
+                        newCell.next = aux.next;
+                        aux.next.prev = newCell;
+                        aux.next = newCell;
+                        newCell.prev = aux;
+                        break;
+                    }
+                    aux = aux.next;
                 }
-                aux = aux.next;
+
+                if (aux.next == null){
+                    aux.next = newCell;
+                    newCell.up = aux;
+                }
             }
-            
-            if (aux.next != null){
-                aux.next = newCell;
-                newCell.prev = aux;
-            }
-        }
+        
+        } 
+        
+
     }
     
     public String graph(){
         StringBuilder str = new StringBuilder();
-        
-        
         
         str.append("digraph Sparce_Matrix {\n").append("node [shape=box];\n");
         str.append("Mt[ label =\"").append(this.name)
@@ -94,9 +129,11 @@ public class Matriz {
         str.append(this.graphRowsRelations());
         str.append(this.graphColsNodes());
         str.append(this.graphColsRelations());
-        str.append("Mt -> U0; Mt -> A0;\n");
-        str.append(this.graphColHeadersRank());
-        
+        str.append("Mt -> U").append(rowsList.head.pos).append(";\n");
+        str.append("Mt -> A").append(colsList.head.pos).append(";\n");
+        str.append(this.graphHeaderRanks());
+        str.append(this.graphInternalNodes());
+        str.append(this.graphInternalRelations());
         str.append("\n}");
         
         return str.toString();
@@ -104,39 +141,30 @@ public class Matriz {
     
     
     private String graphRowsNodes(){
-        int countrows = 0;
         StringBuilder str = new StringBuilder();
         NodoHeader auxr = rowsList.head;
         while (auxr != null){
-            str.append("U").append(countrows).append("[label =\"")
+            str.append("U").append(auxr.pos).append("[label =\"")
                     .append(auxr.pos).append("\"");
-            if (countrows == 0){
-                str.append(" pos = \"5.3,3.5!\" ");
-            }
             str.append("width = 1.5 style = filled, fillcolor = lightskyblue, group =  1 ];")
                     .append("\n");
-            
-            
-            countrows++;
             auxr = auxr.next;
         }
         return str.toString();
     }
     
     private String graphRowsRelations(){
-        int countRowAux = 0;
         StringBuilder str = new StringBuilder();
         NodoHeader auxr = rowsList.head;
         while (auxr != null){
             if (auxr.next != null){
-                str.append("U").append(countRowAux).append(" -> ")
-                        .append("U").append(countRowAux + 1).append("\n");
+                str.append("U").append(auxr.pos).append(" -> ")
+                        .append("U").append(auxr.next.pos).append(";\n");
             }
             if (auxr.prev != null){
-                str.append("U").append(countRowAux).append(" -> ")
-                        .append("U").append(countRowAux - 1).append("\n");
+                str.append("U").append(auxr.pos).append(" -> ")
+                        .append("U").append(auxr.prev.pos).append(";\n");
             }
-            countRowAux++;
             auxr = auxr.next;
         }
         
@@ -145,14 +173,12 @@ public class Matriz {
     
     private String graphColsNodes(){
         StringBuilder str = new StringBuilder();
-        int countcols = 0;
         NodoHeader auxc = colsList.head;
         while (auxc != null){
-            str.append("A").append(countcols).append("[label =\"")
+            str.append("A").append(auxc.pos).append("[label =\"")
                     .append(auxc.pos).append("\"").append("width = 1.5 style = filled, fillcolor = bisque1, group =")
-                    .append(countcols + 2)
+                    .append(auxc.pos + 2)
                     .append(" ];").append("\n");
-            countcols++;
             auxc = auxc.next;
         }
         
@@ -161,55 +187,115 @@ public class Matriz {
     
     private String graphColsRelations(){
         StringBuilder str = new StringBuilder();
-        int countColAux = 0;
         NodoHeader auxc = colsList.head;
         while (auxc != null){
             if (auxc.next != null){
-                str.append("A").append(countColAux).append(" -> ")
-                        .append("A").append(countColAux + 1).append("\n");
+                str.append("A").append(auxc.pos).append(" -> ")
+                        .append("A").append(auxc.next.pos).append(";\n");
             }
             if (auxc.prev != null){
-                str.append("A").append(countColAux).append(" -> ")
-                        .append("A").append(countColAux - 1).append("\n");
+                str.append("A").append(auxc.pos).append(" -> ")
+                        .append("A").append(auxc.prev.pos).append(";\n");
             }
-            countColAux++;
             auxc = auxc.next;
         }
         
         return str.toString();
     }
     
-    private String graphColHeadersRank(){
+    private String graphHeaderRanks(){
         StringBuilder str = new StringBuilder();
-        int countColAuxRank = 0;
+        str.append("{ rank = same; Mt; ");
         NodoHeader auxc = colsList.head;
-        str.append("{ rank = same; Mt;");
         while (auxc != null){
-            str.append("A").append(countColAuxRank).append(";");
-            
-            countColAuxRank++;
+            str.append("A").append(auxc.pos).append(";");
             auxc = auxc.next;
         }
-        str.append("}");
-        
+        str.append("}\n");
         return str.toString();
     }
     
     private String graphInternalNodes(){
         StringBuilder str = new StringBuilder();
-        int col = 0;
-        int row = 0;
         
         NodoHeader auxr = rowsList.head;
-        NodoHeader auxc = colsList.head;
-        
         while (auxr != null){
-            while (auxc != null){
-                
+            NodoMatriz aux = auxr.access;
+            while (aux != null){
+                str.append("R").append(aux.y).append("_").append("C")
+                        .append(aux.x).append("[label = \"DATO\" width = 1.5, group = ").append(aux.y + 2).append("];\n");                
+                aux = aux.next;
             }
             auxr = auxr.next;
         }
+        return str.toString();
+    }
+    
+    private String graphInternalRelations(){
+        StringBuilder str = new StringBuilder();
+        NodoHeader auxr = rowsList.head;
+        while (auxr != null) {
+            NodoMatriz aux = auxr.access;
+            
+            if (aux != null){
+                str.append("U").append(auxr.pos).append(" -> ").append("R")
+                    .append(aux.y).append("_").append("C").append(aux.x).append(";\n");
+            }
+            
+            StringBuilder strrank = new StringBuilder("{ rank = same; ");
+            strrank.append("U").append(auxr.pos).append(";");
+            while (aux != null){
+                strrank.append("R").append(aux.y).append("_").append("C")
+                        .append(aux.x).append(";");
+                
+                if (aux.next != null)
+                    str.append("R").append(aux.y).append("_").append("C").append(aux.x)
+                        .append(" -> ").append("R").append(aux.next.y)
+                            .append("_").append("C").append(aux.next.x).append(";\n");
+                
+                if (aux.prev != null)
+                    str.append("R").append(aux.y).append("_").append("C").append(aux.x)
+                        .append(" -> ").append("R").append(aux.prev.y)
+                            .append("_").append("C").append(aux.prev.x).append(";\n");
+                
+                aux = aux.next;
+            }
+            strrank.append(" }\n");
+            str.append(strrank);
+            
+            auxr = auxr.next;
+        }
+        
+        
+        NodoHeader auxc = colsList.head;
+        while (auxc != null){
+            NodoMatriz aux = auxc.access;
+            
+            if (aux != null){
+                str.append("A").append(auxc.pos).append(" -> ").append("R")
+                    .append(aux.y).append("_").append("C").append(aux.x).append(";\n");
+            }
+            
+            while (aux != null){
+                
+                if (aux.next != null)
+                    str.append("R").append(aux.y).append("_").append("C").append(aux.x)
+                        .append(" -> ").append("R").append(aux.down.y)
+                            .append("_").append("C").append(aux.down.x).append(";\n");
+                
+                if (aux.prev != null)
+                    str.append("R").append(aux.y).append("_").append("C").append(aux.x)
+                        .append(" -> ").append("R").append(aux.up.y)
+                            .append("_").append("C").append(aux.up.x).append(";\n");
+                
+                aux = aux.next;
+            }
+            
+            auxc = auxc.next;
+        }
+        
         
         return str.toString();
     }
+    
 }

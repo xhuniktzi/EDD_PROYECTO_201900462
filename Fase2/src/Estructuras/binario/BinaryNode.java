@@ -5,12 +5,35 @@
  */
 package Estructuras.binario;
 
+import Estructuras.matriz.Matriz;
+
 /**
  *
  * @author Xhunik_Local
  */
 public class BinaryNode {
-    public int id;
+    public Matriz value;
     public BinaryNode left;
     public BinaryNode right;
+    
+    public BinaryNode(Matriz value){
+        this.value = value;
+        this.left = this.right = null;
+    }
+    
+    public void insert(Matriz m){
+        if (m.id < value.id){
+            if (left == null)
+                left = new BinaryNode(m);
+            else
+                left.insert(m);
+        } else if (m.id > value.id){
+            if (right == null)
+                right = new BinaryNode(m);
+            else
+                right.insert(m);
+        } else {
+            value = m;
+        }
+    }
 }

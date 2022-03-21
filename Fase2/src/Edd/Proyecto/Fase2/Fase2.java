@@ -32,7 +32,7 @@ public class Fase2 {
      */
     public static void main(String[] args) throws IOException, FileNotFoundException, ParseException {
         // TODO code application logic here
-//        cargaMasivaCapa();
+        cargaMasivaCapa();
         cargaMasivaClientes();
 
     }
@@ -60,7 +60,6 @@ public class Fase2 {
         while(iterator.hasNext()) {
             JSONObject capa = iterator.next();
             long id = (long) capa.get("id_capa");
-            System.out.println("ID: " + id);
             JSONArray pixeles = (JSONArray) capa.get("pixeles");
             Iterator<JSONObject> iterator2 = pixeles.iterator();
             

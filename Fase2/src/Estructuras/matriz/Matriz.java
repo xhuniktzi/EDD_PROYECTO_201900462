@@ -245,9 +245,10 @@ public class Matriz {
             NodoMatriz aux = auxr.access;
             while (aux != null){
                 str.append("R").append(aux.y).append("_").append("C")
-                        .append(aux.x).append("[label = \" X: ").append(aux.x)
-                        .append(" Y: ").append(aux.y).append("Color: ").append(aux.color)
-                        .append("\" width = 1.5, group = ").append(aux.y + 2).append("];\n");                
+                        .append(aux.x).append("[label = \"X: ").append(aux.x)
+                        .append(" Y: ").append(aux.y)
+                        .append("\", width = 1.5, group = ").append(aux.y + 2)
+                        .append(", style = filled, fillcolor = \"").append(aux.color).append("\"];\n");                
                 aux = aux.next;
             }
             auxr = auxr.next;
@@ -263,7 +264,8 @@ public class Matriz {
             
             if (aux != null){
                 str.append("U").append(auxr.pos).append(" -> ").append("R")
-                    .append(aux.y).append("_").append("C").append(aux.x).append(";\n");
+                    .append(aux.y).append("_").append("C").append(aux.x)
+                        .append("[constraint = false]").append(";\n");
             }
             
             StringBuilder strrank = new StringBuilder("{ rank = same; ");
@@ -275,12 +277,12 @@ public class Matriz {
                 if (aux.next != null)
                     str.append("R").append(aux.y).append("_").append("C").append(aux.x)
                         .append(" -> ").append("R").append(aux.next.y)
-                            .append("_").append("C").append(aux.next.x).append(";\n");
+                            .append("_").append("C").append(aux.next.x).append("[constraint = false]").append(";\n");
                 
                 if (aux.prev != null)
                     str.append("R").append(aux.y).append("_").append("C").append(aux.x)
                         .append(" -> ").append("R").append(aux.prev.y)
-                            .append("_").append("C").append(aux.prev.x).append(";\n");
+                            .append("_").append("C").append(aux.prev.x).append("[constraint = false]").append(";\n");
                 
                 aux = aux.next;
             }
@@ -296,7 +298,7 @@ public class Matriz {
             
             if (aux != null){
                 str.append("A").append(auxc.pos).append(" -> ").append("R")
-                    .append(aux.y).append("_").append("C").append(aux.x).append(";\n");
+                    .append(aux.y).append("_").append("C").append(aux.x).append("[constraint = false]").append(";\n");
             }
             
             while (aux != null){
@@ -304,12 +306,12 @@ public class Matriz {
                 if (aux.down != null)
                     str.append("R").append(aux.y).append("_").append("C").append(aux.x)
                         .append(" -> ").append("R").append(aux.down.y)
-                            .append("_").append("C").append(aux.down.x).append(";\n");
+                            .append("_").append("C").append(aux.down.x).append("[constraint = false]").append(";\n");
                 
                 if (aux.up != null)
                     str.append("R").append(aux.y).append("_").append("C").append(aux.x)
                         .append(" -> ").append("R").append(aux.up.y)
-                            .append("_").append("C").append(aux.up.x).append(";\n");
+                            .append("_").append("C").append(aux.up.x).append("[constraint = false]").append(";\n");
                 
                 aux = aux.down;
             }

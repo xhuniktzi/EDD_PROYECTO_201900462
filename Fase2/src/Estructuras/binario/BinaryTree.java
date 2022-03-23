@@ -12,6 +12,7 @@ import Estructuras.matriz.Matriz;
  * @author Xhunik_Local
  */
 public class BinaryTree {
+    public int id;
     private BinaryNode root;
     
     public BinaryTree(){

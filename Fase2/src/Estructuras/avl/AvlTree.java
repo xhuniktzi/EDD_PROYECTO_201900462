@@ -46,6 +46,8 @@ public class AvlTree {
         } else {
             r.value = b;
         }
+        
+        r.height = major(height(r.left), height(r.right)) + 1;
         return r;
     }
     

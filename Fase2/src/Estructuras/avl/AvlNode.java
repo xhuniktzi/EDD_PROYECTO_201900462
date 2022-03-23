@@ -57,12 +57,12 @@ public class AvlNode {
             str.append("node").append(value.id).append("  [ label =\"<C0>|").append(value.id).append("|<C1>\"];\n");
         
         if (left != null){
-            str.append(str).append(left.exploreTree()).append("node").append(value.id)
+            str.append(left.exploreTree()).append("node").append(value.id)
                     .append(":C0->node").append(left.value.id).append("\n");
         }
         
         if (right != null){
-            str.append(str).append(right.exploreTree()).append("node").append(value.id)
+            str.append(right.exploreTree()).append("node").append(value.id)
                     .append(":C1->node").append(right.value.id).append("\n");
         }
         

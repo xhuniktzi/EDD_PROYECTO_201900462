@@ -5,6 +5,7 @@
  */
 package Edd.Proyecto.Fase2;
 
+import Estructuras.avl.AvlTree;
 import Estructuras.binario.BinaryTree;
 import Estructuras.btree.BTreeClients;
 import Estructuras.matriz.Matriz;
@@ -24,7 +25,7 @@ import org.json.simple.parser.ParseException;
  * @author Xhunik_Local
  */
 public class Fase2 {
-    public static BinaryTree capas = new BinaryTree();
+//    public static BinaryTree capas = new BinaryTree();
     /**
      * @param args the command line arguments
      * @throws java.io.IOException
@@ -33,7 +34,8 @@ public class Fase2 {
      */
     public static void main(String[] args) throws IOException, FileNotFoundException, ParseException {
         // TODO code application logic here
-        cargaMasivaCapa();
+        ;
+        System.out.println(cargaMasivaImages(cargaMasivaCapa()).graph());
     }
     
     private static void cargaMasivaClientes() throws FileNotFoundException, IOException, ParseException{
@@ -51,7 +53,8 @@ public class Fase2 {
         }
     }
     
-    private static void cargaMasivaCapa() throws FileNotFoundException, IOException, ParseException{
+    private static BinaryTree cargaMasivaCapa() throws FileNotFoundException, IOException, ParseException{
+        BinaryTree capas = new BinaryTree();
         JSONParser jsonParser = new JSONParser();
         JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("./Capas-AuxEDD.json"));
         Iterator<JSONObject> iterator = jsonArray.iterator();
@@ -60,7 +63,6 @@ public class Fase2 {
             long id_capa = (long) capa.get("id_capa");
             JSONArray pixeles = (JSONArray) capa.get("pixeles");
             Iterator<JSONObject> iterator2 = pixeles.iterator();
-            
             Matriz m = new Matriz((int) id_capa, "Capa");
             while (iterator2.hasNext()){
                 JSONObject obj = iterator2.next();
@@ -71,7 +73,30 @@ public class Fase2 {
             }
             capas.insert(m);
         }
+        return capas;
     }
+    
+    private static AvlTree cargaMasivaImages(BinaryTree b) throws FileNotFoundException, IOException, ParseException {
+        AvlTree images = new AvlTree();
+        JSONParser jsonParser = new JSONParser();
+        JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("./Imagenes-AuxEDD.json"));
+        Iterator<JSONObject> iterator = jsonArray.iterator();
+        while(iterator.hasNext()) {
+            JSONObject image = iterator.next();
+            long id = (long) image.get("id");
+            JSONArray capas = (JSONArray) image.get("capas");
+            BinaryTree internalTree = new BinaryTree();
+            internalTree.id = (int) id;
+            capas.forEach(t -> {
+                Long idCapa = (Long) t;
+                Matriz m = b.search(idCapa.intValue());
+                internalTree.insert(m);
+            });
+            images.insert(internalTree);
+        }
+        return images;
+    }
+    
     private static void generarDot(String name, String capa){
         try (FileOutputStream out = new FileOutputStream(name + ".dot")) {
             out.write(capa.getBytes());

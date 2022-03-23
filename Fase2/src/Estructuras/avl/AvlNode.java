@@ -38,7 +38,34 @@ public class AvlNode {
         }
         else {
             value = b;
+        }       
+    }
+    
+        public String graph(){
+        StringBuilder str = new StringBuilder();
+        str.append("digraph G { rankdir=TB; node [shape = record, style=filled, fillcolor=seashell2];\n");
+        str.append(exploreTree());
+        str.append("}\n");
+        return str.toString();
+    }
+    
+    public String exploreTree(){
+        StringBuilder str = new StringBuilder();
+        if (left == null && right == null)
+            str.append("node").append(value.id).append(" [ label =\"").append(value.id).append("\"];\n");
+        else
+            str.append("node").append(value.id).append("  [ label =\"<C0>|").append(value.id).append("|<C1>\"];\n");
+        
+        if (left != null){
+            str.append(str).append(left.exploreTree()).append("node").append(value.id)
+                    .append(":C0->node").append(left.value.id).append("\n");
         }
-            
+        
+        if (right != null){
+            str.append(str).append(right.exploreTree()).append("node").append(value.id)
+                    .append(":C1->node").append(right.value.id).append("\n");
+        }
+        
+        return str.toString();
     }
 }

@@ -16,6 +16,7 @@ public class Matriz {
     private final Header rowsList;
     
     public Matriz(int id, String name) {
+        this.id = id;
         this.name = name;
         colsList = new Header();
         rowsList = new Header();
@@ -116,8 +117,6 @@ public class Matriz {
                 newCell.up = aux;
             }
         }
-        
-        
     }
     
     public String graph(){
@@ -165,9 +164,15 @@ public class Matriz {
     private String graphRowsNodes(){
         StringBuilder str = new StringBuilder();
         NodoHeader auxr = rowsList.head;
+        boolean flagFirst = true;
         while (auxr != null){
+            
             str.append("U").append(auxr.pos).append("[label =\"")
                     .append(auxr.pos).append("\"");
+            if (flagFirst){
+                str.append(" pos = \"5.3,3.5!\" ");
+                flagFirst = false;
+            }
             str.append("width = 1.5 style = filled, fillcolor = lightskyblue, group =  1 ];")
                     .append("\n");
             auxr = auxr.next;
@@ -220,7 +225,9 @@ public class Matriz {
                         .append("A").append(auxc.prev.pos).append(";\n");
             }
             auxc = auxc.next;
+            
         }
+        
         
         return str.toString();
     }
@@ -245,10 +252,11 @@ public class Matriz {
             NodoMatriz aux = auxr.access;
             while (aux != null){
                 str.append("R").append(aux.y).append("_").append("C")
-                        .append(aux.x).append("[label = \"X: ").append(aux.x)
-                        .append(" Y: ").append(aux.y)
+                        .append(aux.x).append("[label = \"X:").append(aux.x)
+                        .append(" Y:").append(aux.y)
                         .append("\", width = 1.5, group = ").append(aux.y + 2)
-                        .append(", style = filled, fillcolor = \"").append(aux.color).append("\"];\n");                
+                        .append(", style = filled, fillcolor = \"").append(aux.color)
+                        .append("\"];\n");                
                 aux = aux.next;
             }
             auxr = auxr.next;
@@ -322,5 +330,4 @@ public class Matriz {
         
         return str.toString();
     }
-    
 }

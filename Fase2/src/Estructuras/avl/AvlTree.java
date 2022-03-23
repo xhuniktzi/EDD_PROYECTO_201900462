@@ -22,6 +22,10 @@ public class AvlTree {
         this.root = insert(b, this.root);
     }
     
+    public String graph(){
+        return root.graph();
+    }
+    
     private AvlNode insert(BinaryTree b, AvlNode r){
         if (r == null) {
             r = new AvlNode(b);

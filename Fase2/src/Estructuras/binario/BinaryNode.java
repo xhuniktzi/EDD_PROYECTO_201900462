@@ -32,8 +32,59 @@ public class BinaryNode {
                 right = new BinaryNode(m);
             else
                 right.insert(m);
-        } else {
+        } 
+        else {
             value = m;
         }
     }
+    
+    public Matriz search(int id){
+        if (value.id == id){
+            return this.value;
+        }
+        else {
+            if (id < value.id){
+                if (this.left == null)
+                    return null;
+                else
+                    return this.left.search(id);
+            }
+            else if (id > value.id){
+                if (this.right == null)
+                    return null;
+                else
+                    return this.right.search(id);
+            }
+        }
+        return null;
+    }
+    
+    public String graph(){
+        StringBuilder str = new StringBuilder();
+        str.append("digraph G { rankdir=TB; node [shape = record, style=filled, fillcolor=seashell2];\n");
+        str.append(exploreTree());
+        str.append("}\n");
+        return str.toString();
+    }
+    
+    private String exploreTree(){
+        StringBuilder str = new StringBuilder();
+        if (left == null && right == null)
+            str.append("node").append(value.id).append(" [ label =\"").append(value.id).append("\"];\n");
+        else
+            str.append("node").append(value.id).append(" [ label =\"<C0>|").append(value.id).append("|<C1>\"];\n");
+        
+        if (left != null){
+            str.append(left.exploreTree()).append("node").append(value.id)
+                    .append(":C0->node").append(left.value.id).append(";\n");
+        }
+        
+        if (right != null){
+            str.append(right.exploreTree()).append("node").append(value.id)
+                    .append(":C1->node").append(right.value.id).append(";\n");
+        }
+        
+        return str.toString();
+    }
+    
 }

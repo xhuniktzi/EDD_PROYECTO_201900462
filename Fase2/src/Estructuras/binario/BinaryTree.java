@@ -25,4 +25,12 @@ public class BinaryTree {
         else
             root.insert(m);
     }
+    
+    public Matriz search(int id){
+        return this.root.search(id);
+    }
+    
+    public String graph(){
+        return root.graph();
+    }
 }

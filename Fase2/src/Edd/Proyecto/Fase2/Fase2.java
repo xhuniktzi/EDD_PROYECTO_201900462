@@ -5,6 +5,7 @@
  */
 package Edd.Proyecto.Fase2;
 
+import Estructuras.binario.BinaryTree;
 import Estructuras.btree.BTreeClients;
 import Estructuras.matriz.Matriz;
 import Modelos.Cliente;
@@ -23,7 +24,7 @@ import org.json.simple.parser.ParseException;
  * @author Xhunik_Local
  */
 public class Fase2 {
-
+    public static BinaryTree capas = new BinaryTree();
     /**
      * @param args the command line arguments
      * @throws java.io.IOException
@@ -33,8 +34,6 @@ public class Fase2 {
     public static void main(String[] args) throws IOException, FileNotFoundException, ParseException {
         // TODO code application logic here
         cargaMasivaCapa();
-        cargaMasivaClientes();
-
     }
     
     private static void cargaMasivaClientes() throws FileNotFoundException, IOException, ParseException{
@@ -50,37 +49,34 @@ public class Fase2 {
             String password = (String) cliente.get("password");
             b.insert(new Cliente(dpi, nombre_cliente, password));
         }
-        generarDot("BTreeClients", b.graph());
     }
     
     private static void cargaMasivaCapa() throws FileNotFoundException, IOException, ParseException{
         JSONParser jsonParser = new JSONParser();
-        JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("./ImagenMario.json"));
+        JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("./Capas-AuxEDD.json"));
         Iterator<JSONObject> iterator = jsonArray.iterator();
         while(iterator.hasNext()) {
             JSONObject capa = iterator.next();
-            long id = (long) capa.get("id_capa");
+            long id_capa = (long) capa.get("id_capa");
             JSONArray pixeles = (JSONArray) capa.get("pixeles");
             Iterator<JSONObject> iterator2 = pixeles.iterator();
             
-            Matriz m = new Matriz((int) id, "Capa");
+            Matriz m = new Matriz((int) id_capa, "Capa");
             while (iterator2.hasNext()){
                 JSONObject obj = iterator2.next();
                 long fila = (long) obj.get("fila");
                 long columna = (long) obj.get("columna");
                 String color = (String) obj.get("color");
-//                System.out.println("F: " + fila + " C: " + columna + " D: " + color);
                 m.insert((int) columna, (int) fila, color);
             }
-            
-            generarDot("capa" + id, m.graph());
+            capas.insert(m);
         }
     }
     private static void generarDot(String name, String capa){
         try (FileOutputStream out = new FileOutputStream(name + ".dot")) {
             out.write(capa.getBytes());
             out.close();
-            Runtime.getRuntime().exec("dot -Tjpg " + name + ".dot -o " + name + ".jpg");
+            Runtime.getRuntime().exec("dot -Tpng " + name + ".dot -o " + name + ".png");
         } catch (Exception ex){}
     }
 }

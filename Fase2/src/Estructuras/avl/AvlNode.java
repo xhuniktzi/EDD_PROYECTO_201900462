@@ -41,7 +41,7 @@ public class AvlNode {
         }       
     }
     
-        public String graph(){
+    public String graph(){
         StringBuilder str = new StringBuilder();
         str.append("digraph G { rankdir=TB; node [shape = record, style=filled, fillcolor=seashell2];\n");
         str.append(exploreTree());

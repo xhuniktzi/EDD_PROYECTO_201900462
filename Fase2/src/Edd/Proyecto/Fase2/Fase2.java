@@ -34,8 +34,9 @@ public class Fase2 {
      */
     public static void main(String[] args) throws IOException, FileNotFoundException, ParseException {
         // TODO code application logic here
-        ;
-        System.out.println(cargaMasivaImages(cargaMasivaCapa()).graph());
+        System.out.println(cargaMasivaCapa().search(1).graph());
+//        System.out.println(cargaMasivaCapa().graph());
+//        System.out.println(cargaMasivaImages(cargaMasivaCapa()).graph());
     }
     
     private static void cargaMasivaClientes() throws FileNotFoundException, IOException, ParseException{

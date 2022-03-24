@@ -118,30 +118,7 @@ public class Matriz {
             }
         }
     }
-    
-    public String graph(){
-        StringBuilder str = new StringBuilder();
-        
-        str.append("digraph Sparce_Matrix {\n").append("node [shape=box];\n");
-        str.append("Mt[ label =\"").append(this.name)
-                .append("\", width = 1.5, style = filled, fillcolor = firebrick1, group = 1 ];\n");
-        str.append("e0[ shape = point, width = 0 ];\n").append("e1[ shape = point, width = 0 ];\n");
-        
-        str.append(this.graphRowsNodes());
-        str.append(this.graphRowsRelations());
-        str.append(this.graphColsNodes());
-        str.append(this.graphColsRelations());
-        str.append("Mt -> U").append(rowsList.head.pos).append(";\n");
-        str.append("Mt -> A").append(colsList.head.pos).append(";\n");
-        str.append(this.graphHeaderRanks());
-        str.append(this.graphInternalNodes());
-        str.append(this.graphInternalRelations());
-        str.append("\n}");
-        
-        return str.toString();
-    }
-    
-    
+
     private NodoMatriz returnIfExists(int x, int y){
         NodoHeader headRow = this.rowsList.getHeader(y);
         if (headRow == null)
@@ -161,173 +138,137 @@ public class Matriz {
         return null;
     }
     
-    private String graphRowsNodes(){
+    public String graph(){
         StringBuilder str = new StringBuilder();
-        NodoHeader auxr = rowsList.head;
-        boolean flagFirst = true;
-        while (auxr != null){
-            
-            str.append("U").append(auxr.pos).append("[label =\"")
-                    .append(auxr.pos).append("\"");
-            if (flagFirst){
-                str.append(" pos = \"5.3,3.5!\" ");
-                flagFirst = false;
-            }
-            str.append("width = 1.5 style = filled, fillcolor = lightskyblue, group =  1 ];")
-                    .append("\n");
-            auxr = auxr.next;
-        }
+        str.append("digraph G{ node[shape=box style=filled]\n");
+        str.append("subgraph cluster_p{\n");
+        str.append("label = \"").append(this.name).append("\";\n");
+        str.append("edge[dir = \"both\"];\n");
+        str.append(nodeCols());
+        str.append(nodeRows());
+        str.append(renderNodes());
+        str.append(relationsByCols());
+        str.append(relationsByRows());
+        str.append(graphRanks());
+        str.append("}}");
         return str.toString();
     }
     
-    private String graphRowsRelations(){
-        StringBuilder str = new StringBuilder();
-        NodoHeader auxr = rowsList.head;
-        while (auxr != null){
-            if (auxr.next != null){
-                str.append("U").append(auxr.pos).append(" -> ")
-                        .append("U").append(auxr.next.pos).append(";\n");
-            }
-            if (auxr.prev != null){
-                str.append("U").append(auxr.pos).append(" -> ")
-                        .append("U").append(auxr.prev.pos).append(";\n");
-            }
-            auxr = auxr.next;
-        }
-        
-        return str.toString();
-    }
-    
-    private String graphColsNodes(){
+    private String nodeCols(){
         StringBuilder str = new StringBuilder();
         NodoHeader auxc = colsList.head;
+        str.append("Mt -> C").append(auxc.pos).append(";\n");
         while (auxc != null){
-            str.append("A").append(auxc.pos).append("[label =\"")
-                    .append(auxc.pos).append("\"").append("width = 1.5 style = filled, fillcolor = bisque1, group =")
-                    .append(auxc.pos + 2)
-                    .append(" ];").append("\n");
+            str.append("C").append(auxc.pos).append("[group =")
+                    .append(auxc.pos + 1).append(", fillcolor=white ];\n");
+            if (auxc.next != null)
+                str.append("C").append(auxc.pos).append(" -> C").append(auxc.next.pos).append(";\n");
             auxc = auxc.next;
         }
         
-        return str.toString();
-    }
-    
-    private String graphColsRelations(){
-        StringBuilder str = new StringBuilder();
-        NodoHeader auxc = colsList.head;
+        auxc = colsList.head;
+        str.append("{ rank = same; Mt;");
         while (auxc != null){
-            if (auxc.next != null){
-                str.append("A").append(auxc.pos).append(" -> ")
-                        .append("A").append(auxc.next.pos).append(";\n");
-            }
-            if (auxc.prev != null){
-                str.append("A").append(auxc.pos).append(" -> ")
-                        .append("A").append(auxc.prev.pos).append(";\n");
-            }
-            auxc = auxc.next;
-            
-        }
-        
-        
-        return str.toString();
-    }
-    
-    private String graphHeaderRanks(){
-        StringBuilder str = new StringBuilder();
-        str.append("{ rank = same; Mt; ");
-        NodoHeader auxc = colsList.head;
-        while (auxc != null){
-            str.append("A").append(auxc.pos).append(";");
+            str.append("C").append(auxc.pos).append(";");
             auxc = auxc.next;
         }
         str.append("}\n");
         return str.toString();
     }
     
-    private String graphInternalNodes(){
+    private String nodeRows(){
         StringBuilder str = new StringBuilder();
-        
         NodoHeader auxr = rowsList.head;
+        str.append("Mt -> F").append(auxr.pos).append(";\n");
         while (auxr != null){
-            NodoMatriz aux = auxr.access;
-            while (aux != null){
-                str.append("R").append(aux.y).append("_").append("C")
-                        .append(aux.x).append("[label = \"X:").append(aux.x)
-                        .append(" Y:").append(aux.y)
-                        .append("\", width = 1.5, group = ").append(aux.y + 2)
-                        .append(", style = filled, fillcolor = \"").append(aux.color)
-                        .append("\"];\n");                
-                aux = aux.next;
-            }
+            str.append("F").append(auxr.pos).append("[group = 1, fillcolor=white ];\n");
+            if (auxr.next != null)
+                str.append("F").append(auxr.pos).append(" -> F").append(auxr.next.pos).append(";\n");
             auxr = auxr.next;
         }
         return str.toString();
     }
     
-    private String graphInternalRelations(){
+    private String renderNodes(){
         StringBuilder str = new StringBuilder();
-        NodoHeader auxr = rowsList.head;
-        while (auxr != null) {
-            NodoMatriz aux = auxr.access;
-            
-            if (aux != null){
-                str.append("U").append(auxr.pos).append(" -> ").append("R")
-                    .append(aux.y).append("_").append("C").append(aux.x)
-                        .append("[constraint = false]").append(";\n");
-            }
-            
-            StringBuilder strrank = new StringBuilder("{ rank = same; ");
-            strrank.append("U").append(auxr.pos).append(";");
-            while (aux != null){
-                strrank.append("R").append(aux.y).append("_").append("C")
-                        .append(aux.x).append(";");
-                
-                if (aux.next != null)
-                    str.append("R").append(aux.y).append("_").append("C").append(aux.x)
-                        .append(" -> ").append("R").append(aux.next.y)
-                            .append("_").append("C").append(aux.next.x).append("[constraint = false]").append(";\n");
-                
-                if (aux.prev != null)
-                    str.append("R").append(aux.y).append("_").append("C").append(aux.x)
-                        .append(" -> ").append("R").append(aux.prev.y)
-                            .append("_").append("C").append(aux.prev.x).append("[constraint = false]").append(";\n");
-                
-                aux = aux.next;
-            }
-            strrank.append(" }\n");
-            str.append(strrank);
-            
-            auxr = auxr.next;
-        }
-        
         NodoHeader auxc = colsList.head;
         while (auxc != null){
             NodoMatriz aux = auxc.access;
-            
-            if (aux != null){
-                str.append("A").append(auxc.pos).append(" -> ").append("R")
-                    .append(aux.y).append("_").append("C").append(aux.x).append("[constraint = false]").append(";\n");
-            }
-            
             while (aux != null){
-                
+                str.append("X").append(aux.x).append("Y").append(aux.y)
+                        .append("[label = \"\", fillcolor = \"").append(aux.color)
+                        .append("\", group = ").append(aux.x + 1).append("];\n");
+                aux = aux.down;
+            }
+            auxc = auxc.next;
+        }
+        return str.toString();
+    }
+    
+    private String relationsByCols(){
+        StringBuilder str = new StringBuilder();
+        NodoHeader auxc = colsList.head;
+        
+        while (auxc != null){
+            if (auxc.access != null)
+                str.append("C").append(auxc.pos).append(" -> ")
+                        .append("X").append(auxc.access.x).append("Y")
+                        .append(auxc.access.y).append(";\n");
+            
+            NodoMatriz aux = auxc.access;
+            while (aux != null){
                 if (aux.down != null)
-                    str.append("R").append(aux.y).append("_").append("C").append(aux.x)
-                        .append(" -> ").append("R").append(aux.down.y)
-                            .append("_").append("C").append(aux.down.x).append("[constraint = false]").append(";\n");
-                
-                if (aux.up != null)
-                    str.append("R").append(aux.y).append("_").append("C").append(aux.x)
-                        .append(" -> ").append("R").append(aux.up.y)
-                            .append("_").append("C").append(aux.up.x).append("[constraint = false]").append(";\n");
-                
+                    str.append("X").append(aux.x).append("Y").append(aux.y)
+                            .append(" -> ").append("X").append(aux.down.x)
+                            .append("Y").append(aux.down.y).append(";\n");
                 aux = aux.down;
             }
             
             auxc = auxc.next;
         }
+        return str.toString();
+    }
+    
+    private String relationsByRows(){
+        StringBuilder str = new StringBuilder();
+        NodoHeader auxr = rowsList.head;
         
+        while (auxr != null){
+            if (auxr.access != null)
+                str.append("F").append(auxr.pos).append(" -> ")
+                        .append("X").append(auxr.access.x).append("Y")
+                        .append(auxr.access.y).append(";\n");
+            
+            NodoMatriz aux = auxr.access;
+            while (aux != null){
+                if (aux.next != null)
+                    str.append("X").append(aux.x).append("Y").append(aux.y)
+                            .append(" -> ").append("X").append(aux.next.x)
+                            .append("Y").append(aux.next.y).append(";\n");
+                aux = aux.next;
+            }
+            
+            auxr = auxr.next;
+        }
+        return str.toString();
+    }
+    
+    
+    private String graphRanks(){
+        StringBuilder str = new StringBuilder();
         
+        NodoHeader auxr = rowsList.head;
+        while (auxr != null){
+            str.append("{ rank = same; F").append(auxr.pos).append(";");
+            
+            NodoMatriz aux = auxr.access;
+            while (aux != null){
+                str.append("X").append(aux.x).append("Y").append(aux.y).append(";");
+                aux = aux.next;
+            }
+            str.append("}\n");
+            auxr = auxr.next;
+        }
         return str.toString();
     }
 }

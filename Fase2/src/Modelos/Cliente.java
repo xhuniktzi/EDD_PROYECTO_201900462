@@ -13,10 +13,17 @@ public class Cliente {
     public String dpi;
     public String nombre_cliente;
     public String password;
+    public boolean isAdmin;
     
     public Cliente(String dpi, String nombre_cliente, String password){
         this.dpi = dpi;
         this.nombre_cliente = nombre_cliente;
         this.password = password;
+        this.isAdmin = false;
+    }
+    
+    public Cliente(String dpi, String nombre_cliente, String password, boolean isAdmin){
+        this(dpi, nombre_cliente, password);
+        this.isAdmin = isAdmin;
     }
 }

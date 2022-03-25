@@ -27,8 +27,7 @@ public class App {
         // TODO code application logic here
         loaders.cargaMasivaCapa("./Capas-AuxEDD.json");
         loaders.cargaMasivaImages("./Imagenes-AuxEDD.json");
-//        traverseTrees.generateImagePosorden(3);
-//        System.out.println(Globals.images.search(3).graph());
+        loaders.generarDot("orden", traverseTrees.generateImageInorden(6).graph());
     }
     
 }

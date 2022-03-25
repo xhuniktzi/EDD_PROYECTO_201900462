@@ -15,36 +15,42 @@ import Fase2.Globals;
  * @author Xhunik_Local
  */
 public class traverseTrees {
-    public static void generateImagePreorden(int id){
+    public static Matriz generateImagePreorden(int id){
         BinaryTree img = Globals.images.search(id);
+        Matriz nm = new Matriz(id, "image");
         
         LinkedList<Matriz> lm = img.preorden();
         var aux = lm.head;
         while(aux != null){
-            System.out.println(aux.dato.id);
+            nm.insertMatriz(aux.dato);
             aux = aux.siguiente;
         }
+        return nm;
     }
     
-    public static void generateImageInorden(int id){
+    public static Matriz generateImageInorden(int id){
         BinaryTree img = Globals.images.search(id);
+        Matriz nm = new Matriz(id, "image");
         
         LinkedList<Matriz> lm = img.inorden();
         var aux = lm.head;
         while(aux != null){
-            System.out.println(aux.dato.id);
+            nm.insertMatriz(aux.dato);
             aux = aux.siguiente;
         }
+        return nm;
     }
     
-    public static void generateImagePosorden(int id){
+    public static Matriz generateImagePosorden(int id){
         BinaryTree img = Globals.images.search(id);
+        Matriz nm = new Matriz(id, "image");
         
         LinkedList<Matriz> lm = img.posorden();
         var aux = lm.head;
         while(aux != null){
-            System.out.println(aux.dato.id);
+            nm.insertMatriz(aux.dato);
             aux = aux.siguiente;
         }
+        return nm;
     }
 }

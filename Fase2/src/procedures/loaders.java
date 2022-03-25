@@ -63,7 +63,7 @@ public class loaders {
         }
     }
     
-    private static void generarDot(String name, String capa){
+    public static void generarDot(String name, String capa){
         try (FileOutputStream out = new FileOutputStream(name + ".dot")) {
             out.write(capa.getBytes());
             out.close();

@@ -154,6 +154,18 @@ public class Matriz {
         return str.toString();
     }
     
+    public void insertMatriz(Matriz m){
+        NodoHeader auxc = m.colsList.head;
+        while (auxc != null){
+            NodoMatriz aux = auxc.access;
+            while (aux != null){
+                this.insert(aux.x, aux.y, aux.color);
+                aux = aux.down;
+            }
+            auxc = auxc.next;
+        }
+    }
+    
     private String nodeCols(){
         StringBuilder str = new StringBuilder();
         NodoHeader auxc = colsList.head;

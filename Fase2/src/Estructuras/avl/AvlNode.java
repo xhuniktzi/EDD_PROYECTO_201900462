@@ -41,6 +41,27 @@ public class AvlNode {
         }       
     }
     
+    public BinaryTree search(int id){
+        if (value.id == id){
+            return this.value;
+        }
+        else {
+            if (id < value.id){
+                if (this.left == null)
+                    return null;
+                else
+                    return this.left.search(id);
+            }
+            else if (id > value.id){
+                if (this.right == null)
+                    return null;
+                else
+                    return this.right.search(id);
+            }
+        }
+        return null;
+    }
+    
     public String graph(){
         StringBuilder str = new StringBuilder();
         str.append("digraph G { rankdir=TB; node [shape = record, style=filled, fillcolor=seashell2];\n");

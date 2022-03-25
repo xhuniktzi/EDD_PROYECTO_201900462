@@ -26,6 +26,10 @@ public class AvlTree {
         return root.graph();
     }
     
+    public BinaryTree search(int id){
+        return this.root.search(id);
+    }
+    
     private AvlNode insert(BinaryTree b, AvlNode r){
         if (r == null) {
             r = new AvlNode(b);

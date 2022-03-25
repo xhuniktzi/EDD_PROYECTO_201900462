@@ -5,6 +5,8 @@
  */
 package Estructuras.binario;
 
+import Estructuras.linkedlist.LinkedList;
+import Estructuras.linkedlist.NodoSimple;
 import Estructuras.matriz.Matriz;
 
 /**
@@ -32,5 +34,44 @@ public class BinaryTree {
     
     public String graph(){
         return root.graph();
+    }
+    
+    public LinkedList<Matriz> preorden(){
+        LinkedList<Matriz> lm = new LinkedList<>();
+        preorden(lm, this.root);
+        return lm;
+    }
+    
+    private void preorden(LinkedList<Matriz> lm, BinaryNode node){
+        if (node == null) return;
+        lm.addToEnd(node.value);
+        preorden(lm, node.left);
+        preorden(lm, node.right);
+    }
+    
+    public LinkedList<Matriz> inorden(){
+        LinkedList<Matriz> lm = new LinkedList<>();
+        inorden(lm, this.root);
+        return lm;
+    }
+    
+    private void inorden(LinkedList<Matriz> lm, BinaryNode node){
+        if (node == null) return;
+        inorden(lm, node.left);
+        lm.addToEnd(node.value);
+        inorden(lm, node.right);
+    }
+    
+    public LinkedList<Matriz> posorden(){
+        LinkedList<Matriz> lm = new LinkedList<>();
+        posorden(lm, this.root);
+        return lm;
+    }
+    
+    private void posorden(LinkedList<Matriz> lm, BinaryNode node){
+        if (node == null) return;
+        posorden(lm, node.left);
+        posorden(lm, node.right);
+        lm.addToEnd(node.value);
     }
 }

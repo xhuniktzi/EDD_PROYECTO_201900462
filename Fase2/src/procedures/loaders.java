@@ -8,6 +8,7 @@ package procedures;
 import Estructuras.binario.BinaryTree;
 import Estructuras.matriz.Matriz;
 import Fase2.Globals;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -23,9 +24,9 @@ import org.json.simple.parser.ParseException;
  * @author Xhunik_Local
  */
 public class loaders {
-    public static void cargaMasivaCapa(String path) throws FileNotFoundException, IOException, ParseException{
+    public static void cargaMasivaCapa(File f) throws FileNotFoundException, IOException, ParseException{
         JSONParser jsonParser = new JSONParser();
-        JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader(path));
+        JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader(f));
         Iterator<JSONObject> iterator = jsonArray.iterator();
         while(iterator.hasNext()) {
             JSONObject capa = iterator.next();
@@ -44,9 +45,9 @@ public class loaders {
         }
     }
     
-    public static void cargaMasivaImages(String path) throws FileNotFoundException, IOException, ParseException{
+    public static void cargaMasivaImages(File f) throws FileNotFoundException, IOException, ParseException{
         JSONParser jsonParser = new JSONParser();
-        JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader(path));
+        JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader(f));
         Iterator<JSONObject> iterator = jsonArray.iterator();
         while(iterator.hasNext()) {
             JSONObject image = iterator.next();

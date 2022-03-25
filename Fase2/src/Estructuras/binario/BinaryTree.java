@@ -6,7 +6,6 @@
 package Estructuras.binario;
 
 import Estructuras.linkedlist.LinkedList;
-import Estructuras.linkedlist.NodoSimple;
 import Estructuras.matriz.Matriz;
 
 /**

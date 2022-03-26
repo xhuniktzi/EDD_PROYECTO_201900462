@@ -6,6 +6,7 @@
 package Estructuras.avl;
 
 import Estructuras.binario.BinaryTree;
+import Estructuras.linkedlist.LinkedList;
 
 /**
  *
@@ -28,6 +29,19 @@ public class AvlTree {
     
     public BinaryTree search(int id){
         return this.root.search(id);
+    }
+    
+    public LinkedList<BinaryTree> inorden(){
+        LinkedList<BinaryTree> lb = new LinkedList<>();
+        inorden(lb, this.root);
+        return lb;
+    }
+    
+    private void inorden(LinkedList<BinaryTree> lm, AvlNode node){
+        if (node == null) return;
+        inorden(lm, node.left);
+        lm.addToEnd(node.value);
+        inorden(lm, node.right);
     }
     
     private AvlNode insert(BinaryTree b, AvlNode r){

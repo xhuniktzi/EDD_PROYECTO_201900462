@@ -38,6 +38,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         btnCargaMasivaCapas = new javax.swing.JButton();
         btnBinaryTree = new javax.swing.JButton();
+        btnCargaMasivaImages = new javax.swing.JButton();
+        btnAvlTree = new javax.swing.JButton();
+        btnGenerateImage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Dashboard"); // NOI18N
@@ -56,16 +59,43 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        btnCargaMasivaImages.setText("Carga Masiva Imagenes");
+        btnCargaMasivaImages.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargaMasivaImagesActionPerformed(evt);
+            }
+        });
+
+        btnAvlTree.setText("Ver arbol AVL de Imagenes");
+        btnAvlTree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvlTreeActionPerformed(evt);
+            }
+        });
+
+        btnGenerateImage.setText("Generar Imagen");
+        btnGenerateImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateImageActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnCargaMasivaCapas)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnGenerateImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnCargaMasivaCapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCargaMasivaImages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addComponent(btnBinaryTree)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAvlTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBinaryTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,7 +104,13 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCargaMasivaCapas)
                     .addComponent(btnBinaryTree))
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCargaMasivaImages)
+                    .addComponent(btnAvlTree))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGenerateImage)
+                .addContainerGap(208, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,6 +140,39 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBinaryTreeActionPerformed
+
+    private void btnCargaMasivaImagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargaMasivaImagesActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int result = jfc.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION){
+            try {
+                File f = jfc.getSelectedFile();
+                loaders.cargaMasivaImages(f);
+            } catch (IOException | ParseException ex) {
+                Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnCargaMasivaImagesActionPerformed
+
+    private void btnAvlTreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvlTreeActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            AVLTreeViewer frm = new AVLTreeViewer();
+            frm.setVisible(true);
+            frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (IOException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAvlTreeActionPerformed
+
+    private void btnGenerateImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateImageActionPerformed
+        // TODO add your handling code here:
+        GenerateImages frm = new GenerateImages();
+        frm.setVisible(true);
+        frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_btnGenerateImageActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,7 +210,10 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvlTree;
     private javax.swing.JButton btnBinaryTree;
     private javax.swing.JButton btnCargaMasivaCapas;
+    private javax.swing.JButton btnCargaMasivaImages;
+    private javax.swing.JButton btnGenerateImage;
     // End of variables declaration//GEN-END:variables
 }

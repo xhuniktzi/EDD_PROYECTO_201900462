@@ -20,9 +20,10 @@ public class ABBTreeViewer extends javax.swing.JFrame {
      * Creates new form ABBTreeViewer
      * @throws java.io.IOException
      */
-    public ABBTreeViewer() throws IOException {
+    public ABBTreeViewer() throws IOException, InterruptedException {
         initComponents();
         loaders.generarDot("ABBTree", Globals.capas.graph());
+        Thread.sleep(3500);
         ImageIcon img = new ImageIcon("ABBTree.png");
         image.setIcon(img);
     }

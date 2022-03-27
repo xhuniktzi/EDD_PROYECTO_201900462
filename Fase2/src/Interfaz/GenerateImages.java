@@ -10,6 +10,8 @@ import Estructuras.linkedlist.LinkedList;
 import Estructuras.linkedlist.NodoSimple;
 import Estructuras.matriz.Matriz;
 import Fase2.Globals;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import procedures.loaders;
@@ -31,17 +33,8 @@ public class GenerateImages extends javax.swing.JFrame {
         LinkedList<BinaryTree> avl = Globals.images.inorden();
         NodoSimple<BinaryTree> aux = avl.head;
         
-        while (aux != null){
-            LinkedList<Matriz> capas = aux.dato.preorden();
-            StringBuilder str = new StringBuilder();
-            NodoSimple<Matriz> auxm = capas.head;
-            
-            while (auxm != null){
-                str.append(auxm.dato.id).append(";");
-                auxm = auxm.siguiente;
-            }
-                    
-            dataModel.addRow(new Object[] {aux.dato.id, str});
+        while (aux != null){  
+            dataModel.addRow(new Object[] {aux.dato.id});
             aux = aux.siguiente;
         }
         
@@ -62,6 +55,7 @@ public class GenerateImages extends javax.swing.JFrame {
         tableImages = new javax.swing.JTable();
         image = new javax.swing.JLabel();
         btnGenerateImage = new javax.swing.JButton();
+        traverse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,11 +68,11 @@ public class GenerateImages extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Capas (en preorden)"
+                "ID"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -88,7 +82,6 @@ public class GenerateImages extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tableImages);
         if (tableImages.getColumnModel().getColumnCount() > 0) {
             tableImages.getColumnModel().getColumn(0).setResizable(false);
-            tableImages.getColumnModel().getColumn(1).setResizable(false);
         }
 
         btnGenerateImage.setText("Generar Imagen");
@@ -105,15 +98,19 @@ public class GenerateImages extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(comboRecorrido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGenerateImage))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
+                    .addComponent(traverse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,8 +123,10 @@ public class GenerateImages extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(traverse, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -138,22 +137,56 @@ public class GenerateImages extends javax.swing.JFrame {
         int typeSelected = comboRecorrido.getSelectedIndex();
         int row = tableImages.getSelectedRow();
         int id = (int) tableImages.getValueAt(row, 0);
+        BinaryTree img = Globals.images.search(id);
+        StringBuilder str = new StringBuilder();
         Matriz m = null;
         switch(typeSelected){
             case 0:
+                LinkedList<Matriz> lm1 = img.preorden();
+                
+                NodoSimple<Matriz> aux1 = lm1.head;
+                while (aux1 != null){
+                    str.append(aux1.dato.id).append(";");
+                    aux1 = aux1.siguiente;
+                }
+                traverse.setText(str.toString());
+                
                 m = traverseTrees.generateImagePreorden(id);
                 break;
             case 1:
+                LinkedList<Matriz> lm2 = img.inorden();
+                
+                NodoSimple<Matriz> aux2 = lm2.head;
+                while (aux2 != null){
+                    str.append(aux2.dato.id).append(";");
+                    aux2 = aux2.siguiente;
+                }
+                traverse.setText(str.toString());
+                
                 m = traverseTrees.generateImageInorden(id);
                 break;
             case 2:
+                LinkedList<Matriz> lm3 = img.posorden();
+                
+                NodoSimple<Matriz> aux3 = lm3.head;
+                while (aux3 != null){
+                    str.append(aux3.dato.id).append(";");
+                    aux3 = aux3.siguiente;
+                }
+                traverse.setText(str.toString());
+                
                 m = traverseTrees.generateImagePosorden(id);
                 break;
         }
         if (m != null){
-            loaders.generarDot("ImageGenerated", m.graph());
-            ImageIcon img = new ImageIcon("ImageGenerated.png");
-            image.setIcon(img);
+            try {
+                loaders.generarDot("ImageGenerated", m.graph());
+                Thread.sleep(3500);
+                ImageIcon imgicon = new ImageIcon("ImageGenerated.png");
+                image.setIcon(imgicon);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GenerateImages.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnGenerateImageActionPerformed
 
@@ -199,5 +232,6 @@ public class GenerateImages extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableImages;
+    private javax.swing.JLabel traverse;
     // End of variables declaration//GEN-END:variables
 }

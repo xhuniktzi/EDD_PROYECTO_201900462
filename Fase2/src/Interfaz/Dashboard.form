@@ -28,15 +28,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="btnGenerateImage" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnCargaMasivaCapas" max="32767" attributes="0"/>
-                      <Component id="btnCargaMasivaImages" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="btnCargaMasivaCapas" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnCargaMasivaImages" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnAvlTree" max="32767" attributes="0"/>
                   <Component id="btnBinaryTree" max="32767" attributes="0"/>
+                  <Component id="btnVerCapas" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="64" max="32767" attributes="0"/>
           </Group>
@@ -56,7 +55,10 @@
                   <Component id="btnAvlTree" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnGenerateImage" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnGenerateImage" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVerCapas" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="208" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -101,6 +103,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerateImageActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnVerCapas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ver Capas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerCapasActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

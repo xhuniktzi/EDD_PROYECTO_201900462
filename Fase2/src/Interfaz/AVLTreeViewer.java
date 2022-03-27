@@ -19,10 +19,12 @@ public class AVLTreeViewer extends javax.swing.JFrame {
     /**
      * Creates new form AVLTreeViewer
      * @throws java.io.IOException
+     * @throws java.lang.InterruptedException
      */
-    public AVLTreeViewer() throws IOException {
+    public AVLTreeViewer() throws IOException, InterruptedException {
         initComponents();
         loaders.generarDot("AVLTree", Globals.images.graph());
+        Thread.sleep(3500);
         ImageIcon img = new ImageIcon("AVLTree.png");
         image.setIcon(img);
     }

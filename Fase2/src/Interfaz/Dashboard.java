@@ -41,6 +41,7 @@ public class Dashboard extends javax.swing.JFrame {
         btnCargaMasivaImages = new javax.swing.JButton();
         btnAvlTree = new javax.swing.JButton();
         btnGenerateImage = new javax.swing.JButton();
+        btnVerCapas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Dashboard"); // NOI18N
@@ -80,6 +81,13 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        btnVerCapas.setText("Ver Capas");
+        btnVerCapas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerCapasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,13 +96,13 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnGenerateImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnCargaMasivaCapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCargaMasivaImages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnCargaMasivaCapas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCargaMasivaImages, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAvlTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBinaryTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnBinaryTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVerCapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,7 +117,9 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(btnCargaMasivaImages)
                     .addComponent(btnAvlTree))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnGenerateImage)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGenerateImage)
+                    .addComponent(btnVerCapas))
                 .addContainerGap(208, Short.MAX_VALUE))
         );
 
@@ -136,7 +146,7 @@ public class Dashboard extends javax.swing.JFrame {
             ABBTreeViewer frm = new ABBTreeViewer();
             frm.setVisible(true);
             frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        } catch (IOException ex) {
+        } catch (IOException | InterruptedException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBinaryTreeActionPerformed
@@ -162,7 +172,7 @@ public class Dashboard extends javax.swing.JFrame {
             AVLTreeViewer frm = new AVLTreeViewer();
             frm.setVisible(true);
             frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        } catch (IOException ex) {
+        } catch (IOException | InterruptedException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAvlTreeActionPerformed
@@ -173,6 +183,13 @@ public class Dashboard extends javax.swing.JFrame {
         frm.setVisible(true);
         frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnGenerateImageActionPerformed
+
+    private void btnVerCapasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCapasActionPerformed
+        // TODO add your handling code here:
+        ViewCapas frm = new ViewCapas();
+        frm.setVisible(true);
+        frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_btnVerCapasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,5 +232,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnCargaMasivaCapas;
     private javax.swing.JButton btnCargaMasivaImages;
     private javax.swing.JButton btnGenerateImage;
+    private javax.swing.JButton btnVerCapas;
     // End of variables declaration//GEN-END:variables
 }

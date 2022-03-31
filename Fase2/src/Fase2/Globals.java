@@ -5,6 +5,7 @@
  */
 package Fase2;
 
+import Estructuras.album.ListaAlbumes;
 import Estructuras.avl.AvlTree;
 import Estructuras.binario.BinaryTree;
 
@@ -15,4 +16,5 @@ import Estructuras.binario.BinaryTree;
 public class Globals {
     public static BinaryTree capas = new BinaryTree();
     public static AvlTree images = new AvlTree();
+    public static ListaAlbumes listaAlbumes = new ListaAlbumes();
 }

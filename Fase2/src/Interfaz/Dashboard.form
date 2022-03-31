@@ -27,6 +27,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="btnCargarAlbumes" max="32767" attributes="0"/>
                   <Component id="btnGenerateImage" max="32767" attributes="0"/>
                   <Component id="btnCargaMasivaCapas" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnCargaMasivaImages" alignment="0" max="32767" attributes="0"/>
@@ -36,6 +37,7 @@
                   <Component id="btnAvlTree" max="32767" attributes="0"/>
                   <Component id="btnBinaryTree" max="32767" attributes="0"/>
                   <Component id="btnVerCapas" max="32767" attributes="0"/>
+                  <Component id="btnGenerateAlbumes" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="64" max="32767" attributes="0"/>
           </Group>
@@ -59,7 +61,12 @@
                   <Component id="btnGenerateImage" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnVerCapas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="208" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnCargarAlbumes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnGenerateAlbumes" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="179" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -111,6 +118,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerCapasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCargarAlbumes">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cargar Albumes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarAlbumesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnGenerateAlbumes">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ver albumes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerateAlbumesActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

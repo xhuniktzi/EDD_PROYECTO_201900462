@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Fase2.Globals;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -42,6 +43,8 @@ public class Dashboard extends javax.swing.JFrame {
         btnAvlTree = new javax.swing.JButton();
         btnGenerateImage = new javax.swing.JButton();
         btnVerCapas = new javax.swing.JButton();
+        btnCargarAlbumes = new javax.swing.JButton();
+        btnGenerateAlbumes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Dashboard"); // NOI18N
@@ -88,6 +91,20 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        btnCargarAlbumes.setText("Cargar Albumes");
+        btnCargarAlbumes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarAlbumesActionPerformed(evt);
+            }
+        });
+
+        btnGenerateAlbumes.setText("Ver albumes");
+        btnGenerateAlbumes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateAlbumesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,6 +112,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnCargarAlbumes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnGenerateImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCargaMasivaCapas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCargaMasivaImages, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -102,7 +120,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAvlTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBinaryTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnVerCapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnVerCapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGenerateAlbumes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,7 +139,11 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGenerateImage)
                     .addComponent(btnVerCapas))
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCargarAlbumes)
+                    .addComponent(btnGenerateAlbumes))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         pack();
@@ -191,6 +214,25 @@ public class Dashboard extends javax.swing.JFrame {
         frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnVerCapasActionPerformed
 
+    private void btnCargarAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarAlbumesActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int result = jfc.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION){
+            try {
+                File f = jfc.getSelectedFile();
+                loaders.cargaMasivaAlbumes(f);
+            } catch (IOException | ParseException ex) {
+                Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnCargarAlbumesActionPerformed
+
+    private void btnGenerateAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateAlbumesActionPerformed
+        // TODO add your handling code here:
+        System.out.println(Globals.listaAlbumes.graph());
+    }//GEN-LAST:event_btnGenerateAlbumesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -231,6 +273,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnBinaryTree;
     private javax.swing.JButton btnCargaMasivaCapas;
     private javax.swing.JButton btnCargaMasivaImages;
+    private javax.swing.JButton btnCargarAlbumes;
+    private javax.swing.JButton btnGenerateAlbumes;
     private javax.swing.JButton btnGenerateImage;
     private javax.swing.JButton btnVerCapas;
     // End of variables declaration//GEN-END:variables

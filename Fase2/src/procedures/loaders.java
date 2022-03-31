@@ -5,6 +5,7 @@
  */
 package procedures;
 
+import Estructuras.album.Album;
 import Estructuras.binario.BinaryTree;
 import Estructuras.matriz.Matriz;
 import Fase2.Globals;
@@ -24,6 +25,25 @@ import org.json.simple.parser.ParseException;
  * @author Xhunik_Local
  */
 public class loaders {
+    public static void cargaMasivaAlbumes(File f) throws FileNotFoundException, IOException, ParseException
+    {
+        JSONParser jsonParser = new JSONParser();
+        JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader(f));
+        Iterator<JSONObject> iterator = jsonArray.iterator();
+        while(iterator.hasNext()) {
+            JSONObject capa = iterator.next();
+            String nombre_album = (String) capa.get("nombre_album");
+            JSONArray imgs = (JSONArray) capa.get("imgs");
+            Album a = new Album();
+            a.nombre_album = nombre_album;
+            imgs.forEach(t -> {
+                Long idImagen = (Long) t;
+                a.imgs.addToEnd(Globals.images.search(idImagen.intValue()));
+            });
+            Globals.listaAlbumes.addToEnd(a);
+        }
+    }
+    
     public static void cargaMasivaCapa(File f) throws FileNotFoundException, IOException, ParseException{
         JSONParser jsonParser = new JSONParser();
         JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader(f));

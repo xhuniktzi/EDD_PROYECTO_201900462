@@ -23,24 +23,6 @@ public class AvlNode {
         this.left = this.right = null;
     }
     
-    public void insert(BinaryTree b){
-        if (b.id < value.id){
-            if (this.left == null)
-                this.left = new AvlNode(b);
-            else
-                this.left.insert(b);
-        }
-        else if (b.id > value.id){
-            if (this.right == null)
-                this.right = new AvlNode(b);
-            else
-                this.right.insert(b);
-        }
-        else {
-            value = b;
-        }       
-    }
-    
     public BinaryTree search(int id){
         if (value.id == id){
             return this.value;

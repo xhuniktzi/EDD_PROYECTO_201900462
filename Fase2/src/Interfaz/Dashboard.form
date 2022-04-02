@@ -34,10 +34,13 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnAvlTree" max="32767" attributes="0"/>
-                  <Component id="btnBinaryTree" max="32767" attributes="0"/>
-                  <Component id="btnVerCapas" max="32767" attributes="0"/>
-                  <Component id="btnGenerateAlbumes" max="32767" attributes="0"/>
+                  <Component id="btnAdminImages" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnAvlTree" max="32767" attributes="0"/>
+                      <Component id="btnBinaryTree" max="32767" attributes="0"/>
+                      <Component id="btnVerCapas" max="32767" attributes="0"/>
+                      <Component id="btnGenerateAlbumes" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="64" max="32767" attributes="0"/>
           </Group>
@@ -66,7 +69,9 @@
                   <Component id="btnCargarAlbumes" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnGenerateAlbumes" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="179" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnAdminImages" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="150" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -134,6 +139,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerateAlbumesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAdminImages">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Administrar Imagenes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminImagesActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

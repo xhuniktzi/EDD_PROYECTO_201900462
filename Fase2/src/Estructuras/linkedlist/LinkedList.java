@@ -24,6 +24,23 @@ public class LinkedList<T> {
         return this.head == null;
     }
     
+    public T getByIndex(int index){
+        int i = 0;
+        if(isVoid()){
+            return null;
+        }
+        else {
+            NodoSimple<T> aux = this.head;
+            while (aux != null){
+                if (i == index)
+                    return aux.dato;
+                i++;
+                aux = aux.siguiente;
+            }
+            return null;
+        }
+    }
+    
     public T getHead(){
         if(!isVoid())
             return this.head.dato;

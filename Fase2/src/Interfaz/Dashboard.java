@@ -229,8 +229,14 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCargarAlbumesActionPerformed
 
     private void btnGenerateAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateAlbumesActionPerformed
-        // TODO add your handling code here:
-        System.out.println(Globals.listaAlbumes.graph());
+        try {
+            // TODO add your handling code here:
+            ViewAlbumes frm = new ViewAlbumes();
+            frm.setVisible(true);
+            frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnGenerateAlbumesActionPerformed
 
     /**
@@ -261,10 +267,8 @@ public class Dashboard extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Dashboard().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Dashboard().setVisible(true);
         });
     }
 

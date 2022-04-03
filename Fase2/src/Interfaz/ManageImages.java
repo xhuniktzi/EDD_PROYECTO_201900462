@@ -12,6 +12,7 @@ import Fase2.Globals;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 import procedures.loaders;
 
@@ -45,7 +46,10 @@ public class ManageImages extends javax.swing.JFrame {
         loaders.generarDot("AVLTree2", Globals.images.graph());
         Thread.sleep(3500);
         ImageIcon img = new ImageIcon("AVLTree2.png");
+        JLabel image = new JLabel();
+        image.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
         image.setIcon(img);
+        jScrollPane2.setViewportView(image);
     }
 
     /**
@@ -60,7 +64,7 @@ public class ManageImages extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableImages = new javax.swing.JTable();
         btnDeleteImage = new javax.swing.JButton();
-        image = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,11 +100,11 @@ public class ManageImages extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 273, Short.MAX_VALUE)
                         .addComponent(btnDeleteImage))
-                    .addComponent(image, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -111,7 +115,7 @@ public class ManageImages extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -167,8 +171,8 @@ public class ManageImages extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteImage;
-    private javax.swing.JLabel image;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableImages;
     // End of variables declaration//GEN-END:variables
 }

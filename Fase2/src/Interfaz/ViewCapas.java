@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import procedures.loaders;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 /**
  *
  * @author Xhunik_Local
@@ -48,7 +49,7 @@ public class ViewCapas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableImages = new javax.swing.JTable();
         btnGenerateImage = new javax.swing.JButton();
-        image = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,14 +82,14 @@ public class ViewCapas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnGenerateImage)))
+                        .addComponent(btnGenerateImage))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -98,8 +99,8 @@ public class ViewCapas extends javax.swing.JFrame {
                 .addComponent(btnGenerateImage)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -117,7 +118,10 @@ public class ViewCapas extends javax.swing.JFrame {
                 loaders.generarDot("CapaGenerated", m.graph());
                 Thread.sleep(3500);
                 ImageIcon imgicon = new ImageIcon("CapaGenerated.png");
+                JLabel image = new JLabel();
+                image.setBounds(0, 0, imgicon.getIconWidth(), imgicon.getIconHeight());
                 image.setIcon(imgicon);
+                jScrollPane2.setViewportView(image);
             } catch (InterruptedException ex) {
                 Logger.getLogger(GenerateImages.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -161,8 +165,8 @@ public class ViewCapas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerateImage;
-    private javax.swing.JLabel image;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableImages;
     // End of variables declaration//GEN-END:variables
 }

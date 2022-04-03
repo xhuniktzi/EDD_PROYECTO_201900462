@@ -46,6 +46,7 @@ public class Dashboard extends javax.swing.JFrame {
         btnCargarAlbumes = new javax.swing.JButton();
         btnGenerateAlbumes = new javax.swing.JButton();
         btnAdminImages = new javax.swing.JButton();
+        btnReportes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Dashboard"); // NOI18N
@@ -113,6 +114,13 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        btnReportes.setText("Reportes");
+        btnReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,15 +131,15 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(btnCargarAlbumes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnGenerateImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCargaMasivaCapas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCargaMasivaImages, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCargaMasivaImages, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAdminImages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnAvlTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBinaryTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVerCapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnGenerateAlbumes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnAvlTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBinaryTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVerCapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGenerateAlbumes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -154,7 +162,9 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(btnCargarAlbumes)
                     .addComponent(btnGenerateAlbumes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAdminImages)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdminImages)
+                    .addComponent(btnReportes))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
 
@@ -262,6 +272,13 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAdminImagesActionPerformed
 
+    private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
+        // TODO add your handling code here:
+        Reports frm = new Reports();
+        frm.setVisible(true);
+        frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_btnReportesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -291,7 +308,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Dashboard().setVisible(true);
+            Dashboard d = new Dashboard();
+            d.setVisible(true);
+            d.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         });
     }
 
@@ -304,6 +323,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnCargarAlbumes;
     private javax.swing.JButton btnGenerateAlbumes;
     private javax.swing.JButton btnGenerateImage;
+    private javax.swing.JButton btnReportes;
     private javax.swing.JButton btnVerCapas;
     // End of variables declaration//GEN-END:variables
 }

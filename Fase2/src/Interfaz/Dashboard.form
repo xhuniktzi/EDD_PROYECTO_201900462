@@ -31,16 +31,15 @@
                   <Component id="btnGenerateImage" max="32767" attributes="0"/>
                   <Component id="btnCargaMasivaCapas" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnCargaMasivaImages" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnReportes" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnAdminImages" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnAvlTree" max="32767" attributes="0"/>
-                      <Component id="btnBinaryTree" max="32767" attributes="0"/>
-                      <Component id="btnVerCapas" max="32767" attributes="0"/>
-                      <Component id="btnGenerateAlbumes" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="btnAvlTree" max="32767" attributes="0"/>
+                  <Component id="btnBinaryTree" max="32767" attributes="0"/>
+                  <Component id="btnVerCapas" max="32767" attributes="0"/>
+                  <Component id="btnGenerateAlbumes" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="64" max="32767" attributes="0"/>
           </Group>
@@ -70,7 +69,10 @@
                   <Component id="btnGenerateAlbumes" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnAdminImages" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnAdminImages" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnReportes" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="150" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -147,6 +149,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminImagesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnReportes">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reportes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReportesActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

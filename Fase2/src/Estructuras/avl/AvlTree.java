@@ -145,6 +145,7 @@ public class AvlTree {
         if (r == null) {
             return new AvlNode(b);
         }
+        
         if (b.id < r.value.id)
             r.left = insert(r.left, b);
         else if (b.id > r.value.id)
@@ -166,7 +167,6 @@ public class AvlTree {
             r.left = rotateLeft(r.left);
             return rotateRight(r);
         }
-            
         
         if (balance < -1 && b.id < r.right.value.id){
             r.right = rotateRight(r.right);
@@ -216,23 +216,4 @@ public class AvlTree {
         nodeAux.height = major(height(nodeAux.left), nodeInput.height) + 1;
         return nodeAux;
     }
-    
-//    private AvlNode rotateLeftRight(AvlNode nodeInput){
-//        nodeInput.left = rotateLeft(nodeInput.left);
-//        return rotateRight(nodeInput);
-//    }
-//    
-//    private AvlNode rotateRightLeft(AvlNode nodeInput){
-//        nodeInput.right = rotateRight(nodeInput.right);
-//        return rotateLeft(nodeInput);
-//    }
-    
-//    private AvlNode rotateLeftRight(AvlNode nodeInput){
-//        nodeInput.left = rotateRightRight(nodeInput.left);
-//        return rotateLeftLeft(nodeInput);
-//    }
-//    private AvlNode rotateRightLeft(AvlNode nodeInput){
-//        nodeInput.right = rotateRightRight(nodeInput.right);
-//        return rotateRightRight(nodeInput);
-//    }
 }

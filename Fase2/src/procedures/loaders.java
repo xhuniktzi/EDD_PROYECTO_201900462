@@ -89,6 +89,7 @@ public class loaders {
             out.write(capa.getBytes());
             out.close();
             Runtime.getRuntime().exec("dot -Tpng " + name + ".dot -o " + name + ".png");
+            
         } catch (Exception ex){}
     }
 }

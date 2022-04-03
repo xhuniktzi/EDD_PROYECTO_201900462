@@ -72,4 +72,14 @@ public class LinkedList<T> {
         }
         aux.siguiente = nodo;
     }
+    
+    public int size(){
+        int i = 0;
+        NodoSimple<T> aux = this.head;
+        while (aux != null){
+            i++;
+            aux = aux.siguiente;
+        }
+        return i;
+    }
 } 

@@ -8,6 +8,7 @@ package Interfaz;
 import Fase2.Globals;
 import java.io.IOException;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import procedures.loaders;
 
 /**
@@ -26,7 +27,10 @@ public class ViewAlbumes extends javax.swing.JFrame {
         loaders.generarDot("Album", Globals.listaAlbumes.graph());
         Thread.sleep(3500);
         ImageIcon img = new ImageIcon("Album.png");
+        JLabel image = new JLabel();
+        image.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
         image.setIcon(img);
+        jScrollPane1.setViewportView(image);
     }
 
     /**
@@ -38,7 +42,7 @@ public class ViewAlbumes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        image = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,14 +52,14 @@ public class ViewAlbumes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -98,6 +102,6 @@ public class ViewAlbumes extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel image;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

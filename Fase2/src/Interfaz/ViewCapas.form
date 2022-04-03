@@ -23,15 +23,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="image" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" alignment="0" pref="380" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="btnGenerateImage" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -44,8 +44,8 @@
               <Component id="btnGenerateImage" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="132" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="image" pref="87" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" pref="100" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -81,7 +81,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerateImageActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="image">
-    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+    </Container>
   </SubComponents>
 </Form>

@@ -56,7 +56,7 @@ public class GenerateImages extends javax.swing.JFrame {
         tableImages = new javax.swing.JTable();
         btnGenerateImage = new javax.swing.JButton();
         traverse = new javax.swing.JLabel();
-        jScrollPane = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,7 +109,7 @@ public class GenerateImages extends javax.swing.JFrame {
                         .addComponent(comboRecorrido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGenerateImage))
-                    .addComponent(jScrollPane))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -125,7 +125,7 @@ public class GenerateImages extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(traverse, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -186,7 +186,7 @@ public class GenerateImages extends javax.swing.JFrame {
                 JLabel image = new JLabel();
                 image.setBounds(0, 0, imgicon.getIconWidth(), imgicon.getIconHeight());
                 image.setIcon(imgicon);
-                jScrollPane.setViewportView(image);
+                jScrollPane2.setViewportView(image);
             } catch (InterruptedException ex) {
                 Logger.getLogger(GenerateImages.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -232,8 +232,8 @@ public class GenerateImages extends javax.swing.JFrame {
     private javax.swing.JButton btnGenerateImage;
     private javax.swing.JComboBox<String> comboRecorrido;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableImages;
     private javax.swing.JLabel traverse;
     // End of variables declaration//GEN-END:variables

@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.Iterator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -20,37 +21,65 @@ import org.json.simple.parser.ParseException;
  * @author Xhunik
  */
 public class HashTable {
-    private int size = 37;
     private int count = 0;
-    private Mensajero[] arrayMensajeros = new Mensajero[size];
+    private Mensajero[] arrayMensajeros = new Mensajero[37];
     
-    private long sparseFunctionPrimary(long key){
-        return key % size;
+    
+    private long sparseFunctionPrimary(String key){
+        BigInteger dpi = new BigInteger(key);
+        return dpi.mod(BigInteger.valueOf(arrayMensajeros.length)).longValue();
     }
     
-    private long sparseFunctionSecondary(long key, int i){
-        return ((key % 7) + 1) * i;
+    private long sparseFunctionSecondary(String key, int i){
+        BigInteger dpi = new BigInteger(key);
+        return ((dpi.mod(BigInteger.valueOf(7)).longValue()) + 1) * i;
+    }
+    
+    public Mensajero get(String dpi){
+        int pos = (int) sparseFunctionPrimary(dpi);
+        Mensajero element = arrayMensajeros[pos];
+        
+        if (element != null && element.DPI.equals(dpi)){
+            return element;
+        }
+        else{
+            int i = 1;
+            do {
+                int posAux = (int) sparseFunctionSecondary(dpi, i);
+                pos = pos + posAux;
+                if (pos >= arrayMensajeros.length){
+                    pos = pos % arrayMensajeros.length;
+                }
+                
+                Mensajero elementAux = arrayMensajeros[pos];
+                if (elementAux != null && elementAux.DPI.equals(dpi)){
+                    return elementAux;
+                }
+                i++;
+            } while (true);
+        }
+        
     }
     
     public void insert(Mensajero obj){
-        int pos = (int) sparseFunctionPrimary(Long.valueOf(obj.DPI));
+        int pos = (int) sparseFunctionPrimary(obj.DPI);
         Mensajero element = arrayMensajeros[pos];
         if (element == null){
             arrayMensajeros[pos] = obj;
             
         } else {
             int i = 1;
-            int newPos = pos;
+
             do {
-                int posAux = (int) sparseFunctionSecondary(Long.valueOf(obj.DPI), i);
-                newPos = pos + posAux;
-                if (newPos >= size){
-                    newPos = newPos - size;
+                int posAux = (int) sparseFunctionSecondary(obj.DPI, i);
+                pos = pos + posAux;
+                if (pos >= arrayMensajeros.length){
+                    pos = pos % arrayMensajeros.length;
                 }
                 
-                Mensajero elementAux = arrayMensajeros[newPos];
+                Mensajero elementAux = arrayMensajeros[pos];
                 if (elementAux == null){
-                    arrayMensajeros[newPos] = obj;
+                    arrayMensajeros[pos] = obj;
                     break;
                 }
                 i++;
@@ -64,7 +93,7 @@ public class HashTable {
     }
     
     private double ocupacion(){
-        return ((double) count) / ((double) size);
+        return ((double) count) / ((double) arrayMensajeros.length);
     }
     
     public void printArray(){
@@ -74,14 +103,13 @@ public class HashTable {
             else
                 System.out.println("Posición: "+ i + ", value: null");
         }
-        System.out.println("Cantidad: " + count + "/" + size + ", porcentaje de ocupación: " + ocupacion());
+        System.out.println("Cantidad: " + count + "/" + arrayMensajeros.length + ", porcentaje de ocupación: " + ocupacion());
     }
     
     private void reSizeHashTable(){
         Mensajero[] aux = this.arrayMensajeros.clone();
         
-        this.size = nextPrimo(size);
-        this.arrayMensajeros = new Mensajero[this.size];
+        this.arrayMensajeros = new Mensajero[nextPrimo(arrayMensajeros.length)];
         this.count = 0;
         
         for (Mensajero mensajero : aux) {

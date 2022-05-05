@@ -65,8 +65,7 @@ public class HashTable {
         int pos = (int) sparseFunctionPrimary(obj.DPI);
         Mensajero element = arrayMensajeros[pos];
         if (element == null){
-            arrayMensajeros[pos] = obj;
-            
+            arrayMensajeros[pos] = obj;            
         } else {
             int i = 1;
 
@@ -150,5 +149,35 @@ public class HashTable {
             newMensajero.telefono = (String) m.get("telefono");
             this.insert(newMensajero);
         }
+    }
+    
+    public String graph() {
+        StringBuilder str = new StringBuilder();
+        str.append("""
+                   digraph G{ nodesep=.05;
+                   rankdir=LR;
+                   node [shape=record,width=.1,height=.1];
+                   node [width = 1.5];""");
+        
+        for (int i = 0; i < arrayMensajeros.length; i++) {
+            Mensajero m = arrayMensajeros[i];
+            str.append("node").append(i).append(" [label = \"{")
+                    .append("n").append(i);
+            
+                    if (m != null){
+                        str.append("|").append(m.DPI)
+                        .append("|Nombre: ").append(m.Nombres)
+                        .append("|Apellido: ").append(m.Apellidos);
+                    } else {
+                        str.append("|null")
+                        .append("|null ")
+                        .append("|null");
+                    }
+                    
+                    str.append("| }\"];\n");
+        }
+        
+        str.append("}");
+        return str.toString();
     }
 }

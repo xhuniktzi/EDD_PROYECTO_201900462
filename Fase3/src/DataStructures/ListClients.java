@@ -47,6 +47,8 @@ public class ListClients extends LinkedList<Cliente> {
     public boolean checkIfClientOk(String username, String password){
         Cliente findCliente = findByUsername(username);
         
+        if (findCliente == null) return false;
+        
         BCrypt.Result resultStrict = BCrypt.verifyer(BCrypt.Version.VERSION_2Y).verifyStrict(password.toCharArray(),findCliente.password.toCharArray());
         return resultStrict.verified;
     }
@@ -68,5 +70,26 @@ public class ListClients extends LinkedList<Cliente> {
             newCliente.id_municipio = (long) c.get("id_municipio");
             this.insertClient(newCliente);
         }
+    }
+    
+     public String graph(){
+        StringBuilder str = new StringBuilder();
+        str.append("digraph G{");
+        if(!this.isVoid()){
+            NodoSimple<Cliente> auxc = this.head;
+            while(auxc != null){
+                str.append(auxc.dato.DPI).append("[label=\"").append(auxc.dato.NombreCompleto)
+                    .append("\n Username: ").append(auxc.dato.username)
+                    .append("\n Password: ").append(auxc.dato.password)
+                        .append("\"];\n");
+
+                if (auxc.siguiente != null)
+                    str.append(auxc.dato.DPI).append("->").append(auxc.siguiente.dato.DPI).append(";\n");
+
+                auxc = auxc.siguiente;
+            }        
+        }
+        str.append("}");
+        return str.toString();
     }
 }

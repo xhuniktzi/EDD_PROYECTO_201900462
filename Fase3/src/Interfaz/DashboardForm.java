@@ -6,6 +6,9 @@ package Interfaz;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import org.json.simple.parser.ParseException;
@@ -159,17 +162,34 @@ public class DashboardForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdCargarMensajerosActionPerformed
 
     private void cmdGraficarMensajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGraficarMensajeroActionPerformed
-        // TODO add your handling code here:
-        String value = Globals.tableMensajeros.graph();
-        System.out.println(value);
-        Globals.generarDot("mensajeros", value);
+        try {
+            // TODO add your handling code here:
+            String value = Globals.tableMensajeros.graph();
+            System.out.println(value);
+            Globals.generarDot("mensajeros", value);
+            Thread.sleep(5000);
+            showImage frm = new showImage(new ImageIcon("mensajeros.png"));
+            frm.setVisible(true);
+            frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DashboardForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_cmdGraficarMensajeroActionPerformed
 
     private void cmdGraficarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGraficarClientesActionPerformed
-        // TODO add your handling code here:
-        String value = Globals.lsClients.graph();
-        System.out.println(value);
-        Globals.generarDot("clientes", value);
+        try {
+            // TODO add your handling code here:
+            String value = Globals.lsClients.graph();
+            System.out.println(value);
+            Globals.generarDot("clientes", value);
+            Thread.sleep(5000);
+            showImage frm = new showImage(new ImageIcon("clientes.png"));
+            frm.setVisible(true);
+            frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DashboardForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cmdGraficarClientesActionPerformed
 
     private void cmdEditClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEditClientsActionPerformed
@@ -195,10 +215,18 @@ public class DashboardForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdCargarLugaresActionPerformed
 
     private void cmdGraficarLugaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGraficarLugaresActionPerformed
-        // TODO add your handling code here:
-        String value = Globals.lsAdyacencia.graphLugares();
-        System.out.println(value);
-        Globals.generarDot("lugares", value);
+        try {
+            // TODO add your handling code here:
+            String value = Globals.lsAdyacencia.graphLugares();
+            System.out.println(value);
+            Globals.generarDot("lugares", value);
+            Thread.sleep(5000);
+            showImage frm = new showImage(new ImageIcon("lugares.png"));
+            frm.setVisible(true);
+            frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DashboardForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cmdGraficarLugaresActionPerformed
 
     private void cmdCargarRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCargarRutasActionPerformed
@@ -217,10 +245,18 @@ public class DashboardForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdCargarRutasActionPerformed
 
     private void cmdGraficarRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGraficarRutasActionPerformed
-        // TODO add your handling code here:
-        String value = Globals.lsAdyacencia.graphRutas();
-        System.out.println(value);
-        Globals.generarDot("rutas", value);
+        try {
+            // TODO add your handling code here:
+            String value = Globals.lsAdyacencia.graphRutas();
+            System.out.println(value);
+            Globals.generarDot("rutas", value);
+            Thread.sleep(5000);
+            showImage frm = new showImage(new ImageIcon("rutas.png"));
+            frm.setVisible(true);
+            frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DashboardForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cmdGraficarRutasActionPerformed
 
     

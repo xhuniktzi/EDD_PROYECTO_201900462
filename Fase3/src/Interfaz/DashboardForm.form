@@ -23,16 +23,20 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="cmdCargarMensajeros" max="32767" attributes="0"/>
-                  <Component id="cmdEditClients" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="cmdCargarRutas" max="32767" attributes="0"/>
+                  <Component id="cmdCargarLugares" max="32767" attributes="0"/>
+                  <Component id="cmdCargarMensajeros" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cmdEditClients" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="126" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cmdGraficarClientes" max="32767" attributes="0"/>
                   <Component id="cmdGraficarMensajero" max="32767" attributes="0"/>
+                  <Component id="cmdGraficarLugares" max="32767" attributes="0"/>
+                  <Component id="cmdGraficarRutas" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -51,7 +55,17 @@
                   <Component id="cmdEditClients" min="-2" max="-2" attributes="0"/>
                   <Component id="cmdGraficarClientes" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="232" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cmdCargarLugares" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmdGraficarLugares" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cmdCargarRutas" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmdGraficarRutas" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="152" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,6 +101,38 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEditClientsActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cmdCargarLugares">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cargar Lugares"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdCargarLugaresActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cmdGraficarLugares">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Graficar Lugares"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdGraficarLugaresActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cmdCargarRutas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cargar Rutas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdCargarRutasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cmdGraficarRutas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Graficar Rutas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdGraficarRutasActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

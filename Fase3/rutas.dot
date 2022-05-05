@@ -1,0 +1,12 @@
+digraph G{
+ node [shape=record];
+n17c13[label="{Peso: 5|Inicio: 17| Fin: 13|}"];
+n17c13->n17c16;
+n17c16[label="{Peso: 3|Inicio: 17| Fin: 16|}"];
+n17c16->n14c13;
+n14c13[label="{Peso: 3|Inicio: 14| Fin: 13|}"];
+n14c13->n14c16;
+n14c16[label="{Peso: 1|Inicio: 14| Fin: 16|}"];
+n14c16->n8c13;
+n8c13[label="{Peso: 5|Inicio: 8| Fin: 13|}"];
+}

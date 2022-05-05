@@ -4,6 +4,7 @@
  */
 package Interfaz;
 
+import DataStructures.ListaAdyacencia;
 import DataStructures.HashTable;
 import DataStructures.ListClients;
 import java.io.FileOutputStream;
@@ -15,6 +16,7 @@ import java.io.FileOutputStream;
 public class Globals {
     public static ListClients lsClients = new ListClients();
     public static HashTable tableMensajeros = new HashTable();
+    public static ListaAdyacencia lsAdyacencia = new ListaAdyacencia();
     
      public static void generarDot(String name, String img){
         try (FileOutputStream out = new FileOutputStream(name + ".dot")) {

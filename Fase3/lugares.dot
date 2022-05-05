@@ -1,0 +1,15 @@
+digraph G{17[label="Amatitlán
+ Departamento: Guatemala"];
+17->16;
+16[label="Amatitlán
+ Departamento: Guatemala"];
+16->14;
+14[label="Amatitlán
+ Departamento: Guatemala"];
+14->8;
+8[label="Amatitlán
+ Departamento: Guatemala"];
+8->13;
+13[label="Villa Nueva
+ Departamento: Guatemala"];
+}

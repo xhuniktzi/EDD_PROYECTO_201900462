@@ -46,29 +46,12 @@ public class ListClients extends LinkedList<Cliente> {
                 aux.dato.password = c.password;
                 aux.dato.phone = c.phone;
                 aux.dato.direction = c.direction;
-                aux.dato.id_municipio = c.id_municipio;
-                
-                
+                aux.dato.id_municipio = c.id_municipio;         
             }
-//                return aux.dato;
-            
+
             aux = aux.siguiente;
         }
-        
-//        return null;
-//        Cliente findCliente = findByDpi(c.DPI);
-//        if (findCliente != null) {
-//            String password = BCrypt.with(BCrypt.Version.VERSION_2Y).hashToString(6, c.password.toCharArray());
-//            c.password = password;
-//            findCliente.NombreCompleto = c.NombreCompleto;
-//            findCliente.username = c.username;
-//            findCliente.mail = c.mail;
-//            findCliente.password = c.password;
-//            findCliente.phone = c.phone;
-//            findCliente.direction = c.direction;
-//            findCliente.id_municipio = c.id_municipio;
-//        }
-        
+
     }
     
     public Cliente findByUsername(String username){

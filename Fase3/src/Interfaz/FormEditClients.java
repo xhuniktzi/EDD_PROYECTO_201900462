@@ -169,7 +169,6 @@ public class FormEditClients extends javax.swing.JFrame {
             // TODO add your handling code here:
             Cliente c = new Cliente();
             c.DPI = (String) comboDpi.getSelectedItem();
-//            c.DPI = txtDpi.getText();
             c.NombreCompleto = txtName.getText();
             c.username = txtUsername.getText();
             c.mail = txtMail.getText();
@@ -179,7 +178,7 @@ public class FormEditClients extends javax.swing.JFrame {
             numMunicipio.commitEdit();
             c.id_municipio = (int) numMunicipio.getValue();
             Globals.lsClients.updateClient(c);
-        }//            Logger.getLogger(RegisterForm2.class.getName()).log(Level.SEVERE, null, ex);
+        }
         catch (java.text.ParseException ex) {
             Logger.getLogger(FormEditClients.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -192,7 +191,6 @@ public class FormEditClients extends javax.swing.JFrame {
         txtName.setText(cl.NombreCompleto);
         txtUsername.setText(cl.username);
         txtMail.setText(cl.mail);
-//        txtPasswd.setText(cl.password);
         txtDirection.setText(cl.direction);
         txtPhone.setText(cl.phone);
         numMunicipio.setValue(cl.id_municipio);

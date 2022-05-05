@@ -36,6 +36,10 @@ public class DashboardForm extends javax.swing.JFrame {
         cmdGraficarMensajero = new javax.swing.JButton();
         cmdGraficarClientes = new javax.swing.JButton();
         cmdEditClients = new javax.swing.JButton();
+        cmdCargarLugares = new javax.swing.JButton();
+        cmdGraficarLugares = new javax.swing.JButton();
+        cmdCargarRutas = new javax.swing.JButton();
+        cmdGraficarRutas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,19 +71,51 @@ public class DashboardForm extends javax.swing.JFrame {
             }
         });
 
+        cmdCargarLugares.setText("Cargar Lugares");
+        cmdCargarLugares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCargarLugaresActionPerformed(evt);
+            }
+        });
+
+        cmdGraficarLugares.setText("Graficar Lugares");
+        cmdGraficarLugares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdGraficarLugaresActionPerformed(evt);
+            }
+        });
+
+        cmdCargarRutas.setText("Cargar Rutas");
+        cmdCargarRutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCargarRutasActionPerformed(evt);
+            }
+        });
+
+        cmdGraficarRutas.setText("Graficar Rutas");
+        cmdGraficarRutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdGraficarRutasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cmdCargarMensajeros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmdEditClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(cmdCargarRutas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdCargarLugares, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdCargarMensajeros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdEditClients, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(126, 126, 126)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cmdGraficarClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmdGraficarMensajero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmdGraficarMensajero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdGraficarLugares, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdGraficarRutas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -93,7 +129,15 @@ public class DashboardForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cmdEditClients)
                     .addComponent(cmdGraficarClientes))
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmdCargarLugares)
+                    .addComponent(cmdGraficarLugares))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmdCargarRutas)
+                    .addComponent(cmdGraficarRutas))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,6 +179,51 @@ public class DashboardForm extends javax.swing.JFrame {
         frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_cmdEditClientsActionPerformed
 
+    private void cmdCargarLugaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCargarLugaresActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int result = jfc.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION){
+            try {
+                File f = jfc.getSelectedFile();
+                Globals.lsAdyacencia.loadFromFileLugares(f);
+            } catch (IOException | ParseException ex) {
+//                Logger.getLogger(Fase3.class.getName()).log(Level.SEVERE, null, ex);
+                
+            }
+        }
+    }//GEN-LAST:event_cmdCargarLugaresActionPerformed
+
+    private void cmdGraficarLugaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGraficarLugaresActionPerformed
+        // TODO add your handling code here:
+        String value = Globals.lsAdyacencia.graphLugares();
+        System.out.println(value);
+        Globals.generarDot("lugares", value);
+    }//GEN-LAST:event_cmdGraficarLugaresActionPerformed
+
+    private void cmdCargarRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCargarRutasActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int result = jfc.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION){
+            try {
+                File f = jfc.getSelectedFile();
+                Globals.lsAdyacencia.loadFromFileRutas(f);
+            } catch (IOException | ParseException ex) {
+//                Logger.getLogger(Fase3.class.getName()).log(Level.SEVERE, null, ex);
+                
+            }
+        }
+    }//GEN-LAST:event_cmdCargarRutasActionPerformed
+
+    private void cmdGraficarRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGraficarRutasActionPerformed
+        // TODO add your handling code here:
+        String value = Globals.lsAdyacencia.graphRutas();
+        System.out.println(value);
+        Globals.generarDot("rutas", value);
+    }//GEN-LAST:event_cmdGraficarRutasActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -170,9 +259,13 @@ public class DashboardForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdCargarLugares;
     private javax.swing.JButton cmdCargarMensajeros;
+    private javax.swing.JButton cmdCargarRutas;
     private javax.swing.JButton cmdEditClients;
     private javax.swing.JButton cmdGraficarClientes;
+    private javax.swing.JButton cmdGraficarLugares;
     private javax.swing.JButton cmdGraficarMensajero;
+    private javax.swing.JButton cmdGraficarRutas;
     // End of variables declaration//GEN-END:variables
 }

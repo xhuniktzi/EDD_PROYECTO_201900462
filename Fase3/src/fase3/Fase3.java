@@ -5,6 +5,7 @@
 package fase3;
 
 import DataStructures.HashTable;
+import DataStructures.ListClients;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -23,20 +24,33 @@ public class Fase3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        HashTable hs = new HashTable();
+//        HashTable hs = new HashTable();
 
         JFileChooser jfc = new JFileChooser();
         int result = jfc.showOpenDialog(null);
+//        if (result == JFileChooser.APPROVE_OPTION){
+//            try {
+//                File f = jfc.getSelectedFile();
+//                hs.loadFromFile(f);
+//            } catch (IOException | ParseException ex) {
+//                Logger.getLogger(Fase3.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//
+//        hs.printArray();
+        
+        ListClients ls = new ListClients();
+//        result = jfc.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION){
             try {
                 File f = jfc.getSelectedFile();
-                hs.loadFromFile(f);
+                ls.loadFromFile(f);
             } catch (IOException | ParseException ex) {
                 Logger.getLogger(Fase3.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
-        hs.printArray();
+        
+        System.out.println(ls.checkIfClientOk("Winnie", "Lorem"));
     }
     
 }

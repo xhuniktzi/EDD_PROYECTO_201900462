@@ -25,7 +25,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="cmdCargarMensajeros" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="cmdCargarMensajeros" max="32767" attributes="0"/>
+                  <Component id="cmdEditClients" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace pref="126" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="cmdGraficarClientes" max="32767" attributes="0"/>
@@ -43,9 +46,12 @@
                   <Component id="cmdCargarMensajeros" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmdGraficarMensajero" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="cmdGraficarClientes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="238" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cmdEditClients" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmdGraficarClientes" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="232" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,6 +79,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdGraficarClientesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cmdEditClients">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Editar Clientes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEditClientsActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

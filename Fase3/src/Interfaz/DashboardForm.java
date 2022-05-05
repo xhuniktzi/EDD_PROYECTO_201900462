@@ -7,6 +7,7 @@ package Interfaz;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import org.json.simple.parser.ParseException;
 
 /**
@@ -34,6 +35,7 @@ public class DashboardForm extends javax.swing.JFrame {
         cmdCargarMensajeros = new javax.swing.JButton();
         cmdGraficarMensajero = new javax.swing.JButton();
         cmdGraficarClientes = new javax.swing.JButton();
+        cmdEditClients = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,13 +60,22 @@ public class DashboardForm extends javax.swing.JFrame {
             }
         });
 
+        cmdEditClients.setText("Editar Clientes");
+        cmdEditClients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEditClientsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cmdCargarMensajeros)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmdCargarMensajeros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdEditClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cmdGraficarClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -78,9 +89,11 @@ public class DashboardForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCargarMensajeros)
                     .addComponent(cmdGraficarMensajero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmdGraficarClientes)
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmdEditClients)
+                    .addComponent(cmdGraficarClientes))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,7 +101,7 @@ public class DashboardForm extends javax.swing.JFrame {
 
     private void cmdCargarMensajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCargarMensajerosActionPerformed
         // TODO add your handling code here:
-                JFileChooser jfc = new JFileChooser();
+        JFileChooser jfc = new JFileChooser();
         int result = jfc.showOpenDialog(this);
         if (result == JFileChooser.APPROVE_OPTION){
             try {
@@ -114,6 +127,13 @@ public class DashboardForm extends javax.swing.JFrame {
         System.out.println(value);
         Globals.generarDot("clientes", value);
     }//GEN-LAST:event_cmdGraficarClientesActionPerformed
+
+    private void cmdEditClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEditClientsActionPerformed
+        // TODO add your handling code here:
+        FormEditClients frm = new FormEditClients();
+        frm.setVisible(true);
+        frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_cmdEditClientsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +171,7 @@ public class DashboardForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdCargarMensajeros;
+    private javax.swing.JButton cmdEditClients;
     private javax.swing.JButton cmdGraficarClientes;
     private javax.swing.JButton cmdGraficarMensajero;
     // End of variables declaration//GEN-END:variables

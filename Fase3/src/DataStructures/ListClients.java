@@ -31,11 +31,64 @@ public class ListClients extends LinkedList<Cliente> {
         this.addToEnd(c);
     }
     
+    public void updateClient(Cliente c){
+        
+        NodoSimple<Cliente> aux = this.head;
+        
+        while (aux != null){
+            if (aux.dato.DPI.equals(c.DPI)){
+                String password = BCrypt.with(BCrypt.Version.VERSION_2Y).hashToString(6, c.password.toCharArray());
+                c.password = password;
+                
+                aux.dato.NombreCompleto = c.NombreCompleto;
+                aux.dato.username = c.username;
+                aux.dato.mail = c.mail;
+                aux.dato.password = c.password;
+                aux.dato.phone = c.phone;
+                aux.dato.direction = c.direction;
+                aux.dato.id_municipio = c.id_municipio;
+                
+                
+            }
+//                return aux.dato;
+            
+            aux = aux.siguiente;
+        }
+        
+//        return null;
+//        Cliente findCliente = findByDpi(c.DPI);
+//        if (findCliente != null) {
+//            String password = BCrypt.with(BCrypt.Version.VERSION_2Y).hashToString(6, c.password.toCharArray());
+//            c.password = password;
+//            findCliente.NombreCompleto = c.NombreCompleto;
+//            findCliente.username = c.username;
+//            findCliente.mail = c.mail;
+//            findCliente.password = c.password;
+//            findCliente.phone = c.phone;
+//            findCliente.direction = c.direction;
+//            findCliente.id_municipio = c.id_municipio;
+//        }
+        
+    }
+    
     public Cliente findByUsername(String username){
         NodoSimple<Cliente> aux = this.head;
         
         while (aux != null){
             if (aux.dato.username.equals(username))
+                return aux.dato;
+            
+            aux = aux.siguiente;
+        }
+        
+        return null;
+    }
+    
+    public Cliente findByDpi(String dpi){
+        NodoSimple<Cliente> aux = this.head;
+        
+        while (aux != null){
+            if (aux.dato.DPI.equals(dpi))
                 return aux.dato;
             
             aux = aux.siguiente;

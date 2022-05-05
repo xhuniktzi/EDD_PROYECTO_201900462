@@ -7,6 +7,7 @@ package Interfaz;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.parser.ParseException;
 
@@ -118,6 +119,7 @@ public class LoginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         RegisterForm2 frm = new RegisterForm2();
         frm.setVisible(true);
+        frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnRegisterNewClientActionPerformed
 
     private void btnLoadFromFileClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadFromFileClientsActionPerformed
@@ -142,6 +144,7 @@ public class LoginForm extends javax.swing.JFrame {
         if (result){
             DashboardForm frm = new DashboardForm();
             frm.setVisible(true);
+            frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
         else{
             JOptionPane.showMessageDialog(this, "Usuario o contraseña invalidos");

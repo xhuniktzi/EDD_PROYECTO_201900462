@@ -1,5 +1,17 @@
 digraph G{
  node [shape=record];
+n1c2[label="{Peso: 20|Inicio: 1| Fin: 2|}"];
+n1c2->n1c4;
+n1c4[label="{Peso: 50|Inicio: 1| Fin: 4|}"];
+n1c4->n1c5;
+n1c5[label="{Peso: 45|Inicio: 1| Fin: 5|}"];
+n1c5->n2c3;
+n2c3[label="{Peso: 15|Inicio: 2| Fin: 3|}"];
+n2c3->n4c3;
+n4c3[label="{Peso: 24|Inicio: 4| Fin: 3|}"];
+n4c3->n4c5;
+n4c5[label="{Peso: 23|Inicio: 4| Fin: 5|}"];
+n4c5->n1c2;
 n1c2[label="{Peso: 200|Inicio: 1| Fin: 2|}"];
 n1c2->n1c6;
 n1c6[label="{Peso: 190|Inicio: 1| Fin: 6|}"];

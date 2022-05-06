@@ -30,4 +30,19 @@ n10[label="Quetzaltepeque
 n10->n11;
 n11[label="Concepcion Las Minas
  Departamento: Chiquimula"];
+n11->n1;
+n1[label="Livingston
+ Departamento: Izabal"];
+n1->n2;
+n2[label="El Estor
+ Departamento: Izabal"];
+n2->n3;
+n3[label="Los Amates
+ Departamento: Izabal"];
+n3->n4;
+n4[label="Morales
+ Departamento: Izabal"];
+n4->n5;
+n5[label="Puerto Barrios
+ Departamento: Izabal"];
 }

@@ -114,13 +114,14 @@ public class ListClients extends LinkedList<Cliente> {
         if(!this.isVoid()){
             NodoSimple<Cliente> auxc = this.head;
             while(auxc != null){
-                str.append(auxc.dato.DPI).append("[label=\"").append(auxc.dato.NombreCompleto)
+                str.append("n").append(auxc.dato.DPI).append("[label=\"").append(auxc.dato.NombreCompleto)
                     .append("\n Username: ").append(auxc.dato.username)
                     .append("\n Password: ").append(auxc.dato.password)
                         .append("\"];\n");
 
                 if (auxc.siguiente != null)
-                    str.append(auxc.dato.DPI).append("->").append(auxc.siguiente.dato.DPI).append(";\n");
+                    str.append("n").append(auxc.dato.DPI).append("->").append("n")
+                            .append(auxc.siguiente.dato.DPI).append(";\n");
 
                 auxc = auxc.siguiente;
             }        

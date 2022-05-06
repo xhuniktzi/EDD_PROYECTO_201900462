@@ -43,6 +43,7 @@ public class DashboardForm extends javax.swing.JFrame {
         cmdGraficarLugares = new javax.swing.JButton();
         cmdCargarRutas = new javax.swing.JButton();
         cmdGraficarRutas = new javax.swing.JButton();
+        cmdGrafo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,6 +103,13 @@ public class DashboardForm extends javax.swing.JFrame {
             }
         });
 
+        cmdGrafo.setText("Mostrar Grafo");
+        cmdGrafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdGrafoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,7 +126,8 @@ public class DashboardForm extends javax.swing.JFrame {
                     .addComponent(cmdGraficarClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmdGraficarMensajero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmdGraficarLugares, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmdGraficarRutas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmdGraficarRutas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdGrafo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -140,7 +149,9 @@ public class DashboardForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cmdCargarRutas)
                     .addComponent(cmdGraficarRutas))
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(cmdGrafo)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         pack();
@@ -259,6 +270,22 @@ public class DashboardForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmdGraficarRutasActionPerformed
 
+    private void cmdGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGrafoActionPerformed
+        // TODO add your handling code here:
+                try {
+            // TODO add your handling code here:
+            String value = Globals.lsAdyacencia.graphSchema();
+            System.out.println(value);
+            Globals.generarDot("grafo", value);
+            Thread.sleep(5000);
+            showImage frm = new showImage(new ImageIcon("grafo.png"));
+            frm.setVisible(true);
+            frm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DashboardForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cmdGrafoActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -303,5 +330,6 @@ public class DashboardForm extends javax.swing.JFrame {
     private javax.swing.JButton cmdGraficarLugares;
     private javax.swing.JButton cmdGraficarMensajero;
     private javax.swing.JButton cmdGraficarRutas;
+    private javax.swing.JButton cmdGrafo;
     // End of variables declaration//GEN-END:variables
 }

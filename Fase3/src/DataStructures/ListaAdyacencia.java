@@ -5,7 +5,6 @@
 package DataStructures;
 
 import Models.Lugar;
-import Models.Mensajero;
 import Models.Ruta;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -70,12 +69,12 @@ public class ListaAdyacencia {
         if(!lsLugares.isVoid()){
             NodoSimple<Lugar> auxc = lsLugares.head;
             while(auxc != null){
-                str.append(auxc.dato.id).append("[label=\"").append(auxc.dato.nombre)
+                str.append("n").append(auxc.dato.id).append("[label=\"").append(auxc.dato.nombre)
                     .append("\n Departamento: ").append(auxc.dato.depto)
                         .append("\"];\n");
 
                 if (auxc.siguiente != null)
-                    str.append(auxc.dato.id).append("->").append(auxc.siguiente.dato.id).append(";\n");
+                    str.append("n").append(auxc.dato.id).append("->").append("n").append(auxc.siguiente.dato.id).append(";\n");
 
                 auxc = auxc.siguiente;
             }        
@@ -108,4 +107,91 @@ public class ListaAdyacencia {
         return str.toString();
     }
     
+    public String graphSchema(){
+        StringBuilder str = new StringBuilder();
+        str.append("digraph G{\n");
+        str.append("edge[arrowhead=none];\n node[shape=box];\n");
+        
+        str.append(internalGraphLugares());
+        
+        NodoSimple<Lugar> nodeLugar = lsLugares.head;
+        while (nodeLugar != null){
+            LinkedList<Lugar> destinos = obtenerLugares(nodeLugar.dato.id);
+            
+            NodoSimple<Lugar> lgNode = destinos.head;
+            while (lgNode != null){
+                Ruta r = findRuta(nodeLugar.dato.id, lgNode.dato.id);
+                
+                str.append("n").append(nodeLugar.dato.id).append("->").append("n")
+                        .append(lgNode.dato.id).append(" [label=\"").append(r.peso).append("\"];\n");
+                
+                lgNode = lgNode.siguiente;
+            }
+            
+            nodeLugar = nodeLugar.siguiente;
+        }
+        
+        str.append("}");
+        return str.toString();
+    }
+    
+    
+    private String internalGraphLugares(){
+        StringBuilder str = new StringBuilder();
+        
+        NodoSimple<Lugar> nodeLugar = lsLugares.head;
+        
+        while(nodeLugar != null){
+            
+            str.append("n").append(nodeLugar.dato.id).append("[label=\"")
+                    .append("ID: ").append(nodeLugar.dato.id)
+                    .append("\nnombre: ").append(nodeLugar.dato.nombre)
+                    .append("\ndepartamento: ").append(nodeLugar.dato.depto)
+                    .append("\nsucursal: ").append(nodeLugar.dato.sn_sucursal)
+                    .append("\"];\n");
+            
+            nodeLugar = nodeLugar.siguiente;
+        }
+        
+        return str.toString();
+    }
+    
+    public LinkedList<Lugar> obtenerLugares(long id){
+        LinkedList<Lugar> ls = new LinkedList<>();
+        
+        NodoSimple<Ruta> nodeRuta = lsRutas.head;
+        while (nodeRuta != null){
+            if (nodeRuta.dato.start == id){
+                ls.addToEnd(findLugar(nodeRuta.dato.end));
+            }
+            
+            nodeRuta = nodeRuta.siguiente;
+        }
+        
+        return ls;
+    }
+    
+    public Ruta findRuta(long start, long end){
+    
+     NodoSimple<Ruta> nodeRuta = lsRutas.head;
+        while (nodeRuta != null){
+            if (nodeRuta.dato.start == start && nodeRuta.dato.end == end)
+                return nodeRuta.dato;
+            
+            nodeRuta = nodeRuta.siguiente;
+        }
+        return null;
+    }
+    
+    public Lugar findLugar(long id){
+        NodoSimple<Lugar> nodeLugar = lsLugares.head;
+        while (nodeLugar != null){
+            if (nodeLugar.dato.id == id)
+                return nodeLugar.dato;
+            
+            nodeLugar = nodeLugar.siguiente;
+        }
+        return null;
+    }
 }
+

@@ -1,15 +1,33 @@
-digraph G{17[label="Amatitlán
- Departamento: Guatemala"];
-17->16;
-16[label="Amatitlán
- Departamento: Guatemala"];
-16->14;
-14[label="Amatitlán
- Departamento: Guatemala"];
-14->8;
-8[label="Amatitlán
- Departamento: Guatemala"];
-8->13;
-13[label="Villa Nueva
- Departamento: Guatemala"];
+digraph G{n1[label="Chiquimula
+ Departamento: Chiquimula"];
+n1->n2;
+n2[label="Jocotan
+ Departamento: Chiquimula"];
+n2->n3;
+n3[label="Camotan
+ Departamento: Chiquimula"];
+n3->n4;
+n4[label="Esquipulas
+ Departamento: Chiquimula"];
+n4->n5;
+n5[label="Olopa
+ Departamento: Chiquimula"];
+n5->n6;
+n6[label="San Juan La Ermita
+ Departamento: Chiquimula"];
+n6->n7;
+n7[label="San Jose La Arada
+ Departamento: Chiquimula"];
+n7->n8;
+n8[label="San Jacinto
+ Departamento: Chiquimula"];
+n8->n9;
+n9[label="Ipala
+ Departamento: Chiquimula"];
+n9->n10;
+n10[label="Quetzaltepeque
+ Departamento: Chiquimula"];
+n10->n11;
+n11[label="Concepcion Las Minas
+ Departamento: Chiquimula"];
 }

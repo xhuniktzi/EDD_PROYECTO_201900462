@@ -37,6 +37,7 @@
                   <Component id="cmdGraficarMensajero" max="32767" attributes="0"/>
                   <Component id="cmdGraficarLugares" max="32767" attributes="0"/>
                   <Component id="cmdGraficarRutas" max="32767" attributes="0"/>
+                  <Component id="cmdGrafo" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -65,7 +66,9 @@
                   <Component id="cmdCargarRutas" min="-2" max="-2" attributes="0"/>
                   <Component id="cmdGraficarRutas" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="152" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="cmdGrafo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="112" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -133,6 +136,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdGraficarRutasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cmdGrafo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mostrar Grafo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdGrafoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
